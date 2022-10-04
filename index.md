@@ -1,4 +1,5 @@
-<!-- # Hello, I'm Meng-Hsueh (Maude) Shen -->
+# Hello, I'm Maude.
+Thanks for visiting! If you have questions or would like to discuss an opportunity to work together, feel free to [get in touch](https://www.linkedin.com/in/meng-hsueh-shen/).
 
 ## EXPERIENCE
 **Software Product Manager, [WiZ](https://www.wizconnected.com/en-us) at Signify**         
