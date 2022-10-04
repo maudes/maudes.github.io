@@ -1,7 +1,14 @@
-## Welcome to my RESUME
+## Hello, I'm Meng-Hsueh (Maude) Shen from Taiwan
 
-Hello, I'm Meng-Hsueh (Maude) Shen from Taiwan.
+## EXPERIENCE
+### Software Product Manager, WiZ Connected at Signify (Hong Kong   |  07/2021 - Present)
+￭ Lead the "Matter" (formerly Project CHIP) integration and roadmap of the WiZ brand.
+￭ Take charge of the smart home API solutions and global partner relationships, including Google, Alexa, SmartThings, and so on.
+￭ Design the system-wise accessory features for the WiZ home ecosystem.
 
+## SIDE PROJECTS
+
+## EDUCATION 
 You can use the [editor on GitHub](https://github.com/maudes/maudes.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
