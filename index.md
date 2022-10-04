@@ -73,7 +73,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - Jira/ Confluence/ Airtable/ Trello         
 
 **Others**
-- Basic Python/ Basic HTML, CSS/ Figma/ Illustrator/ Premiere         
+- [Basic Python](https://www.freecodecamp.org/certification/maudes/scientific-computing-with-python-v7)/ [Basic IT support](https://www.coursera.org/account/accomplishments/specialization/certificate/97Y727NB9DJF)/ Basic HTML, CSS/ Figma/ Illustrator/ Premiere         
 
 **Languages**
 - Chinese: Native
