@@ -15,17 +15,22 @@
 - Conducted competitor intelligence, PRD, wireframe, task flows, and related documents if needed
 - Organized QA tests by executing thorough test plans and tracked issues by JIRA
 
-**Software Product Manager, ICSGame  艾西斯資訊 / GLVictory Technology 匯吉資訊**         
-<sub> ***Taipei, Taiwan/ Manila, Phillippines  |  02/2018 - 10/2019*** </sub>
+**Software Product Manager, ICSGame 艾西斯資訊**         
+<sub> ***Taipei, Taiwan |  06 - 10/2019*** </sub>
+>Under the same group of GLVictory Technology
+
 - Took in charge of mobile products (iGaming Apps and websites) and collaborated with over 20 engineers and designers
 - Adopted the Agile methodology to iterate and optimize the main products
 - Initiated the marketing researches including competitor intelligence, user stories to discover what users need, and then defined the product roadmap, conducted detailed PRD
 - Supervised the QA tests and delivered the proper reports for later tracking
+
+**Product Owner, GLVictory Technology 匯吉資訊**         
+<sub> ***Taipei, Taiwan/ Manila, Phillippines  |  02/2018 - 06/2019*** </sub>
 - Redesigned the VIP system and new Sports App. Both projects assisted in acquiring new users with around 5% growth and improved the brand image afterward
 - Established regular researches on competitor intelligence and discussion with stakeholders. Translated the ideas into PRD for optimizing the products
 - Coached the QA members and led the whole testing process by providing test plans, and reports
 
-**Marketing Manager, [meet.Jobs](https://meet.jobs/zh-TW) (used to be ‘mit.Jobs’)  一起工作科技**         
+**Marketing Manager, [meet.Jobs](https://meet.jobs/zh-TW) 一起工作科技**         
 <sub> ***Taipei, Taiwan  |  07 - 12/2017*** </sub>
 - Conducted customer interviews and user researches for further product development
 - Initiated the marketing strategies from daily tactical activities to a long-term program
@@ -42,9 +47,10 @@
 
 
 ## SIDE PROJECTS
-**Product Manager, [SmallSomebody 小人物串聯](https://smallsomebody.tw/home)**         
+**Product Manager, [SmallSomebody](https://smallsomebody.tw/home)**         
 <sub> ***Taipei, Taiwan |  10/2018 - 07/2020*** </sub>         
 > An open data project for showcasing the NGO/ NPO organizations in Taiwan.
+
 - Led a 50-people SDGs workshop for our target audience with a 45% increase on FB fans
 - Conduct internal UX workshops, including user persona, empathy map
 - Supervised the digital marketing strategies and ensured the progress of the product roadmap
@@ -53,6 +59,7 @@
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  06 - 09/2016*** </sub>         
 > Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi. 
+
 - Developed the online advertising strategies for the Greater China area, maintaining the Google Adwords campaigns which increased the overall brand awareness 3 times in a month
 - Initiated the user interactive flow from conducting user researches like the empathy map to delivering detailed specifications of the website by wireframes and mockups
 - Organized offline activities, including recruitment, product sales, and public speeches
