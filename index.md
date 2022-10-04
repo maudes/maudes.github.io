@@ -1,4 +1,4 @@
-# Hello, I'm Maude.
+<!--# Hello, I'm Maude. -->
 Thanks for visiting! If you have questions or would like to discuss an opportunity to work together, feel free to [get in touch](https://www.linkedin.com/in/meng-hsueh-shen/).
 
 ## EXPERIENCE
@@ -35,7 +35,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Taipei, Taiwan  |  07 - 12/2017*** </sub>
 - Conducted customer interviews and user researches for further product development
 - Initiated the marketing strategies from daily tactical activities to a long-term program
-- Organized monthly speed interviews for more than 20 employers and 150+ qualified job seekers with around 10% hiring rate for each time. 
+- Organized monthly speed interviews for more than 20 employers and 150+ qualified job seekers with around 10% hiring rate for each time
 
 **Assistant Community Manager, Fusionmedium 流線傳媒**         
 <sub> ***Taipei, Taiwan  |  01/2016 - 07/2017*** </sub>
@@ -66,10 +66,10 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - Organized offline activities, including recruitment, product sales, and public speeches
 
 ## SKILLS & LANGUAGES 
-**Analytical Tools**
-- Google Analytics/ Firebase/ SEO techniques         
+**Digital Analytics**
+- Google Analytics/ Firebase/ Search Console/ SEO techniques         
 
-**Project Management Tools**
+**Project Management**
 - Jira/ Confluence/ Airtable/ Trello         
 
 **Others**
