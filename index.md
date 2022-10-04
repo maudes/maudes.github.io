@@ -1,10 +1,24 @@
-## Hello, I'm Meng-Hsueh (Maude) Shen from Taiwan
+# Hello, I'm Meng-Hsueh (Maude) Shen from Taiwan 🧋
 
-## EXPERIENCE
+## E X P E R I E N C E
 ### Software Product Manager, WiZ Connected at Signify (Hong Kong   |  07/2021 - Present)
-￭ Lead the "Matter" (formerly Project CHIP) integration and roadmap of the WiZ brand.
+￭ Lead the "Matter" (formerly Project CHIP) integration and roadmap of the WiZ brand. 
+
 ￭ Take charge of the smart home API solutions and global partner relationships, including Google, Alexa, SmartThings, and so on.
+
 ￭ Design the system-wise accessory features for the WiZ home ecosystem.
+
+### Software Product Manager, 33Tech 叁叁網路 (Taipei, Taiwan  |  10/2019 - 08/2020)
+￭ Adopted SCRUM methodology to complete MVP products (the ERP tool and mobile web) in 6 months, leading to a 15% increase in client's working efficiency.
+
+￭ Used Kanban for delivering the revised version to business partners.
+
+￭ Designed the user Interaction flow from planning the financial system to choosing vendors and defining data schemes (specializing in iGaming).
+
+￭ Conducted competitor intelligence, PRD, wireframe, task flows, and related documents if needed. 
+
+￭ Organized QA tests by executing thorough test plans and tracked issues by JIRA.
+
 
 ## SIDE PROJECTS
 
