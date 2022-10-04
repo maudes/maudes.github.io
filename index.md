@@ -1,4 +1,4 @@
-# Hello, I'm Meng-Hsueh (Maude) Shen from Taiwan 🧋
+<!-- # Hello, I'm Meng-Hsueh (Maude) Shen -->
 
 ## E X P E R I E N C E
 ### Software Product Manager, WiZ Connected at Signify (Hong Kong   |  07/2021 - Present)
