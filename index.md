@@ -10,6 +10,8 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Software Product Manager, 33Tech 叁叁網路**         
 <sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
+> New business unit branched off from GLVictory Technology group
+
 - Adopted SCRUM methodology to complete MVP products (the ERP tool and mobile web) in 6 months, leading to a 15% increase in client's working efficiency
 - Used Kanban for delivering the revised version to business partners
 - Designed the user Interaction flow from planning the financial system to choosing vendors and defining data schemes (specializing in iGaming)
@@ -50,7 +52,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 ## SIDE PROJECTS
 **Product Manager, [SmallSomebody](https://smallsomebody.tw/home)**         
 <sub> ***Taipei, Taiwan |  Oct 2018 - Jul 2020*** </sub>         
-> An open data project for showcasing the NGO/ NPO organizations in Taiwan.
+> An open data project for showcasing the NGO/ NPO organizations in Taiwan
 
 - Led a 50-people SDGs workshop for our target audience with a 45% increase on FB fans
 - Conduct internal UX workshops, including user persona, empathy map
@@ -59,7 +61,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
-> Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi. 
+> Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi
 
 - Developed the online advertising strategies for the Greater China area, maintaining the Google Adwords campaigns which increased the overall brand awareness 3 times in a month
 - Initiated the user interactive flow from conducting user researches like the empathy map to delivering detailed specifications of the website by wireframes and mockups
