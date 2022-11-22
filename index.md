@@ -5,7 +5,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Software Product Manager, [WiZ](https://www.wizconnected.com/en-us) at Signify**         
 <sub> ***Hong Kong   |  Jul 2021 - Present*** </sub>
 - Lead the "[Matter](https://csa-iot.org/all-solutions/matter/)" (formerly Project CHIP) integration and roadmap of the WiZ brand
-- Take charge of the smart home API solutions and global partner relationships, including Google, Alexa, SmartThings, and so on
+- Take charge of the smart home API solutions and global partnerships, including Google, Apple, Alexa, SmartThings, and regional partners like Orange, Deutsche Telekom
 - Design the system-wise accessory features for the WiZ home ecosystem
 
 **Software Product Manager, 33Tech 叁叁網路**         
