@@ -6,7 +6,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Hong Kong   |  Jul 2021 - Present*** </sub>
 - Lead the "[Matter](https://csa-iot.org/all-solutions/matter/)" (formerly Project CHIP) integration and roadmap of the WiZ brand
 - Take charge of the smart home API solutions and global partnerships, including Google, Apple, Alexa, SmartThings, and regional partners like Orange, Deutsche Telekom
-- Design the system-wise features and optimise manufacturing flow to adapt Matter 
+- Manage and improve system-wise features, including the performance of device pairing, manufacturing flow, and so on
 
 **Software Product Manager, 33Tech 叁叁網路**         
 <sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
