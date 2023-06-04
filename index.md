@@ -2,7 +2,7 @@
 Thanks for visiting! If you have questions or would like to discuss an opportunity to work together, feel free to [get in touch](https://www.linkedin.com/in/meng-hsueh-shen/).
 
 ## EXPERIENCE
-**Software Product Manager, [WiZ](https://www.wizconnected.com/en-us) at [Signify](https://www.signify.com/) **         
+**Software Product Manager, [WiZ](https://www.wizconnected.com/en-us) at [Signify](https://www.signify.com/)**         
 <sub> ***Hong Kong   |  Jul 2021 - Present*** </sub>
 - Lead the "[Matter](https://csa-iot.org/all-solutions/matter/)" (formerly Project CHIP) integration and roadmap of the WiZ brand ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home))
 - Take charge of the smart home API solutions and global partnerships, including Google, Apple, Alexa, SmartThings, and regional partners like Orange, Deutsche Telekom
