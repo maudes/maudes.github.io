@@ -57,7 +57,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - Led a 50-people SDGs workshop for our target audience with a 45% increase on FB fans
 - Conduct internal UX workshops, including user persona, empathy map
 - Supervised the digital marketing strategies and ensured the progress of the product roadmap
-- Offered monthly data analysis to stakeholders.
+- Offered monthly data analysis to stakeholders
 
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
