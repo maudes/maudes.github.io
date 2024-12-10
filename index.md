@@ -29,6 +29,8 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - **Product Revamp:** Redesigned VIP systems and a new Sports App, contributing to a 5% user growth and enhanced brand image.
 - **Stakeholder Engagement:** Established regular competitor intelligence research and stakeholder discussions, translating insights into PRDs for product optimization.
 - **QA Leadership:** Coached QA team members and led the testing process with detailed test plans and reports.
+- **Product Portfolio Management:** Managed the product portfolio on the platform, including numerous lotteries, live casinos, and slots.
+- **Marketing Initiatives:** Initiated marketing activities on social media platforms like Weibo, WeChat, and TikTok.
 
 **Marketing Manager, [meet.Jobs](https://meet.jobs/zh-TW) 一起工作科技**         
 <sub> ***Taipei, Taiwan  |  Jul 2017 - Dec 2017*** </sub>
