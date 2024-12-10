@@ -11,6 +11,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Software Product Manager, 33Tech 叁叁網路**         
 <sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
 > A new business unit branched off from GLVictory Technology Group
+
 - **Project Management:** Adopted SCRUM methodology to deliver MVP products (ERP tool and mobile web) within 6 months, achieving a 15% increase in client efficiency.
 - **Kanban Implementation:** Utilized Kanban for the delivery of revised versions to business partners.
 - **User Experience Design:** Designed user interaction flows from financial system planning to vendor selection and data schema definition, specializing in iGaming.
@@ -19,6 +20,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Software Product Manager, ICSGame 艾西斯資訊**         
 <sub> ***Taipei, Taiwan |  Jun 2019 - Oct 2019*** </sub>
 >Under the same group of GLVictory Technology
+
 - **Mobile Product Management:** Oversaw mobile products (iGaming apps and websites) while collaborating with over 20 engineers and designers.
 - **Agile Methodology:** Implemented Agile practices to iterate and optimize products.
 - **Market Research & Roadmap Definition:** Conducted marketing research, competitor intelligence, and user story development to define the product roadmap and create detailed PRDs.
@@ -52,6 +54,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Product Manager, [SmallSomebody](https://smallsomebody.tw/home)**         
 <sub> ***Taipei, Taiwan |  Oct 2018 - Jul 2020*** </sub>         
 > An open data project for showcasing the NGO/ NPO organizations in Taiwan
+
 - **Workshop Facilitation:** Led a 50-person SDGs workshop, resulting in a 45% increase in Facebook followers.
 - **UX Workshops:** Conducted internal UX workshops, including user persona and empathy mapping.
 - **Data Analysis:** Managed digital marketing strategies and provided monthly data analyses to stakeholders.
@@ -59,6 +62,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
 > Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi
+
 - **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia countries, significantly increasing brand awareness threefold within a month.
 - **User Interaction Flow:** Developed user interaction flows through research and delivered detailed website specifications via wireframes and mockups.
 - **Offline Activity Organization:** Coordinated recruitment, product sales, and public speaking events.
