@@ -63,7 +63,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
 > Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi
 
-- **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia countries, significantly increasing brand awareness threefold within a month.
+- **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia markets, significantly increasing brand awareness threefold within a month.
 - **User Interaction Flow:** Developed user interaction flows through research and delivered detailed website specifications via wireframes and mockups.
 - **Offline Activity Organization:** Coordinated recruitment, product sales, and public speaking events.
 
