@@ -64,7 +64,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
-> Product owner of the new online shop of Salasusu, the social enterprise branched off from [Kamonohashi Project](https://en.kamonohashi-project.net/)
+> Joined as the product owner of Salasusu's new online shop which is the social enterprise branched off from the [Kamonohashi Project](https://en.kamonohashi-project.net/).
 
 - **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia markets, significantly increasing brand awareness threefold within a month.
 - **User Interaction Flow:** Developed user interaction flows through research and delivered detailed website specifications via wireframes and mockups.
