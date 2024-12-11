@@ -51,7 +51,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Taipei, Taiwan  |  Dec 2013 - Dec 2015*** </sub>
 - **Content Creation:** Covered and interviewed the most recent tech news, startups, tech giants such as Google, Facebook, and Twitter.
 
-[More details of projects mentioned](https://maudeshen.wixsite.com/mysite/projects)
+`**[More details of projects mentioned](https://maudeshen.wixsite.com/mysite/projects)**`
 
 ## SIDE PROJECTS
 **Product Manager, [SmallSomebody](https://smallsomebody.tw/home)**         
