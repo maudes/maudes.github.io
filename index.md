@@ -49,7 +49,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
       
 **Editorial Journalist at [TechOrange](https://buzzorange.com/techorange/), Fusionmedium 流線傳媒**             
 <sub> ***Taipei, Taiwan  |  Dec 2013 - Dec 2015*** </sub>
-- **Content Creation:** Covered and interviewed the most recent tech news, startups, tech giants such as Google, Facebook, Twitter, and so on
+- **Content Creation:** Covered and interviewed the most recent tech news, startups, tech giants such as Google, Facebook, and Twitter.
 
 
 ## SIDE PROJECTS
@@ -63,7 +63,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Product Owner, [SalaSUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
-> Product owner of the new online shop of Salasusu, the social enterprise branched off from Kamonohashi
+> Product owner of the new online shop of Salasusu, the social enterprise branched off from [Kamonohashi Project](https://en.kamonohashi-project.net/)
 
 - **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia markets, significantly increasing brand awareness threefold within a month.
 - **User Interaction Flow:** Developed user interaction flows through research and delivered detailed website specifications via wireframes and mockups.
