@@ -38,14 +38,9 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Marketing Manager, [meet.Jobs](https://meet.jobs/zh-TW) 一起工作科技**         
 <sub> ***Taipei, Taiwan  |  Jul 2017 - Dec 2017*** </sub>
-<details>
-          <summary>Details</summary>
-          - **User Research:** Conducted customer interviews and user research to inform product development.
-          \
-          - **Strategic Marketing:** Developed marketing strategies encompassing daily tactics and long-term initiatives.
-          \
-          - **Event Coordination:** Organized monthly speed interviews connecting over 20 employers with 150+ qualified job seekers, achieving a 10% hiring rate.
-</details>
+- **User Research:** Conducted customer interviews and user research to inform product development.
+- **Strategic Marketing:** Developed marketing strategies encompassing daily tactics and long-term initiatives.
+- **Event Coordination:** Organized monthly speed interviews connecting over 20 employers with 150+ qualified job seekers, achieving a 10% hiring rate.
 
 **Assistant Community Manager, Fusionmedium 流線傳媒**         
 <sub> ***Taipei, Taiwan  |  Jan 2016 - Jul 2017*** </sub>
