@@ -14,7 +14,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
 > A new business unit branched off from GLVictory Technology Group
 
-- **Project Management:** Adopted SCRUM methodology to deliver MVP products (ERP tool and mobile web) within 6 months, achieving a 15% increase in client efficiency.
+- **Project Management:** Adopted scrum methodology to deliver MVP products (ERP tool and mobile web) within 6 months, achieving a 15% increase in client efficiency. And utilized Kanban to manage the maintenance cadence. 
 - **Kanban Implementation:** Utilized Kanban to deliver revised versions to business partners.
 - **User Experience Design:** Designed user interaction flows from financial system planning to vendor selection and data schema definition, specializing in iGaming.
 - **Documentation & Testing:** Conducted competitor intelligence, developed PRDs, wireframes, task flows, and organized QA testing through thorough test plans tracked via JIRA.
