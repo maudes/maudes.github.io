@@ -23,8 +23,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Taipei, Taiwan |  Jun 2019 - Oct 2019*** </sub>
 >Under the same group of GLVictory Technology
 
-- **Mobile Product Management:** Oversaw mobile products (iGaming apps and websites) while collaborating with over 20 engineers and designers.
-- **Agile Methodology:** Implemented Agile practices to iterate and optimize products.
+- **Agile Methodology:** Implemented Agile practices to iterate and optimize mobile products (iGaming apps and websites).
 - **Market Research & Roadmap Definition:** Conducted marketing research, competitor intelligence, and user story development to define the product roadmap and create detailed PRDs.
 - **Quality Assurance:** Supervised QA testing processes and delivered comprehensive reports for tracking.
 
