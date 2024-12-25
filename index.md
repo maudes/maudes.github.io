@@ -8,7 +8,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Hong Kong   |  Jul 2021 - Sep 2024*** </sub>
 > The 2024 Q2 Excellence Award-Best Employee, The 2022 Annual Excellence Award-Best Employee ([Linkedin](https://www.linkedin.com/in/meng-hsueh-shen/details/certifications/))
 
-- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" (formerly Project CHIP) project and roadmap of WiZ and WiZ-supported products, fostering collaboration among diverse teams (from development and legal to regional sales teams) ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
+- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" project, a new smart home connectivity standard, and the roadmap of WiZ and WiZ-supported products, fostering collaboration among diverse teams (from development and legal to regional sales teams) ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
 - **Product Planning & Launch:** Took charge of smart home API solutions and global partnerships, including integrations with Google, Apple, Alexa, SmartThings, and regional partners like Panasonic, Orange, and Deutsche Telekom, driving successful product launches.
 - **Problem Solving & Product Operations:** Managed and enhanced system-wide features, focusing on optimizing device connectivity, device pairing, and manufacturing processes to improve overall performance.
 
