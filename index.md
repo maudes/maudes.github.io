@@ -12,7 +12,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - **Product Planning & Launch:** Took charge of smart home API solutions and global partnerships, including integrations with Google, Apple, Alexa, SmartThings, and regional partners like Panasonic, Orange, and Deutsche Telekom, driving successful product launches.
 - **Problem Solving & Product Operations:** Managed and enhanced system-wide features, focusing on optimizing device connectivity, device pairing, and manufacturing processes to improve overall performance.
 
-**Software Product Manager, 33Tech 叁叁網路**         
+**Software Product Manager, 33Tech.co 叁叁網路**         
 <sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
 > A new business unit branched off from GLVictory Technology Group
 
