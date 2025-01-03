@@ -95,8 +95,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **National ChengChi University**         
 <sub> ***Taipei, Taiwan  |  2008 - 2012*** </sub>         
-- Bachelor of Arts, Journalism
+- Bachelor of Journalism
 - Minor in Political Science
-- China Studies Program
 
 
