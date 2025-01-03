@@ -75,8 +75,9 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **Digital Analytics**
 - Google Analytics/ Firebase/ Search Console/ SEO techniques         
 
-**Project Management**
-- Jira/ Confluence/ Figma/ Airtable/ Trello         
+**Project Management & UX Research**
+- Jira/ Confluence/ Figma/ Airtable/ Trello
+- Interview/ User journey        
 
 **Others**
 - [Basic Python](https://www.freecodecamp.org/certification/maudes/scientific-computing-with-python-v7)/ [Basic IT support](https://www.coursera.org/account/accomplishments/specialization/certificate/97Y727NB9DJF)/ Basic HTML, CSS/ Figma/ Illustrator/ Premiere         
