@@ -38,14 +38,11 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - **Strategic Marketing:** Developed marketing strategies encompassing daily tactics and long-term initiatives.
 - **Event Coordination:** Organized monthly speed interviews connecting over 20 employers with 150+ qualified job seekers, achieving a 10% hiring rate.
 
-**Assistant Community Manager, Fusionmedium 流線傳媒**         
-<sub> ***Taipei, Taiwan  |  Jan 2016 - Jul 2017*** </sub>
+**Assistant Community Manager & Editorial Journalist at [TechOrange](https://buzzorange.com/techorange/), Fusionmedium 流線傳媒**         
+<sub> ***Taipei, Taiwan  |  Dec 2013 - Jul 2017*** </sub>
 > Get promoted due to my deep understanding of our community and key users, my role evolved to include planning the business roadmap and developing communication strategies aimed at user acquisition, conversions, and monetization.
 - **Event Coordination:** Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of total company revenue.
 - **Brand Performance Evaluation:** Evaluated brand performance and implemented digital strategies, resulting in a 5% increase in key performance indicators (KPIs), including social media followers and monthly active users (MAU) of websites.
-      
-**Editorial Journalist at [TechOrange](https://buzzorange.com/techorange/), Fusionmedium 流線傳媒**             
-<sub> ***Taipei, Taiwan  |  Dec 2013 - Dec 2015*** </sub>
 - **Content Creation:** Covered and interviewed the most recent tech news, startups, tech giants such as Google, Facebook, and Twitter.
 
 >`More details of projects mentioned` [(Link)](https://maudeshen.wixsite.com/mysite/projects)
