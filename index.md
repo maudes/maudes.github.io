@@ -90,7 +90,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Cologne Business School**         
 <sub> ***Cologne, Germany  |  2012 - 2013*** </sub>         
-- Exchange program
+- International Student
 
 **National ChengChi University**         
 <sub> ***Taipei, Taiwan  |  2008 - 2012*** </sub>         
