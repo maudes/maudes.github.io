@@ -6,36 +6,31 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 ## EXPERIENCE
 **Software Product Manager, [WiZ](https://www.wizconnected.com/en-us) at [Signify](https://www.signify.com/)**         
 <sub> ***Hong Kong   |  Jul 2021 - Sep 2024*** </sub>
-> The 2024 Q2 Excellence Award-Best Employee, The 2022 Annual Excellence Award-Best Employee ([Linkedin](https://www.linkedin.com/in/meng-hsueh-shen/details/certifications/))
+> At Signify (previously Philips Lighting), the world leader in connected LED lighting systems, I focused on developing the integration strategy and roadmap of WiZ- connected products. This encompassed our app, API services, the entire lighting portfolio, as well as partnerships with big names like Google and global retail support. Leading a cross-functional team of approximately 10 R&D members, I also managed the system optimization for over 1 million WiZ homes worldwide. 
 
-- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" project, a new smart home connectivity standard, and the roadmap of WiZ and WiZ-supported products, fostering collaboration among diverse teams (from development and legal to regional sales teams) ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
-- **Product Planning & Launch:** Took charge of smart home API solutions and global partnerships, including integrations with Google, Apple, Alexa, SmartThings, and regional partners like Panasonic, Orange, and Deutsche Telekom, driving successful product launches.
-- **Problem Solving & Product Operations:** Managed and enhanced system-wide features, focusing on optimizing device connectivity, device pairing, and manufacturing processes to improve overall performance.
+- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" project, a new smart home connectivity standard, from scratch to launch within 1 year and rolled out to millions of WiZ products by agile approach and backlog prioritization. Fostered collaboration and provided training to diverse teams, ensuring compliance and user satisfaction. ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
+- **Global Partnerships & Solution Provider:** Took charge of smart home solution (API and ODM services) roadmap and global partnerships, including integration with Google, Apple, Alexa, SmartThings, and regional partners like Panasonic and Deutsche Telekom, driving successful product/ features launch and trustful relationships.
+- **2024 Q2 Best Employee:** Earned the award by bringing the core business target to the development cadence, releasing WiZ’s first partner promotion with Amazon. ([Awards](https://www.linkedin.com/in/meng-hsueh-shen/details/certifications/))
+- **Problem Solving & Product Operations:** Managed and enhanced system-wide features with a data-driven mindset, focusing on optimizing device connectivity, device pairing experience, and manufacturing processes to improve overall performance and meet both business and user needs.
 
-**Software Product Manager, 33Tech.co 叁叁網路**         
-<sub> ***Taipei, Taiwan  |  Oct 2019 - Aug 2020*** </sub>
-> A new business unit branched off from GLVictory Technology Group
+**Software Product Manager, GLVictory Technology (including business units: ICSGame and 33Tech.co)**         
+<sub> ***Taipei, Taiwan/ Manila, Phillippines  |  Feb 2018 - Aug 2020*** </sub>
+> At GLVictory Technology, a business group specializing in iGaming, my role transitioned from marketing strategy to new product discovery and initiation. I focused on areas ranging from digital campaigns to the development of a new sports betting app, and the iGaming SaaS for our clients. To better support stakeholder requirements and ensure daily turnover stability, I managed development using Agile methodologies and facilitated prompt bug fixes through Kanban.
 
-- **Project Management:** Adopted scrum methodology to deliver MVP products (ERP tool and mobile web) within 6 months, achieving a 15% increase in client efficiency. And utilized Kanban to manage the maintenance cadence. 
-- **Kanban Implementation:** Utilized Kanban to deliver revised versions to business partners.
-- **User Experience Design:** Designed user interaction flows from financial system planning to vendor selection and data schema definition, specializing in iGaming.
-- **Documentation & Testing:** Conducted competitor intelligence, developed PRDs, wireframes, task flows, and organized QA testing through thorough test plans tracked via JIRA.
+**At 33Tech.co, focused on iGaming SaaS product**
+- **Product Development:** Delivered MVP SaaS product within 6 months by Scrum framework, achieving a 15% increase in client efficiency. Plus, utilized Kanban to manage the iteration cadence aligned with business strategies and operational requirements.
+- **Lifecycle Management:** Led the end-to-end product lifecycle, including user flows from financial system planning through vendor selection to data schema definition.
+- **Performance Optimization:** Organized regular performance assessments to refine the scalability, reliability, and stability of products for operational needs and business goals.
 
-**Software Product Manager, ICSGame 艾西斯資訊**         
-<sub> ***Taipei, Taiwan |  Jun 2019 - Oct 2019*** </sub>
->Under the same group of GLVictory Technology
+**At ICSGame, focused on sport betting app and related internal supporting tools**
+- **User Experience Optimization:** Optimized user flows to drive engagement, conversions, and revenue growth, and designed internal supporting tools to better assist business targets.
+- **User Research Initiation:** Conducted user research through interviews and user journey mapping to define the product roadmap and create user stories based on user preferences.
+- **Documentation and Validation:** Developed PRDs, wireframes, and task flows, and organized the validation process using JIRA, Confluence, and Figma. tracking.
 
-- **Agile Methodology:** Implemented Agile practices to iterate and optimize mobile products (iGaming apps and websites).
-- **Market Research & Roadmap Definition:** Conducted marketing research, competitor intelligence, and user story development to define the product roadmap and create detailed PRDs.
-- **Quality Assurance:** Supervised QA testing processes and delivered comprehensive reports for tracking.
-
-**Product Owner, GLVictory Technology 匯吉資訊**         
-<sub> ***Taipei, Taiwan/ Manila, Phillippines  |  Feb 2018 - Jun 2019*** </sub>
-- **Product Revamp:** Redesigned VIP systems and a new Sports App, contributing to a 5% user growth and enhanced brand image.
-- **Stakeholder Engagement:** Established regular competitor intelligence research and stakeholder discussions, translating insights into PRDs for product optimization.
-- **QA Leadership:** Coached QA team members and led the testing process with detailed test plans and reports.
-- **Product Portfolio Management:** Managed the product portfolio on the platform, including numerous lotteries, live casinos, and slots.
-- **Marketing Initiatives:** Initiated marketing activities on social media platforms like Weibo, WeChat, and TikTok.
+**At GLVictory, focused on new product discovery and initiation**
+- **UI/UX Revamp:** Revamped the VIP system and UI/UX of key digital products, contributing to a 5% increase in user growth and enhancing brand image favorability.
+- **Competitor Analysis:** Established regular competitor intelligence research and stakeholder discussions, translating business targets into user stories and product backlog.
+- **Data-Driven Prioritization:** Utilized data-driven insights to prioritize effectively, ensuring the portfolio (lotteries, slots) met business goals while remaining aligned with market trends.
 
 **Marketing Manager, [meet.Jobs](https://meet.jobs/zh-TW) 一起工作科技**         
 <sub> ***Taipei, Taiwan  |  Jul 2017 - Dec 2017*** </sub>
@@ -45,8 +40,9 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Assistant Community Manager, Fusionmedium 流線傳媒**         
 <sub> ***Taipei, Taiwan  |  Jan 2016 - Jul 2017*** </sub>
-- **Performance Assessment:** Evaluated brand performance and implemented digital strategies, resulting in a 5% increase in KPIs.
-- **Event Management:** Organized seasonal tech meet-ups and courses, contributing to 10% of total company revenue.
+> Get promoted due to my deep understanding of our community and key users, my role evolved to include planning the business roadmap and developing communication strategies aimed at user acquisition, conversions, and monetization.
+- **Event Coordination:** Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of total company revenue.
+- **Brand Performance Evaluation:** Evaluated brand performance and implemented digital strategies, resulting in a 5% increase in key performance indicators (KPIs), including social media followers and monthly active users (MAU) of websites.
       
 **Editorial Journalist at [TechOrange](https://buzzorange.com/techorange/), Fusionmedium 流線傳媒**             
 <sub> ***Taipei, Taiwan  |  Dec 2013 - Dec 2015*** </sub>
@@ -63,13 +59,13 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - **UX Workshops:** Conducted internal UX workshops, including user persona and empathy mapping.
 - **Data Analysis:** Managed digital marketing strategies and provided monthly data analyses to stakeholders.
 
-**Product Owner, [SalaSUSU](https://salasusu.com/)**         
+**Product Owner, [SALASUSU](https://salasusu.com/)**         
 <sub> ***Siem Reap, Cambodia  |  Sep 2016 - Dec 2016*** </sub>         
-> Joined as the product owner of Salasusu's new online shop which is the social enterprise branched off from the [Kamonohashi Project](https://en.kamonohashi-project.net/).
+> A Japanese social enterprise dedicated to empowering young women. I was responsible for planning a new e-commerce website with detailed specifications, wireframe prototypes, and SEO strategy. 
 
+- **User Interaction Flow:** Developed user interaction flows through user research and delivered detailed website specifications via wireframes and mockups.
 - **Advertising Strategy Development:** Created online advertising strategies for Eastern Asia markets, significantly increasing brand awareness threefold within a month.
-- **User Interaction Flow:** Developed user interaction flows through research and delivered detailed website specifications via wireframes and mockups.
-- **Offline Activity Organization:** Coordinated recruitment, product sales, and public speaking events.
+- **Offline Activity Organization:** Coordinated recruitment, offline product sales, and public speaking events.
 
 ## SKILLS & LANGUAGES 
 **Digital Analytics**
@@ -81,7 +77,6 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **UX Research & Basic Programming**
 - Interview/ User journey/ Adobe/ Figma
 -  [Basic Python](https://www.freecodecamp.org/certification/maudes/scientific-computing-with-python-v7)/ [Basic IT support](https://www.coursera.org/account/accomplishments/specialization/certificate/97Y727NB9DJF)/ Basic HTML, CSS        
-
 **Languages**
 - Mandarin: Native
 - English: Proficient         
