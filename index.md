@@ -40,12 +40,12 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Assistant Community Manager & Editorial Journalist at [TechOrange](https://buzzorange.com/techorange/), Fusionmedium 流線傳媒**         
 <sub> ***Taipei, Taiwan  |  Dec 2013 - Jul 2017*** </sub>
-> Get promoted due to my deep understanding of our community and key users, my role evolved to include planning the business roadmap and developing communication strategies aimed at user acquisition, conversions, and monetization.
+> Get promoted due to my deep understanding of the community and my passion for new technologies, my role evolved to include planning the business roadmap and developing communication strategies aimed at user acquisition, conversions, and monetization.
 
 
 - **Event Coordination:** Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of total company revenue.
 - **Brand Performance Evaluation:** Evaluated brand performance and implemented digital strategies, resulting in a 5% increase in key performance indicators (KPIs), including social media followers and monthly active users (MAU) of websites.
-- **Content Creation:** Covered and interviewed the most recent tech news, startups, and tech giants such as Google, Facebook, and Twitter.
+- **Content Creation:** Covered tech stories, including startups and venture capitalists, and curated them on CMS platforms such as WordPress.
 
 >`More details of projects mentioned` [(Link)](https://maudeshen.wixsite.com/mysite/projects)
 
