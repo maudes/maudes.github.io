@@ -45,7 +45,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 - **Event Coordination:** Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of total company revenue.
 - **Brand Performance Evaluation:** Evaluated brand performance and implemented digital strategies, resulting in a 5% increase in key performance indicators (KPIs), including social media followers and monthly active users (MAU) of websites.
-- **Content Creation:** Covered tech stories, including startups and venture capitalists, and curated them on CMS platforms such as WordPress.
+- **Content Creation:** Covered tech stories, including startups and venture capitalists, and curated them on the CMS platform, WordPress.
 
 >`More details of projects mentioned` [(Link)](https://maudeshen.wixsite.com/mysite/projects)
 
