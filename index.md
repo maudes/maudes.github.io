@@ -52,7 +52,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 ## SIDE PROJECTS
 **Product Manager, [SmallSomebody](https://smallsomebody.tw/home)**         
 <sub> ***Taipei, Taiwan |  Oct 2018 - Jul 2020*** </sub>         
-> An open data project aimed at introducing NGO and NPO organizations in Taiwan that align with SDG values. 
+> An open data project aimed at introducing NGO and NPO organizations in Taiwan that align with SDGs values. I led internal UX research workshops (user empathy map & user persona), and managed an external SDGs session, resulting in a 45% increase in Facebook followers & MAU. Managed the content using Airtable and MySQL integration. 
 
 - **Workshop Facilitation:** Led a 50-person SDGs workshop, resulting in a 45% increase in Facebook followers.
 - **UX Workshops:** Conducted internal UX workshops, including user persona and empathy mapping.
