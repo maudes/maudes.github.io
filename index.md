@@ -22,8 +22,8 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 - **Lifecycle Management:** Led the end-to-end product lifecycle, including user flows from financial system planning through vendor selection to data schema definition.
 - **Performance Optimization:** Organized regular performance assessments to refine the scalability, reliability, and stability of products for operational needs and business goals.
 
-**At ICSGame, focused on sport betting app and related internal supporting tools**
-- **User Experience Optimization:** Optimized user flows to drive engagement, conversions, and revenue growth, and designed internal supporting tools to better assist business targets.
+**At ICSGame, focused on sports betting app and related internal supporting tools**
+- **User Experience Optimization:** Optimized user flows to drive engagement, conversions, and revenue growth, and designed internal supporting tools to assist the business targets better.
 - **User Research Initiation:** Conducted user research through interviews and user journey mapping to define the product roadmap and create user stories based on user preferences.
 - **Documentation and Validation:** Developed PRDs, wireframes, task flows, and market intelligence; and organized the validation process using JIRA, Confluence, and Figma.
 
