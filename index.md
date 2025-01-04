@@ -15,7 +15,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **Software Product Manager, GLVictory Technology (including business units: ICSGame and 33Tech.co)**         
 <sub> ***Taipei, Taiwan/ Manila, Phillippines  |  Feb 2018 - Aug 2020*** </sub>
-> At GLVictory Technology, a business group specializing in iGaming, my role transitioned from marketing strategy to new product discovery and initiation. I focused on areas ranging from digital campaigns to the development of a new sports betting app, and the iGaming SaaS for our clients. To better support stakeholder requirements and ensure daily turnover stability, I managed development using Agile methodologies and facilitated prompt bug fixes through Kanban.
+> At GLVictory Technology, a business group specializing in iGaming, my role transitioned from marketing strategy to new product discovery and initiation. I focused on areas ranging from digital campaigns to the development of a new sports betting app, and the iGaming SaaS for our clients. To better support stakeholder requirements and ensure daily turnover stability, I managed development using agile methodologies and facilitated prompt bug fixes through Kanban.
 
 **At 33Tech.co, focused on iGaming SaaS product**
 - **Product Development:** Delivered MVP SaaS product within 6 months by Scrum framework, achieving a 15% increase in client efficiency. Plus, utilized Kanban to manage the iteration cadence aligned with business strategies and operational requirements.
@@ -25,7 +25,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 **At ICSGame, focused on sport betting app and related internal supporting tools**
 - **User Experience Optimization:** Optimized user flows to drive engagement, conversions, and revenue growth, and designed internal supporting tools to better assist business targets.
 - **User Research Initiation:** Conducted user research through interviews and user journey mapping to define the product roadmap and create user stories based on user preferences.
-- **Documentation and Validation:** Developed PRDs, wireframes, and task flows, and organized the validation process using JIRA, Confluence, and Figma. tracking.
+- **Documentation and Validation:** Developed PRDs, wireframes, and task flows, and organized the validation process using JIRA, Confluence, and Figma.
 
 **At GLVictory, focused on new product discovery and initiation**
 - **UI/UX Revamp:** Revamped the VIP system and UI/UX of key digital products, contributing to a 5% increase in user growth and enhancing brand image favorability.
