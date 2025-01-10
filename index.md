@@ -8,10 +8,10 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 <sub> ***Hong Kong   |  Jul 2021 - Sep 2024*** </sub>
 > At Signify (previously Philips Lighting), the world leader in connected LED lighting systems, I focused on developing the integration strategy and roadmap of WiZ-connected products. This encompassed our app, API services, the entire lighting portfolio, as well as partnerships with big names like Google and global retail support. Leading a cross-functional team of approximately 10 R&D members, I also managed the system optimization for over 1 million WiZ homes worldwide. 
 
-- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" project, a new smart home connectivity standard, from scratch to launch within 1 year and rolled out to millions of WiZ products by agile approach and backlog prioritization. Fostered collaboration and provided training to diverse teams, ensuring compliance and user satisfaction. ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
+- **Cross-functional Team Leadership:** Led the "[Matter](https://csa-iot.org/all-solutions/matter/)" project, a new smart home connectivity standard, from scratch to launch within 1 year and rolled out to millions of WiZ products by agile approach and backlog prioritization. Fostered collaboration and provided training to diverse teams, ensuring compliance and customer satisfaction. ([The Verge](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)).
 - **Global Partnerships & Solution Provider:** Took charge of smart home solution (API and ODM services) vision, strategy, roadmap, and global partnerships, including integration with Google, Apple, Alexa, SmartThings, and regional partners like Panasonic and Deutsche Telekom, driving successful product/ features launch and trustful relationships.
 - **2024 Q2 Best Employee:** Earned the award by bringing the core business target to the development cadence, releasing WiZ’s first partner promotion with Amazon. ([Awards](https://www.linkedin.com/in/meng-hsueh-shen/details/certifications/))
-- **Problem Solving & Product Operations:** Managed and enhanced system-wide features with a data-driven mindset, focusing on optimizing device connectivity, device pairing experience, and manufacturing processes while effectively solving complex challenges to improve overall performance and meet both business and user needs.
+- **Problem Solving & Product Operations:** Managed and enhanced system-wide features with a data-driven mindset, focusing on optimizing device connectivity, device pairing experience, and manufacturing processes while effectively solving complex challenges to improve overall performance and meet both business and customer needs.
 
 **Software Product Manager, GLVictory Technology (including business units: ICSGame and 33Tech.co)**         
 <sub> ***Taipei, Taiwan/ Manila, Phillippines  |  Feb 2018 - Aug 2020*** </sub>
@@ -24,7 +24,7 @@ Thanks for visiting! If you have questions or would like to discuss an opportuni
 
 **At ICSGame, focused on sports betting app and related internal supporting tools**
 - **User Experience Optimization:** Optimized user flows to drive engagement, conversions, and revenue growth, and designed internal supporting tools to assist the business targets better.
-- **User Research Initiation:** Conducted user research through interviews and user journey mapping to define the product roadmap and create user stories based on user preferences.
+- **User Research Initiation:** Conducted user research through interviews and user journey mapping to define the product roadmap and create user-centric solutions.
 - **Documentation and Validation:** Developed PRDs, wireframes, task flows, and market intelligence; and organized the validation process using JIRA, Confluence, and Figma.
 
 **At GLVictory, focused on new product discovery and initiation**
