@@ -27,6 +27,89 @@ const d = project.data;
 
     <img class="hero-img" src={`/cv/${d.cover}`} alt={d.title} />
 
+    {d.glance.length > 0 && (
+      <dl class="glance">{d.glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+    )}
+
+    {d.lead && (
+      <section class="block"><h2>Overview</h2><p class="lead">{d.lead}</p></section>
+    )}
+
+    {(d.why || d.callout) && (
+      <section class={d.why && d.callout ? 'block two' : 'block'}>
+        {d.why && <h2>{d.why.title}</h2>}
+        {d.why && <div>{d.why.body.map((p) => <p>{p}</p>)}</div>}
+        {d.callout && (
+          <aside class="callout">
+            <h3>{d.callout.title}</h3>
+            {d.callout.body && <p>{d.callout.body}</p>}
+            {d.callout.items.length > 0 && <ul>{d.callout.items.map((i) => <li>{i}</li>)}</ul>}
+          </aside>
+        )}
+      </section>
+    )}
+
+    {d.team.length > 0 && (
+      <section class="block">
+        <h2>Team &amp; my role</h2>
+        <table class="tbl"><tbody>{d.team.map(([a, b], i) => <tr class={i === 0 ? 'me' : ''}><th>{a}</th><td>{b}</td></tr>)}</tbody></table>
+      </section>
+    )}
+
+    {d.stack.length > 0 && (
+      <section class="block">
+        <h2>Tech stack</h2>
+        <table class="tbl"><tbody>{d.stack.map(([a, b]) => <tr><th>{a}</th><td>{b}</td></tr>)}</tbody></table>
+      </section>
+    )}
+
+    {d.challenges.length > 0 && (
+      <section class="block">
+        <h2>Key challenges</h2>
+        <div class="cards2">{d.challenges.map(([t, x], i) => <div class="tile"><span class="num">0{i + 1}</span><h3>{t}</h3><p>{x}</p></div>)}</div>
+      </section>
+    )}
+
+    {d.contributions.length > 0 && (
+      <section class="block">
+        <h2>Key contributions</h2>
+        <div class="cards3">{d.contributions.map(([t, x]) => <div class="tile"><h3>{t}</h3><p>{x}</p></div>)}</div>
+      </section>
+    )}
+
+    {d.decisions.length > 0 && (
+      <section class="block">
+        <h2>Design decisions</h2>
+        <div class="cards3">{d.decisions.map(([t, x]) => <div class="tile"><h3>{t}</h3><p>{x}</p></div>)}</div>
+      </section>
+    )}
+
+    {d.phases.length > 0 && (
+      <section class="block">
+        <h2>Development lifecycle</h2>
+        <ol class="steps">
+          {d.phases.map(([t, items], i) => (
+            <li><span class="dot">{i + 1}</span><div><h3>{t}</h3><ul>{items.map((x) => <li>{x}</li>)}</ul></div></li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {d.structure && (
+      <section class="block">
+        <h2>Project structure</h2>
+        <pre class="code"><code>{d.structure}</code></pre>
+        {d.repo && <p class="repo">GitHub: <a href={d.repo.url}>{d.repo.label} ↗</a></p>}
+      </section>
+    )}
+
+    {d.video && (
+      <section class="block">
+        <h2>Demo</h2>
+        <div class="video-container"><iframe src={d.video} loading="lazy" allowfullscreen title={`${d.title} demo`}></iframe></div>
+      </section>
+    )}
+
     <div class="prose"><Content /></div>
 
     {d.gallery.length > 0 && (

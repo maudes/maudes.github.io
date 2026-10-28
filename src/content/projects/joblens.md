@@ -6,100 +6,62 @@ description: "An LLM-powered assistant that scrapes job descriptions, compares t
 cover: joblens_UI.png
 thumb: joblens_cover.png
 tags: [python, fastapi, streamlit, llm, automation]
+glance:
+  - ["Role", "Sole PM & developer"]
+  - ["Period", "Mar 2026 – Present"]
+  - ["Stack", "FastAPI, Streamlit, Gemini"]
+  - ["Impact", "10 min → under 30 s per job"]
+lead: "Scrapes a job description from an ATS, runs an LLM comparison against your CV, surfaces matches and gaps, and syncs everything to Google Sheets for tracking."
+why:
+  title: "Why JobLens?"
+  body:
+    - "Job hunting meant tab-hopping between LinkedIn, career pages, my CV and a tracking spreadsheet: search, copy-paste, summarize, evaluate fit, repeat. Following the DRY principle, I built JobLens to reclaim that time for interviewing."
+    - "It is also a sandbox for prompt engineering, multi-source scraping and LLM workflow automation, using the model as a decision-support layer rather than a chatbot."
+callout:
+  title: "Product thinking"
+  items:
+    - "Problem: manual JD-CV alignment is low-value, high-effort work."
+    - "Success metric: time-to-track from 10 minutes per job to under 30 seconds."
+    - "Audience: mid-to-senior tech professionals applying through Ashby or Greenhouse."
+stack:
+  - ["Backend", "FastAPI, Python"]
+  - ["Frontend", "Streamlit"]
+  - ["AI layer", "Gemini API (CV vs JD analysis)"]
+  - ["Scraping", "Jina Reader, parsers for Greenhouse, Ashby, Lever, SmartRecruiters, Workday"]
+  - ["Data sync", "Google Sheets API via gspread"]
+  - ["Testing", "Pytest (unit and integration)"]
+challenges:
+  - ["Multi-ATS scraping", "Platform-specific parsers for five ATS providers, with Jina Reader as a universal fallback."]
+  - ["Prompt versioning", "A versioned analyzer prompt tracks LLM behavior across iterations."]
+  - ["Structured LLM output", "Prompts return parseable match points, gaps and suggestions for the Sheets sync."]
+  - ["Mitigating hallucination", "Strict extraction rules keep the analysis grounded in the job description."]
+  - ["Human in the loop", "An evaluation set benchmarks AI responses against my manual reviews."]
+decisions:
+  - ["Why FastAPI with Streamlit?", "Streamlit handles the UI, while FastAPI keeps the door open to expose the pipeline as an API."]
+  - ["Why prompt versioning?", "LLM behavior drifts as prompts change, so the prompt is a versioned artifact with a changelog."]
+  - ["Why split the tests?", "Mocked unit tests run on every change; integration tests hit real ATS URLs before releases."]
+phases:
+  - ["Initiation", ["Identified friction in manual CV-JD matching", "Scoped the core loop: scrape, analyze, track"]]
+  - ["Planning", ["Designed a modular services layer (read, analyze, sync)", "Chose FastAPI for future API extensibility"]]
+  - ["Development & Testing", ["Built iteratively with prompt tuning in parallel", "Split pytest into unit and integration"]]
+  - ["Release & Deployment", ["Published with .env.example and a clear README", "Added a prompt versioning header for traceability"]]
+  - ["Iteration & Impact", ["Refined the analyzer prompt across versions", "Expanded ATS coverage from real job-hunt usage"]]
+structure: |
+  job-hunt-ai/
+  ├── services/
+  │   ├── read.py             # fetch JD: ATS-specific + Jina fallback
+  │   ├── aianalyzer.py       # Gemini CV vs JD comparison
+  │   └── updatesheet.py      # sync results to Google Sheets
+  ├── prompts/
+  │   └── analyzer_prompt.md  # versioned system prompt
+  ├── tests/
+  │   ├── test_read.py              # unit, mocked
+  │   └── test_read_integration.py  # integration, real network
+  ├── app.py                  # Streamlit UI
+  ├── main.py                 # FastAPI routes
+  └── pyproject.toml
+repo:
+  label: "JobLens (job-hunt-ai)"
+  url: "https://github.com/maudes/job-hunt-ai"
+video: "https://www.youtube.com/embed/2OY2R-VBFPs?si=K4SwE3rRZK25-tFs"
 ---
-## Project Overview
-
-> JobLens — LLM-Powered Job Fit Analysis & Application Tracker
-
-"As a job seeker, I found myself trapped in a loop of 'Tab-Hell': switching between LinkedIn, company career pages, my CV, and a messy tracking spreadsheet."
-
-I've been using Google Sheets as my "Job Hunting" dashboard for a long time. The process was repetitive: search, copy-paste, summarize, and manually evaluate fit. It wasn't just boring; it was cognitively draining. Following the DRY (Don't Repeat Yourself) principle, I built JobLens to reclaim my time and focus on what matters—interviewing.
-
-JobLens is a solo-developed automation tool that eliminates the manual grind of job hunting. It scrapes job descriptions directly from ATS platforms, runs a deep LLM-powered comparison against your CV, surfaces match points and gaps, and syncs everything to a Google Sheet for pipeline tracking. Beyond personal utility, the project serves as a technical sandbox for exploring prompt engineering, multi-source web scraping, and LLM-integrated workflow automation.
-
----
-
-## Role & Scope
-
-As the Sole PM & Dev, I prioritized features based on the highest friction points in the job hunting funnel. Led the full lifecycle from problem identification and system design to implementation, prompt iteration, and deployment. The project was designed to validate how LLM reasoning can be embedded into a structured product workflow — not just as a chatbot, but as a decision-support layer in a real automation pipeline. 
-
-## Product Thinking & Strategy (PM Perspective)
-- **Problem Statement**: Manual JD-CV alignment is low-value high-effort work.
-- **Success Metrics**: Reduced the time-to-track from 10 minutes per job to <30 seconds.
-- **Target Audience**: Mid-to-senior tech professionals applying to top-tier ATS platforms (Ashby/Greenhouse).
-
----
-
-### Tech Stack
-
-| Category | Technologies Used |
-|---|---|
-| **Backend** | FastAPI, Python |
-| **Frontend** | Streamlit |
-| **AI Layer** | Gemini API (LLM-powered CV vs JD analysis) |
-| **Scraping** | Jina Reader, custom parsers for Greenhouse / Ashby / Lever / SmartRecruiters / Workday |
-| **Data Sync** | Google Sheets API via gspread |
-| **Testing** | Pytest (unit + integration, mocked and live) |
-
----
-
-## Key Challenges & Solutions
-
-- **Multi-ATS Scraping**: Built platform-specific parsers for five major ATS providers with Jina Reader as a universal fallback, handling structural inconsistencies across job board HTML
-- **Prompt Versioning & Tuning**: Maintained a versioned `analyzer_prompt.md` to track LLM behaviour changes across iterations — applying product iteration discipline to AI prompt design
-- **Structured LLM Output**: Engineered prompts to return consistent, parseable analysis (match points, gaps, improvement suggestions) rather than freeform text, enabling downstream Google Sheets sync
-- **Mitigating AI Hallucination**: Implementing strict extraction rules to ensure the analysis is grounded in reality.
-- **The "Human-in-the-loop" Workflow**: How I built an evaluation set to benchmark AI responses against my manual reviews.
-
----
-
-## Software Development Lifecycle
-
-| Phase | Key Activities |
-|---|---|
-| **Initiation** | • Identified friction in manual CV-JD matching<br>• Scoped core loop: scrape → analyze → track |
-| **Planning** | • Designed modular services layer (read, analyze, sync)<br>• Chose FastAPI for future API extensibility |
-| **Development & Testing** | • Built iteratively with prompt tuning in parallel<br>• Implemented pytest unit + integration test split |
-| **Release & Deployment** | • Published with `.env.example` and clear README<br>• Prompt versioning header added for traceability |
-| **Iteration & Impact** | • Refined analyzer prompt across multiple versions<br>• Expanded ATS scraper coverage based on real job hunt usage |
-
----
-
-## Project Structure
-
-The tool follows a modular services architecture for maintainability and extensibility:
-```
-job-hunt-ai/
-├── services/
-│   ├── read.py           # Fetches JD from URL — ATS-specific + Jina fallback
-│   ├── aianalyzer.py     # Gemini-powered CV vs JD comparison
-│   └── updatesheet.py    # Syncs results to Google Sheets via gspread
-├── prompts/
-│   └── analyzer_prompt.md  # Versioned system prompt — edit to tune AI behaviour
-├── tests/
-│   ├── test_read.py              # Unit tests — mocked, fast, always run
-│   └── test_read_integration.py  # Integration tests — real network, run manually
-├── app.py          # Streamlit UI — main entry point
-├── main.py         # FastAPI routes (future API use)
-├── pyproject.toml
-└── .env.example
-```
-
-**GitHub Repository**: [JobLens (job-hunt-ai)](https://github.com/maudes/job-hunt-ai)
-
----
-
-## Design Decisions
-
-**Why FastAPI alongside Streamlit?** Streamlit handles the immediate UI, but FastAPI was scaffolded from day one to keep the door open for exposing the analysis pipeline as an API — mirroring how real platform products separate frontend from backend contract.
-
-**Why prompt versioning?** LLM behaviour drifts as prompts are edited. Treating `analyzer_prompt.md` as a versioned artifact — with a header tracking iteration history — applies standard product changelog discipline to AI behaviour management.
-
-**Why split unit and integration tests?** Mocked unit tests run on every change without network dependency. Integration tests hit real ATS URLs and are run manually before releases. This mirrors CI/CD practices in production pipelines.
-
----
-## Demo Video
-
-<div class="video-container"><iframe width="100%" height="400" src="https://www.youtube.com/embed/2OY2R-VBFPs?si=K4SwE3rRZK25-tFs" frameborder="0" allowfullscreen></iframe></div>
-
-<br>

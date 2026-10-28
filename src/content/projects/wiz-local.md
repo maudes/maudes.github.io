@@ -6,84 +6,51 @@ description: "A Python CLI that validates WiZ local (UDP) control, built to unbl
 cover: wiz_smart_lighting.png
 thumb: wiz_smart_lighting.png
 tags: [iot, python, streamlit, automation_test, cli_tool, pytest]
+glance:
+  - ["Role", "Solo developer & product owner"]
+  - ["Period", "Mar 2024 – Aug 2025"]
+  - ["Stack", "Python, pytest, Streamlit"]
+  - ["Status", "Open source"]
+lead: "A lightweight, cloud-free CLI for testing WiZ local control over UDP. Engineering resources were tied up, so I built it myself to unblock partners and sales."
+why:
+  title: "Why the tool?"
+  body:
+    - "External API partners were stalled in PoC with no local testing environment, while regional sales, especially EU retail, were losing momentum without a demo tool that could survive poor in-store networks."
+    - "Stepping in as a solo developer was the fastest way to validate the protocol for partners and give high-stakes deployments an immediate stopgap, including hundreds of showrooms in China and roadshows in the US."
+callout:
+  title: "The trade-off"
+  body: "Regional requests leaned toward a feature-rich hardware config board, but it was slow to build and ill-suited to unstable retail networks. I chose a software-only design that reused existing factory tools. That secured the EU pipeline and scaled to US roadshows and Chinese showrooms at zero extra development cost."
+challenges:
+  - ["Tooling gap for local testing", "Built a lightweight, cloud-independent utility to validate local control commands during PoC and partner integration."]
+  - ["Protocol complexity", "Abstracted device types and command flows to simplify UDP-based testing."]
+  - ["Maintainability", "Refactored into a modular architecture after leaving, for broader use and long-term maintenance."]
+contributions:
+  - ["End-to-end development", "CLI with UDP communication, a test runner and device-type abstraction."]
+  - ["Test-driven", "pytest-based automated tests for reliable command execution."]
+  - ["Modular architecture", "Reusable modules for new device types and test scenarios."]
+  - ["Documentation", "Usage examples and a README for internal and external adopters."]
+  - ["Clear boundaries", "Deliberately left out OTA updates, reusing WiZ’s factory OTA module instead."]
+phases:
+  - ["Initiation", ["Identified the lack of local testing tools", "Proposed a Python CLI solution"]]
+  - ["Planning", ["Designed core modules: UDP, runner, type abstraction", "Prioritized key features"]]
+  - ["Development & Testing", ["Built iteratively with pytest", "Validated packet construction and device responses"]]
+  - ["Release & Deployment", ["Published with documentation", "Refactored for modularity after leaving WiZ"]]
+  - ["Iteration & Impact", ["Refined based on usage", "Improved adaptability for PoC and QA environments"]]
+structure: |
+  wiz-light-local-test-script
+  ├── modules/            # UDP communication, test runner, device abstraction
+  │   ├── communication.py
+  │   ├── runner.py
+  │   └── type_data.py    # test cases per device type
+  ├── pytest/
+  │   └── tests/          # conftest.py, test_basic.py
+  ├── simple_scripts/
+  ├── cli.py              # CLI entry point
+  ├── app.py              # optional Streamlit GUI
+  └── README.md
+repo:
+  label: "Local Control Test Script for WiZ Lights"
+  url: "https://github.com/maudes/wiz-light-local-test-script"
 gallery:
   - { img: wiz_local_ui.png, caption: "Optional Streamlit UI", tag: "#streamlit" }
 ---
-## Project Overview  
-
-> WiZ Local Control Test Script — UDP-Based Smart Lighting Validation Tool
-
-As the Product Manager for WiZ's API services, I managed the end-to-end integration of smart lighting solutions across cloud and local control protocols. During partner validation, external developers lacked a lightweight, reliable tool to test local command protocols for pure local controllers. Concurrently, regional sales teams needed a zero-cloud solution to power live demos—such as a Chinese customer deploying setups across hundreds of nationwide showrooms, US roadshows, and EU retail shops.
-
-Because official engineering resources were constrained, this high-impact utility could not be prioritized on the main roadmap. Recognizing its strategic value, I independently designed and developed this Python-based CLI utility to enable UDP-based local communication and validate WiZ smart lighting protocols.
-
-**Note:** Originally built as an internal tool to unblock partners and regional sales teams, I have post-employment expanded and modularized the project for broader, open-source maintainability.
-
-### Why the tool?
-External API partners were stalled during PoC due to a lack of local testing environments, while regional sales pipelines, especially EU retail channels, were losing momentum without a stable demo tool that could survive poor in-store networks. With corporate engineering tied up, stepping in as a solo developer to build a lightweight, functional prototype was the fastest way to validate the protocol for partners and deliver an immediate stopgap for high-stakes commercial deployments.
-
-### Trade-offs
-Regional requests initially leaned toward a complex, feature-rich hardware config board, but this was slow to build and ill-suited for unstable retail environments. I chose to prioritize a software-only, "pro-EU" design instead. This allowed us to leverage existing factory tools rather than building hardware from scratch, directly securing the EU sales pipeline. Because the resulting Python tool was lightweight and portable, it easily scaled to meet the basic operational needs of both the US roadshows and the massive Chinese showroom rollout with zero extra development cost.
-
----
-
-## Role & Scope  
-As the sole developer and product owner, I drove the full product lifecycle from identifying the initial market friction to technical design, implementation, and post-employment refactoring. 
-
-To keep the utility lightweight and focused, I deliberately scoped out the OTA firmware update module. Since the script was designed to integrate seamlessly into existing ecosystems, teams could simply reuse WiZ's production-ready factory OTA module depending on the deployment use case.
-
----
-
-## Key Challenges & Solutions  
-
-- **Tooling Gap for Local Testing**：Built a lightweight, cloud-independent utility to validate local control commands during PoC and partner integration  
-- **Protocol Complexity**：Abstracted device types and command flows to simplify UDP-based testing for developers  
-- **Maintainability & Extensibility**：Refactored into a modular architecture post-employment to support broader use cases and long-term maintainability  
-
----
-
-## Key Contributions & Impact  
-
-- **End-to-End Development**：Built CLI tool with UDP communication, test runner, and device-type abstraction modules  
-- **Test-Driven Approach**：Implemented pytest-based automated tests to ensure reliability and correctness of command execution  
-- **Modular Architecture**：Refactored codebase into reusable modules for enhanced scalability across device types and testing scenarios  
-- **Documentation & Enablement**：Provided clear usage examples and README to support internal and external adoption  
-- **Operational Efficiency**：Streamlined partner validation workflows and clarified protocol boundaries for WiZ smart lighting products  
-
----
-
-## Software Development Lifecycle  
-
-| Phase                   | Key Activities                                                                 |
-|-------------------------|--------------------------------------------------------------------------------|
-| **Initiation**          | • Identified lack of local testing tools<br>• Proposed Python CLI solution |
-| **Planning**            | • Designed core modules: UDP, runner, type abstraction<br>• Prioritized key features |
-| **Development & Testing** | • Built iteratively with pytest integration<br>• Validated packet construction and device responses |
-| **Release & Deployment** | • Published tool with documentation<br>• Refactored post-employment for modularity |
-| **Iteration & Impact**   | • Continued refinement based on usage<br>• Improved adaptability for PoC and QA environments |
-
-
-### Project Structure
-The tool follows a modular architecture for maintainability and extensibility:
-
-```
- wiz-light-local-test-script
-｜＿＿ modules/                 # Core logic: UDP communication, test runner, device abstraction
-｜    ｜＿＿ __init__.py      
-｜    ｜＿＿ communication.py    # Build the udp connection, send and receive the udp packet
-｜    ｜＿＿ runner.py           # Run the test cases
-｜    ｜＿＿ type_data.py        # Test cases based on different device types
-｜＿＿ pytest/ 
-｜    ｜＿＿ tests/
-｜    ｜   ｜＿＿ conftest.py
-｜    ｜   ｜＿＿ test_basic.py
-｜    ｜＿＿ pytest.ini
-｜＿＿ simple_scripts
-｜    ｜＿＿ basic_refactor.py
-｜    ｜＿＿ basic.py
-｜＿＿ cli.py                    # CLI entry point
-｜＿＿ app.py                    # Optional Streamlit GUI
-｜＿＿ README.md
-```
-
-**GitHub Repository**: [Local Control Test Script for WiZ Lights](https://github.com/maudes/wiz-light-local-test-script)
