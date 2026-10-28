@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// Old MkDocs URLs (maudes.github.io/tech-notes and /cv) -> new site.
+// Old MkDocs URLs (maudes.github.io/tech-notes and /cv, now /resume) -> new site.
 const redirects = {
     '/tech-notes/blog/2026/03/08/case-study-matter-from-brand-to-ecosystem': '/blog/case-study-matter-from-brand-to-ecosystem',
     '/tech-notes/blog/2026/03/08/case-study-matter-from-protocol-to-product': '/blog/case-study-matter-from-protocol-to-product',
@@ -15,16 +15,25 @@ const redirects = {
     '/tech-notes/others': '/',
     '/tech-notes/blog/archive': '/',
     '/tech-notes/blog/category': '/',
-    '/cv/experience': '/cv/#experience',
-    '/cv/education_skills': '/cv/#skills',
-    '/cv/portfolio': '/cv/#portfolio',
-    '/cv/projects/wiz': '/cv/wiz',
-    '/cv/projects/igaming': '/cv/igaming',
-    '/cv/projects/wiz_local': '/cv/wiz-local',
-    '/cv/projects/carepilot': '/cv/carepilot',
-    '/cv/projects/joblens': '/cv/joblens',
-    '/cv/projects/smallsomebody': '/cv/smallsomebody',
-    '/cv/projects/salasusu': '/cv/salasusu',
+    '/cv': '/resume',
+    '/cv/experience': '/resume/#experience',
+    '/cv/education_skills': '/resume/#skills',
+    '/cv/portfolio': '/resume/#portfolio',
+    '/cv/projects/wiz': '/resume/wiz',
+    '/cv/projects/igaming': '/resume/igaming',
+    '/cv/projects/wiz_local': '/resume/wiz-local',
+    '/cv/projects/carepilot': '/resume/carepilot',
+    '/cv/projects/joblens': '/resume/joblens',
+    '/cv/projects/smallsomebody': '/resume/smallsomebody',
+    '/cv/projects/salasusu': '/resume/salasusu',
+    // briefly live at /cv/<slug> before the rename
+    '/cv/wiz': '/resume/wiz',
+    '/cv/igaming': '/resume/igaming',
+    '/cv/wiz-local': '/resume/wiz-local',
+    '/cv/carepilot': '/resume/carepilot',
+    '/cv/joblens': '/resume/joblens',
+    '/cv/smallsomebody': '/resume/smallsomebody',
+    '/cv/salasusu': '/resume/salasusu',
 };
 
 export default defineConfig({

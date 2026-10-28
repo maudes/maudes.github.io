@@ -1,6 +1,6 @@
 # maudes.github.io
 
-Personal site: tech notes, CV and portfolio. Built with Astro, deployed to GitHub Pages.
+Personal site: tech notes, resume and portfolio. Built with Astro, deployed to GitHub Pages.
 
 ## Write
 

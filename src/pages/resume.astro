@@ -45,27 +45,23 @@ const jobs = [
     ] },
   { role: 'Product Marketing Manager', org: 'meet.Jobs', loc: 'Taipei', when: 'Jul 2017 – Dec 2017',
     bullets: ['Connected 20+ global employers with 150+ job seekers at a 10% conversion rate.'] },
-  { role: 'Assistant Community Manager', org: 'Fusionmedium | TechOrange', loc: 'Taipei', when: 'Jan 2016 – Jul 2017',
+  { role: 'Assistant Community Manager', org: 'Fusionmedium', loc: 'Taipei', when: 'Jan 2016 – Jul 2017',
     bullets: [
       'Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of company revenue.',
-      'Managed the WordPress CMS and digital campaigns for sites with 10k+ MAU.',
-      'Used data analytics to evaluate brand performance, growing social followers and MAU by 5%.',
-      'Ran the newsletter and weekly analytics reports for strategic planning with C-levels.',
-      'Sourced partners among media, teachers and influencers.',
+      'Managed the WordPress CMS and data-driven campaigns for sites with 10k+ MAU, growing followers and MAU by 5%.',
     ] },
-  { role: 'Editorial Journalist', org: 'Fusionmedium | TechOrange', loc: 'Taipei', when: 'Dec 2013 – Dec 2015',
+  { role: 'Editorial Journalist', org: 'Fusionmedium', loc: 'Taipei', when: 'Dec 2013 – Dec 2015',
     bullets: [
       'Covered tech stories on startups and venture capital, curated on the WordPress CMS.',
-      'Built the outlet\u2019s social media presence and online community.',
-      'Initiated partnerships with media and opinion leaders; recruited and trained interns.',
+      'Built the outlet\u2019s social media presence and online community, and recruited and trained interns.',
     ] },
 ];
 
-const wiz = { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/cv/wiz/', img: 'wiz_integration.png', tags: ['matter', 'global_partnership', 'iot'], order: 1 };
+const wiz = { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/resume/wiz/', img: 'wiz_integration.png', tags: ['matter', 'global_partnership', 'iot'], order: 1 };
 const projects = [
   wiz,
   ...(await getCollection('projects')).map((p) => ({
-    group: p.data.group, title: p.data.title, href: `/cv/${p.id}/`, img: p.data.thumb, tags: p.data.tags.slice(0, 3), order: p.data.order,
+    group: p.data.group, title: p.data.title, href: `/resume/${p.id}/`, img: p.data.thumb, tags: p.data.tags.slice(0, 3), order: p.data.order,
   })),
 ].sort((a, b) => a.order - b.order);
 
@@ -78,9 +74,9 @@ const skills = [
 ];
 const groups = [...new Set(projects.map((p) => p.group))];
 ---
-<Base title="Maude Shen · CV">
-  <main class="cv">
-    <section class="cv-hero">
+<Base title="Maude Shen · Resume">
+  <main class="resume">
+    <section class="resume-hero">
       <p class="eyebrow">Platform Product Manager</p>
       <h1>Maude Shen <span>沈孟學</span></h1>
       <p class="sub">Shaped the global Matter rollout for 1M+ devices, and translate complex technical constraints into products people actually use.</p>
@@ -128,7 +124,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
         <div class="pgrid">
           {projects.filter((p) => p.group === g).map((p) => (
             <a class="pcard" href={p.href}>
-              <img src={`/cv/${p.img}`} alt={p.title} loading="lazy" />
+              <img src={`/resume/${p.img}`} alt={p.title} loading="lazy" />
               <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
             </a>
           ))}
@@ -157,11 +153,11 @@ const groups = [...new Set(projects.map((p) => p.group))];
 </Base>
 
 <style is:global>
-  .cv { max-width: 1080px; margin: 0 auto; padding: 0 24px 72px; }
-  .cv-hero { padding: 80px 0 32px; }
-  .cv-hero h1 { max-width: none; }
-  .cv-hero h1 span { color: var(--muted); font-weight: 500; font-size: .55em; margin-left: 8px; letter-spacing: 0; }
-  .cv-hero .sub { max-width: 40em; }
+  .resume { max-width: 1080px; margin: 0 auto; padding: 0 24px 72px; }
+  .resume-hero { padding: 80px 0 32px; }
+  .resume-hero h1 { max-width: none; }
+  .resume-hero h1 span { color: var(--muted); font-weight: 500; font-size: .55em; margin-left: 8px; letter-spacing: 0; }
+  .resume-hero .sub { max-width: 40em; }
   .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn { font-size: 14px; font-weight: 500; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); transition: .15s; }
   .btn:hover { border-color: var(--accent); color: var(--accent); }

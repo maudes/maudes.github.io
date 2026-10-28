@@ -16,7 +16,7 @@ const d = project.data;
 ---
 <Base title={`${d.title} · Maude Shen`}>
   <main class="proj">
-    <a class="back" href="/cv">← Back to CV</a>
+    <a class="back" href="/resume/">← Back to resume</a>
 
     <header class="proj-head">
       <p class="eyebrow">{d.group}</p>
@@ -25,7 +25,7 @@ const d = project.data;
       <div class="tags">{d.tags.map((t) => <span>#{t}</span>)}</div>
     </header>
 
-    <img class="hero-img" src={`/cv/${d.cover}`} alt={d.title} />
+    <img class="hero-img" src={`/resume/${d.cover}`} alt={d.title} />
 
     {d.glance.length > 0 && (
       <dl class="glance">{d.glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
@@ -117,15 +117,15 @@ const d = project.data;
         <h2>Gallery</h2>
         <div class="gal">
           {d.gallery.map((g) => (
-            <figure><img src={`/cv/${g.img}`} alt={g.caption} loading="lazy" /><figcaption><b>{g.caption}</b><span>{g.tag}</span></figcaption></figure>
+            <figure><img src={`/resume/${g.img}`} alt={g.caption} loading="lazy" /><figcaption><b>{g.caption}</b><span>{g.tag}</span></figcaption></figure>
           ))}
         </div>
       </section>
     )}
 
     <nav class="next">
-      <a href="/cv">← All projects</a>
-      {next && <a href={`/cv/${next.id}/`}>Next: {next.data.title} →</a>}
+      <a href="/resume/">← All projects</a>
+      {next && <a href={`/resume/${next.id}/`}>Next: {next.data.title} →</a>}
     </nav>
   </main>
 </Base>

@@ -52,7 +52,7 @@ const gallery = [
 ---
 <Base title="WiZ Matter Integration · Maude Shen">
   <main class="proj">
-    <a class="back" href="/cv">← Back to CV</a>
+    <a class="back" href="/resume/">← Back to resume</a>
 
     <header class="proj-head">
       <p class="eyebrow">Platform &amp; Ecosystem</p>
@@ -61,7 +61,7 @@ const gallery = [
       <div class="tags">{tags.map((t) => <span>#{t}</span>)}</div>
     </header>
 
-    <img class="hero-img" src="/cv/wiz_smart_lighting.png" alt="WiZ smart lighting" />
+    <img class="hero-img" src="/resume/wiz_smart_lighting.png" alt="WiZ smart lighting" />
 
     <dl class="glance">
       {glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
@@ -119,14 +119,14 @@ const gallery = [
       <h2>Gallery</h2>
       <div class="gal">
         {gallery.map(([f, c, t]) => (
-          <figure><img src={`/cv/${f}`} alt={c} loading="lazy" /><figcaption><b>{c}</b><span>{t}</span></figcaption></figure>
+          <figure><img src={`/resume/${f}`} alt={c} loading="lazy" /><figcaption><b>{c}</b><span>{t}</span></figcaption></figure>
         ))}
       </div>
     </section>
 
     <nav class="next">
-      <a href="/cv">← All projects</a>
-      <a href="/cv/igaming/">Next: iGaming Platform →</a>
+      <a href="/resume/">← All projects</a>
+      <a href="/resume/igaming/">Next: iGaming Platform →</a>
     </nav>
   </main>
 </Base>
