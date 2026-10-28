@@ -90,7 +90,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
       <div><h3>0 → 1 discovery</h3><p>Turned technical constraints into user-centered experiences across global markets.</p></div>
     </section>
 
-    <h2 class="sec">Experience</h2>
+    <h2 class="sec" id="experience">Experience</h2>
     <section class="timeline">
       {jobs.map((j) => (
         <article class="job">
@@ -109,7 +109,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
       ))}
     </section>
 
-    <h2 class="sec">Portfolio</h2>
+    <h2 class="sec" id="portfolio">Portfolio</h2>
     {groups.map((g) => (
       <>
         <h4 class="grp">{g}</h4>
@@ -124,14 +124,14 @@ const groups = [...new Set(projects.map((p) => p.group))];
       </>
     ))}
 
-    <h2 class="sec">Skills</h2>
+    <h2 class="sec" id="skills">Skills</h2>
     <section class="skills">
       {skills.map(([t, items]) => (
         <div><h4>{t}</h4><p>{items.map((i) => <span class="chip">{i}</span>)}</p></div>
       ))}
     </section>
 
-    <h2 class="sec">Education &amp; More</h2>
+    <h2 class="sec" id="education">Education &amp; More</h2>
     <section class="more">
       <div><h4>Education</h4>
         <p><b>National ChengChi University</b><br />B.A. Journalism, Minor in Political Science</p>
