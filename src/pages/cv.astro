@@ -1,0 +1,210 @@
+---
+import Base from '../layouts/Base.astro';
+
+const stats = [
+  ['6 yrs', 'Platform product management'],
+  ['1M+', 'Connected devices on the platform'],
+  ['500+', 'Matter SKUs shipped in 12 months'],
+  ['13', 'Contracted enterprise API partners'],
+];
+
+const jobs = [
+  { role: 'Software Product Manager', org: 'General Mobile | Fii, Foxconn', loc: 'Taipei', when: 'Nov 2025 – Present',
+    bullets: [
+      'Own client-facing delivery for Tier-1 ISP programs and platform roadmap, delivering 5 milestones on schedule within 6 months after prior resets.',
+      'Introduced MAC-based open firmware authentication to eliminate UART disassembly, enabling remote testing workflows and extending the approach to production lines.',
+      'Drive SW certification compliance for CPE platforms including Wi-Fi 7 and EAA, eliminating two-thirds of failed line items before retest.',
+      'Streamline RFQ spec-matching workflows using Claude AI, reducing manual processing time by 30% per bid cycle.',
+      'Participate in prpl working groups and review ecosystem specifications including RDK-B.',
+    ] },
+  { role: 'Founder & Product Lead', org: 'LightOn', loc: 'Remote', when: 'Nov 2024 – Oct 2025',
+    bullets: [
+      'Founded a FHIR-based AI assistant for hospital early intervention workflows, leading a 4-person cross-functional team from zero. Finalist, Civic Tech Taiwan 2025.',
+      'Evaluated OHDSI/OMOP vs. FHIR, selecting FHIR to support real-time clinical workflows and interoperability.',
+      'EMT-1 certified (Feb 2025) to validate hands-on interest in healthcare delivery.',
+    ] },
+  { role: 'Software Product Manager', org: 'WiZ | Signify (Philips Lighting)', loc: 'Hong Kong', when: 'Jul 2021 – Sep 2024',
+    bullets: [
+      'Built WiZ’s Matter integration from zero, authoring the cross-functional decision framework across engineering, manufacturing, and 5+ Tier-1 partners to ship 500+ SKUs within 12 months. CSA Top Certifier 2022 and 2023.',
+      'Owned dual-direction API platform across 5 ecosystem integrations and 13 contracted enterprise partners, across 1M+ connected devices.',
+      'Drove Google Matter Console to ship product family flow and SmartThings to build bulk SKU upload; defined API scope for device deduplication, later adopted by Alexa.',
+      'Scaled interoperability testing across 300+ devices and 100+ testers sourced through partners including Google and Alexa in EU and US.',
+      'Delivered the first WiZ-native vs. Matter-only adoption comparison across a 1M+ device fleet.',
+      'Supported Cloud 3.0 migration to auto-scaling architecture, expanding from EU-only to US and APAC without downtime.',
+      'Closed WiZ’s first Amazon Black Friday GTM end-to-end, achieving FFS certification within one quarter.',
+      'Overhauled onboarding UX and GDPR consent flows, cutting support inquiries by 20%.',
+      'Contributed to AI RAG customer support rollout, improving NPS 10% over two quarters.',
+      'Led delivery cadence for a 10+ member cross-cultural engineering team within SAFe.',
+    ], award: '2024 Q2 Excellence Award · 2022 Annual Excellence Award' },
+  { role: 'Software Product Manager', org: 'GLVictory Technology', loc: 'Taipei / Manila', when: 'Feb 2018 – Aug 2020',
+    bullets: [
+      'Delivered iGaming SaaS MVP 0→1 in 6 months; SQL behavioral analytics drove a 20% adoption lift across 5k MAU and ¥20M monthly transaction volume.',
+      'Transformed the sports betting app through user-research-driven prioritization, yielding 5% user growth within 3 months.',
+      'Served as Scrum Master for a 10-member cross-cultural engineering team.',
+    ] },
+  { role: 'Product Marketing Manager', org: 'meet.Jobs', loc: 'Taipei', when: 'Jul 2017 – Dec 2017',
+    bullets: ['Connected 20+ global employers with 150+ job seekers at a 10% conversion rate.'] },
+  { role: 'Assistant Community Manager', org: 'Fusionmedium', loc: 'Taipei', when: 'Dec 2013 – Jul 2017',
+    bullets: ['Directed product-focused community initiatives, maintaining a consistent 10k+ MAU.'] },
+];
+
+const projects = [
+  { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/cv/wiz', img: 'wiz_integration.png', tags: ['matter', 'global_partnership', 'iot'] },
+  { group: 'Platform & Ecosystem', title: 'Multi-Tenant iGaming Platform', img: 'igaming.png', tags: ['saas', 'scalability'] },
+  { group: 'Hands-on Builds', title: 'WiZ Local Control Test (CLI)', img: 'wiz_smart_lighting.png', tags: ['python', 'protocol_test'] },
+  { group: 'Hands-on Builds', title: 'CarePilot (PoC Web App)', img: 'CarePilot_cover.png', tags: ['fastapi', 'system_architecture'] },
+  { group: 'Hands-on Builds', title: 'JobLens AI Assistant', img: 'joblens_cover.png', tags: ['llm', 'automation'] },
+  { group: 'Social Impact', title: 'SmallSomebody (Data Initiative)', img: 'Smallsomebody_website.jpg', tags: ['open_data', 'sdgs'] },
+  { group: 'Social Impact', title: 'SALASUSU (Global E-commerce)', img: 'salasusu_website.png', tags: ['0_to_1', 'ux'] },
+];
+
+const skills = [
+  ['Product & Strategy', ['Roadmap Prioritization', 'GTM Strategy', 'Stakeholder Management', 'Agile / Scrum / SAFe', 'User Research']],
+  ['Technical', ['Python (FastAPI, pandas)', 'SQL', 'Bash', 'Git', 'AWS', 'GCP', 'LLM integration', 'n8n']],
+  ['IoT & Connectivity', ['Matter', 'Thread', 'Wi-Fi 7/8', 'Zigbee', 'BLE', 'OpenWRT', 'OpenSync', 'RDK-B', 'prpl']],
+  ['Ecosystems', ['Google Home', 'Amazon Alexa', 'Apple Home', 'SmartThings', 'Amazon FFS', 'CSA']],
+  ['Compliance', ['Wi-Fi 7 & BBF.247 certification', 'EU Accessibility Act', 'CE Marking', 'Cyber Resilience Act', 'EU AI Act']],
+];
+const groups = [...new Set(projects.map((p) => p.group))];
+---
+<Base title="Maude Shen · CV">
+  <main class="cv">
+    <section class="cv-hero">
+      <p class="eyebrow">Platform Product Manager</p>
+      <h1>Maude Shen <span>沈孟學</span></h1>
+      <p class="sub">Shaped the global Matter rollout for 1M+ devices, and translate complex technical constraints into products people actually use.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://linkedin.com/in/meng-hsueh-shen">LinkedIn</a>
+        <a class="btn" href="https://github.com/maudes">GitHub</a>
+        <a class="btn" href="/">Read my notes →</a>
+      </div>
+    </section>
+
+    <section class="stats">
+      {stats.map(([n, l]) => <div><b>{n}</b><span>{l}</span></div>)}
+    </section>
+
+    <section class="pillars">
+      <div><h3>Platform leadership</h3><p>Defined reusable platform standards for the global Matter protocol rollout.</p></div>
+      <div><h3>Ecosystem integration</h3><p>Aligned API partnerships across Google, Amazon and Samsung SmartThings.</p></div>
+      <div><h3>Technical depth</h3><p>Systems, networking and security fundamentals, with Python and SQL to inform architecture.</p></div>
+      <div><h3>0 → 1 discovery</h3><p>Turned technical constraints into user-centered experiences across global markets.</p></div>
+    </section>
+
+    <h2 class="sec">Experience</h2>
+    <section class="timeline">
+      {jobs.map((j) => (
+        <article class="job">
+          <div class="when">{j.when}<br /><small>{j.loc}</small></div>
+          <div>
+            <h3>{j.role}<span> · {j.org}</span></h3>
+            <ul>{j.bullets.slice(0, 3).map((b) => <li>{b}</li>)}</ul>
+            {j.bullets.length > 3 && (
+              <details><summary>{j.bullets.length - 3} more</summary>
+                <ul>{j.bullets.slice(3).map((b) => <li>{b}</li>)}</ul>
+              </details>
+            )}
+            {j.award && <p class="award">★ {j.award}</p>}
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <h2 class="sec">Portfolio</h2>
+    {groups.map((g) => (
+      <>
+        <h4 class="grp">{g}</h4>
+        <div class="pgrid">
+          {projects.filter((p) => p.group === g).map((p) => (
+            <a class="pcard" href={p.href ?? '#'}>
+              <img src={`/cv/${p.img}`} alt={p.title} loading="lazy" />
+              <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
+            </a>
+          ))}
+        </div>
+      </>
+    ))}
+
+    <h2 class="sec">Skills</h2>
+    <section class="skills">
+      {skills.map(([t, items]) => (
+        <div><h4>{t}</h4><p>{items.map((i) => <span class="chip">{i}</span>)}</p></div>
+      ))}
+    </section>
+
+    <h2 class="sec">Education &amp; More</h2>
+    <section class="more">
+      <div><h4>Education</h4>
+        <p><b>National ChengChi University</b><br />B.A. Journalism, Minor in Political Science</p>
+        <p><b>Cologne Business School</b><br />Exchange Program, Cologne, Germany</p></div>
+      <div><h4>Certifications</h4>
+        <p>AWS AI Practitioner (2026)<br />freeCodeCamp Relational Database (2025)<br />Kaggle Pandas (2025)<br />Google IT Support (2021)</p></div>
+      <div><h4>Languages & community</h4>
+        <p>Mandarin native · English proficient (IELTS 7.5) · Japanese beginner<br />NetTuesday Speaker 2019 · EMT-1 certified</p></div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  .cv { max-width: 1080px; margin: 0 auto; padding: 0 24px 72px; }
+  .cv-hero { padding: 80px 0 32px; }
+  .cv-hero h1 { max-width: none; }
+  .cv-hero h1 span { color: var(--muted); font-weight: 500; font-size: .55em; margin-left: 8px; letter-spacing: 0; }
+  .cv-hero .sub { max-width: 40em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .btn { font-size: 14px; font-weight: 500; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); transition: .15s; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .btn.primary:hover { color: var(--bg); opacity: .85; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 14px; background: var(--card); margin: 24px 0 20px; overflow: hidden; }
+  .stats div { padding: 22px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+  .stats div:last-child { border-right: 0; }
+  .stats b { font-size: 34px; letter-spacing: -0.04em; line-height: 1; background: linear-gradient(90deg, var(--accent), #6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; width: fit-content; }
+  .stats span { font-size: 13px; color: var(--muted); }
+
+  .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 8px; }
+  .pillars h3 { font-size: 15px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .pillars p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  .sec { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--accent); margin: 64px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+
+  .job { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 0 0 36px; }
+  .job .when { font-size: 13.5px; color: var(--muted); padding-top: 3px; }
+  .job h3 { font-size: 19px; letter-spacing: -0.02em; margin: 0 0 10px; line-height: 1.3; }
+  .job h3 span { color: var(--muted); font-weight: 500; }
+  .job ul { margin: 0; padding-left: 1.2em; font-size: 15px; color: var(--muted); }
+  .job li { margin: 6px 0; }
+  .job li::marker { color: var(--accent); }
+  .job details { margin-top: 4px; }
+  .job summary { cursor: pointer; font-size: 13.5px; color: var(--accent); margin: 8px 0 0; list-style: none; }
+  .job summary::before { content: '+ '; }
+  .job details[open] summary::before { content: '– '; }
+  .award { font-size: 13.5px; color: var(--accent); margin: 12px 0 0; }
+
+  .grp { font-size: 15px; margin: 28px 0 12px; letter-spacing: -0.01em; }
+  .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pcard { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .pcard:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+  .pcard img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--line); }
+  .pcard div { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .pcard b { font-size: 15px; letter-spacing: -0.01em; }
+  .pcard span { font-size: 12.5px; color: var(--accent); }
+
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+  .skills h4, .more h4 { margin: 0 0 10px; font-size: 14px; }
+  .skills p { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 13px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--card); }
+
+  .more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .more p { margin: 0 0 12px; font-size: 14.5px; color: var(--muted); }
+  .more b { color: var(--fg); font-weight: 600; }
+
+  @media (max-width: 800px) {
+    .stats, .pillars { grid-template-columns: 1fr 1fr; }
+    .stats div:nth-child(2) { border-right: 0; }
+    .stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .pgrid, .skills, .more { grid-template-columns: 1fr; }
+  }
+</style>

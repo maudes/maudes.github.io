@@ -1,0 +1,109 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth <= 3);
+const words = (post.body ?? '').split(/\s+/).length;
+const mins = Math.max(1, Math.round(words / 220));
+const date = post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Base title={`${post.data.title} · Maude's Tech Notes`}>
+  <div class="progress"></div>
+  <div class="post-wrap">
+    <article>
+      <a class="back" href="/">← All notes</a>
+      <header class="post-head">
+        <div class="tags">{post.data.categories.map((c) => <span>#{c}</span>)}</div>
+        <h1>{post.data.title}</h1>
+        <p class="meta"><time>{date}</time> · {mins} min read · Maude</p>
+      </header>
+      <div class="prose"><Content /></div>
+      <footer class="post-foot">
+        <p>Thanks for reading. Questions or corrections? Find me on <a href="https://linkedin.com/in/meng-hsueh-shen">LinkedIn</a>.</p>
+      </footer>
+    </article>
+    <aside class="toc">
+      <p>On this page</p>
+      <ul>
+        {toc.map((h) => <li class={`d${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>)}
+      </ul>
+    </aside>
+  </div>
+  <script is:inline>
+    const bar = document.querySelector('.progress');
+    addEventListener('scroll', () => {
+      const h = document.documentElement;
+      bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+    });
+    const links = [...document.querySelectorAll('.toc a')];
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) links.forEach((a) => a.classList.toggle('on', a.hash === '#' + e.target.id));
+    }), { rootMargin: '0px 0px -75% 0px' });
+    document.querySelectorAll('.prose h2, .prose h3').forEach((h) => io.observe(h));
+  </script>
+  <script is:inline type="module">
+    const blocks = document.querySelectorAll('pre > code.language-mermaid');
+    if (blocks.length) {
+      const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
+      const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+      mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'neutral' });
+      blocks.forEach((code, i) => {
+        const pre = code.parentElement;
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.id = 'mmd' + i;
+        div.textContent = pre.textContent;
+        pre.replaceWith(div);
+      });
+      await mermaid.run({ querySelector: '.mermaid' });
+    }
+  </script>
+</Base>
+
+<style is:global>
+  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--accent); z-index: 20; }
+  .post-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: minmax(0, 700px) 220px; gap: 64px; justify-content: center; }
+  .back { display: inline-block; margin-top: 40px; font-size: 14px; color: var(--muted); }
+  .back:hover { color: var(--accent); }
+  .post-head { padding: 24px 0 32px; border-bottom: 1px solid var(--line); }
+  .post-head .tags { display: flex; gap: 10px; font-size: 13px; color: var(--accent); flex-wrap: wrap; }
+  .post-head h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin: 14px 0 14px; max-width: none; }
+  .post-head .meta { color: var(--muted); font-size: 14px; margin: 0; }
+
+  .prose { padding: 32px 0 24px; font-size: 17.5px; line-height: 1.8; }
+  .prose > p:first-child { font-size: 20px; line-height: 1.7; color: var(--fg); }
+  .prose p { margin: 0 0 1.3em; }
+  .prose h2 { font-size: 28px; letter-spacing: -0.03em; margin: 2.2em 0 .6em; scroll-margin-top: 80px; }
+  .prose h3 { font-size: 21px; letter-spacing: -0.02em; margin: 1.8em 0 .5em; scroll-margin-top: 80px; }
+  .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .prose ul, .prose ol { padding-left: 1.4em; margin: 0 0 1.3em; }
+  .prose li { margin: .3em 0; }
+  .prose li::marker { color: var(--accent); }
+  .prose code { font: 500 .88em 'JetBrains Mono', monospace; background: color-mix(in srgb, var(--accent) 12%, transparent); padding: .15em .4em; border-radius: 6px; }
+  .prose pre { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; }
+  .prose pre code { background: none; padding: 0; }
+  .prose img { max-width: 100%; border-radius: 12px; border: 1px solid var(--line); margin: .6em 0 1.4em; display: block; }
+  .prose blockquote { margin: 1.5em 0; padding: .2em 0 .2em 1.2em; border-left: 3px solid var(--accent); color: var(--muted); }
+  .prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.5em 0; }
+  .prose table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .prose th, .prose td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; }
+
+  .post-foot { border-top: 1px solid var(--line); padding: 24px 0 64px; color: var(--muted); font-size: 15px; max-width: none; margin: 0; }
+  .post-foot a { color: var(--accent); }
+
+  .toc { position: sticky; top: 90px; align-self: start; margin-top: 120px; font-size: 13.5px; max-height: calc(100vh - 120px); overflow: auto; }
+  .toc p { text-transform: uppercase; letter-spacing: .1em; font-size: 11.5px; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+  .toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 4px 0 4px 14px; margin-left: -1px; border-left: 2px solid transparent; color: var(--muted); line-height: 1.4; }
+  .toc li.d3 a { padding-left: 28px; font-size: 13px; }
+  .toc li a:hover { color: var(--fg); }
+  .toc li a.on { color: var(--accent); border-left-color: var(--accent); }
+
+  @media (max-width: 960px) { .post-wrap { display: block; } .toc { display: none; } }
+</style>

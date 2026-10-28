@@ -1,0 +1,42 @@
+---
+import '../styles.css';
+const { title = "Maude's Tech Notes" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script is:inline>
+    const s = localStorage.getItem('theme'); if (s) document.documentElement.dataset.theme = s;
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHN5D0SF9L"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-BHN5D0SF9L');
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/">maude<span>.</span>notes</a>
+    <nav>
+      <a href="/">Notes</a><a href="#">Others</a><a href="/cv">CV</a>
+      <button id="theme" aria-label="Toggle theme">◐</button>
+    </nav>
+  </header>
+  <slot />
+  <footer>© 2026 Maude · Built with Astro</footer>
+  <script is:inline>
+    document.getElementById('theme').onclick = () => {
+      const root = document.documentElement;
+      const dark = (root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
+      root.dataset.theme = dark ? 'light' : 'dark';
+      localStorage.setItem('theme', root.dataset.theme);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+  :root {
+    --bg: #fafaf9; --fg: #111; --muted: #6b6b6b; --line: #e7e5e4; --card: #fff; --accent: #0d9488;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) { --bg: #0b0b0c; --fg: #f2f2f2; --muted: #9a9a9a; --line: #232326; --card: #121214; --accent: #2dd4bf; }
+  }
+  :root[data-theme='dark'] { --bg: #0b0b0c; --fg: #f2f2f2; --muted: #9a9a9a; --line: #232326; --card: #121214; --accent: #2dd4bf; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  main, .nav, footer { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  .nav { position: sticky; top: 0; z-index: 10; max-width: none; display: flex; justify-content: space-between; align-items: center;
+    padding: 14px max(24px, calc((100vw - 1032px) / 2)); backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 75%, transparent); border-bottom: 1px solid var(--line); }
+  .brand { font-weight: 800; letter-spacing: -0.03em; font-size: 18px; }
+  .brand span { color: var(--accent); }
+  .nav nav { display: flex; gap: 22px; align-items: center; font-size: 14px; color: var(--muted); }
+  .nav nav a:hover { color: var(--fg); }
+  #theme { background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; }
+
+  .hero { padding: 88px 0 40px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 16px; }
+  h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.04em; font-weight: 800; margin: 0; max-width: 16em; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), #6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { color: var(--muted); font-size: 18px; max-width: none; margin-top: 20px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 28px; }
+  .pill { font: inherit; font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; transition: .15s; }
+  .pill:hover { color: var(--fg); }
+  .pill.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding-bottom: 72px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+  .card[hidden] { display: none; }
+  .card.slides { grid-column: 1 / -1; }
+  .media { aspect-ratio: 16 / 9; background: var(--line); }
+  .card.slides .media { aspect-ratio: 16 / 7.2; }
+  .media iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .cover { aspect-ratio: 16 / 7; display: flex; align-items: flex-end; padding: 16px;
+    background: radial-gradient(120% 140% at 0% 0%, hsl(var(--h) 80% 60% / .55), transparent 60%), linear-gradient(135deg, hsl(var(--h) 60% 30%), hsl(calc(var(--h) + 40) 70% 18%)); }
+  .cover span { color: #fff; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; opacity: .9; }
+  .body { padding: 18px 20px 20px; }
+  .meta { font-size: 12.5px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+  .badge { background: var(--accent); color: #fff; font-size: 11px; padding: 1px 8px; border-radius: 999px; margin-right: 4px; }
+  h2 { font-size: 20px; line-height: 1.25; letter-spacing: -0.02em; margin: 8px 0 6px; }
+  h2 a:hover { color: var(--accent); }
+  .body p { margin: 0 0 12px; color: var(--muted); font-size: 14.5px; }
+  .tags { display: flex; gap: 10px; font-size: 12.5px; color: var(--accent); }
+  footer { padding-top: 24px; padding-bottom: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } .hero { padding-top: 56px; } .card.slides .media { aspect-ratio: 16/9; } }

@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const entries = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const strip = (s: string) =>
+  s.replace(/<[^>]+>/g, '').replace(/[*_`>#]/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\s+/g, ' ').trim();
+
+const posts = entries.map((e) => {
+  const body = e.body ?? '';
+  const [head] = body.split('<!-- more -->');
+  const firstPara = strip(head.split(/\n\s*\n/).find((p) => strip(p).length > 0) ?? '');
+  const embed = body.match(/<iframe[^>]+src="([^"]+)"/)?.[1];
+  const hue = [...e.data.title].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 360, 7);
+  return {
+    slug: e.id,
+    title: e.data.title,
+    date: e.data.date.toISOString().slice(0, 10),
+    tags: e.data.categories,
+    excerpt: firstPara.length > 170 ? firstPara.slice(0, 167).trimEnd() + '…' : firstPara,
+    mins: Math.max(1, Math.round(body.split(/\s+/).length / 220)),
+    type: e.data.categories.includes('Slides') && embed ? 'slides' : 'post',
+    embed,
+    hue,
+  };
+});
+
+const counts = new Map<string, number>();
+posts.forEach((p) => p.tags.forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1)));
+const filters = ['All', ...[...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([t]) => t)];
+---
+<Base>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Career · Technology · Growth</p>
+      <h1>Notes on tech, career, and the <em>connected</em> world.</h1>
+      <p class="sub">A former tech journalist turned product and platform person. Currently into IoT, Wi-Fi and CPE.</p>
+    </section>
+
+    <div class="filters">
+      {filters.map((f, i) => <button class={i === 0 ? 'pill on' : 'pill'} data-f={f}>{f}</button>)}
+    </div>
+
+    <section class="grid">
+      {posts.map((p) => (
+        <article class={`card ${p.type}`} data-tags={['All', ...p.tags].join('|')}>
+          {p.type === 'slides' ? (
+            <div class="media"><iframe src={p.embed} loading="lazy" allowfullscreen title={p.title}></iframe></div>
+          ) : (
+            <a class="media cover" href={`/blog/${p.slug}/`} style={`--h:${p.hue}`}><span>{p.tags[0]}</span></a>
+          )}
+          <div class="body">
+            <div class="meta">
+              {p.type === 'slides' && <b class="badge">Slides</b>}
+              <time>{p.date}</time> · {p.mins} min
+            </div>
+            <h2><a href={`/blog/${p.slug}/`}>{p.title}</a></h2>
+            <p>{p.excerpt}</p>
+            <div class="tags">{p.tags.map((t) => <span>#{t}</span>)}</div>
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+
+  <script is:inline>
+    document.querySelectorAll('.pill').forEach((b) => b.onclick = () => {
+      document.querySelectorAll('.pill').forEach((x) => x.classList.toggle('on', x === b));
+      document.querySelectorAll('.card').forEach((c) => {
+        c.hidden = !c.dataset.tags.split('|').includes(b.dataset.f);
+      });
+    });
+  </script>
+</Base>
