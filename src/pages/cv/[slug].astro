@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import '../../styles/project.css';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+  return all.map((project, i) => ({
+    params: { slug: project.id },
+    props: { project, next: all[i + 1] },
+  }));
+}
+const { project, next } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+---
+<Base title={`${d.title} · Maude Shen`}>
+  <main class="proj">
+    <a class="back" href="/cv">← Back to CV</a>
+
+    <header class="proj-head">
+      <p class="eyebrow">{d.group}</p>
+      <h1>{d.title}</h1>
+      <p class="sub">{d.description}</p>
+      <div class="tags">{d.tags.map((t) => <span>#{t}</span>)}</div>
+    </header>
+
+    <img class="hero-img" src={`/cv/${d.cover}`} alt={d.title} />
+
+    <div class="prose"><Content /></div>
+
+    {d.gallery.length > 0 && (
+      <section class="block">
+        <h2>Gallery</h2>
+        <div class="gal">
+          {d.gallery.map((g) => (
+            <figure><img src={`/cv/${g.img}`} alt={g.caption} loading="lazy" /><figcaption><b>{g.caption}</b><span>{g.tag}</span></figcaption></figure>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <nav class="next">
+      <a href="/cv">← All projects</a>
+      {next && <a href={`/cv/${next.id}/`}>Next: {next.data.title} →</a>}
+    </nav>
+  </main>
+</Base>

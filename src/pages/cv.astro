@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
 const stats = [
@@ -48,15 +49,13 @@ const jobs = [
     bullets: ['Directed product-focused community initiatives, maintaining a consistent 10k+ MAU.'] },
 ];
 
+const wiz = { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/cv/wiz/', img: 'wiz_integration.png', tags: ['matter', 'global_partnership', 'iot'], order: 1 };
 const projects = [
-  { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/cv/wiz', img: 'wiz_integration.png', tags: ['matter', 'global_partnership', 'iot'] },
-  { group: 'Platform & Ecosystem', title: 'Multi-Tenant iGaming Platform', img: 'igaming.png', tags: ['saas', 'scalability'] },
-  { group: 'Hands-on Builds', title: 'WiZ Local Control Test (CLI)', img: 'wiz_smart_lighting.png', tags: ['python', 'protocol_test'] },
-  { group: 'Hands-on Builds', title: 'CarePilot (PoC Web App)', img: 'CarePilot_cover.png', tags: ['fastapi', 'system_architecture'] },
-  { group: 'Hands-on Builds', title: 'JobLens AI Assistant', img: 'joblens_cover.png', tags: ['llm', 'automation'] },
-  { group: 'Social Impact', title: 'SmallSomebody (Data Initiative)', img: 'Smallsomebody_website.jpg', tags: ['open_data', 'sdgs'] },
-  { group: 'Social Impact', title: 'SALASUSU (Global E-commerce)', img: 'salasusu_website.png', tags: ['0_to_1', 'ux'] },
-];
+  wiz,
+  ...(await getCollection('projects')).map((p) => ({
+    group: p.data.group, title: p.data.title, href: `/cv/${p.id}/`, img: p.data.thumb, tags: p.data.tags.slice(0, 3), order: p.data.order,
+  })),
+].sort((a, b) => a.order - b.order);
 
 const skills = [
   ['Product & Strategy', ['Roadmap Prioritization', 'GTM Strategy', 'Stakeholder Management', 'Agile / Scrum / SAFe', 'User Research']],
@@ -116,7 +115,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
         <h4 class="grp">{g}</h4>
         <div class="pgrid">
           {projects.filter((p) => p.group === g).map((p) => (
-            <a class="pcard" href={p.href ?? '#'}>
+            <a class="pcard" href={p.href}>
               <img src={`/cv/${p.img}`} alt={p.title} loading="lazy" />
               <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
             </a>
