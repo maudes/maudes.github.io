@@ -3,8 +3,8 @@ title: "WiZ Local Control Test"
 group: "Hands-on Builds"
 order: 3
 description: "A Python CLI that validates WiZ local (UDP) control, built to unblock partners and regional sales demos."
-cover: wiz_smart_lighting.png
-thumb: wiz_smart_lighting.png
+cover: wiz_smart_lighting.webp
+thumb: wiz_smart_lighting.webp
 tags: [iot, python, streamlit, automation_test, cli_tool, pytest]
 glance:
   - ["Role", "Solo developer & product owner"]
@@ -48,9 +48,8 @@ structure: |
   ├── cli.py              # CLI entry point
   ├── app.py              # optional Streamlit GUI
   └── README.md
-repo:
-  label: "Local Control Test Script for WiZ Lights"
-  url: "https://github.com/maudes/wiz-light-local-test-script"
+links:
+  - { label: "GitHub", url: "https://github.com/maudes/wiz-light-local-test-script" }
 gallery:
-  - { img: wiz_local_ui.png, caption: "Optional Streamlit UI", tag: "#streamlit" }
+  - { img: wiz_local_ui.webp, caption: "Optional Streamlit UI", tag: "#streamlit" }
 ---

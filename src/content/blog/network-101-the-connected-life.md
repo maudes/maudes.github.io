@@ -46,7 +46,7 @@ Before diving into Matter, let's take a closer look at the other key standards t
 
 ## Key Technologies & Standards
 
-![spectrum-tech](/assets/spectrum-tech.png)
+![spectrum-tech](/assets/spectrum-tech.webp)
 
 ### Bluetooth, BLE & NFC 
 Both Bluetooth and NFC are short-range wireless communication standards that have become ubiquitous in our daily lives. In the smart home ecosystem, those technologies often serve as the onboarding bridge to a more complex system.

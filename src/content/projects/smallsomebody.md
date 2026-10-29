@@ -3,8 +3,8 @@ title: "SmallSomebody"
 group: "Social Impact"
 order: 6
 description: "An open-data platform connecting Taiwan’s NGOs and NPOs to collaborate and amplify their impact, aligned with the Sustainable Development Goals."
-cover: ss_fine_pic.png
-thumb: Smallsomebody_website.jpg
+cover: ss_fine_pic.webp
+thumb: Smallsomebody_website.webp
 tags: [pm, sdg, social_enterprise, data_analytics, seo, open_data]
 glance:
   - ["Role", "Product Manager / UX Lead"]
@@ -35,7 +35,10 @@ phases:
   - ["Development & Testing", ["Led agile sprints with engineers", "Integrated user testing and UX optimization", "Designed Drupal content types synced with Airtable"]]
   - ["Release & Promotion", ["Coordinated launch and deployment", "Hosted SDG workshops and joined open-data events", "Grew the community via Facebook and outreach"]]
   - ["Iteration & Impact", ["Tracked traffic, behavior and onboarding metrics", "Built a feedback loop for NGOs and users", "Improved UX and features based on data"]]
+links:
+  - { label: "Facebook Page", url: "https://www.facebook.com/p/小人物串聯-100066305665656/" }
+linkNote: "The original website has been retired."
 gallery:
-  - { img: ss_questionnaire.png, caption: "UX questionnaire", tag: "#ux" }
-  - { img: ss_sitemap.png, caption: "SmallSomebody sitemap", tag: "#ux" }
+  - { img: ss_questionnaire.webp, caption: "UX questionnaire", tag: "#ux" }
+  - { img: ss_sitemap.webp, caption: "SmallSomebody sitemap", tag: "#ux" }
 ---

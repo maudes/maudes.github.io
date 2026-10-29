@@ -3,8 +3,8 @@ title: "iGaming Platform"
 group: "Platform & Ecosystem"
 order: 2
 description: "A self-hosted lottery SaaS for white-label clients, with user web apps and admin dashboards."
-cover: igaming.png
-thumb: igaming.png
+cover: igaming.webp
+thumb: igaming.webp
 tags: [pm, igaming, saas, app]
 glance:
   - ["Role", "Product Manager (1 of 2)"]
@@ -36,6 +36,6 @@ phases:
   - ["Development & Testing", ["Daily stand-ups for progress tracking", "Auth, payments, dashboards, chat and admin tools", "Functional, integration and performance testing"]]
   - ["Release & Deployment", ["Delivered the MVP on schedule", "Enabled early client onboarding and a feedback loop"]]
 gallery:
-  - { img: 18_hermes.png, caption: "App view", tag: "#app" }
-  - { img: 18_user_journey.png, caption: "User journey", tag: "#ux" }
+  - { img: 18_hermes.webp, caption: "App view", tag: "#app" }
+  - { img: 18_user_journey.webp, caption: "User journey", tag: "#ux" }
 ---

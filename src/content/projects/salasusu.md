@@ -3,8 +3,8 @@ title: "SALASUSU"
 group: "Social Impact"
 order: 7
 description: "A global e-commerce site for a social enterprise supporting Cambodian women."
-cover: salasusu_website.png
-thumb: salasusu_website.png
+cover: salasusu_website.webp
+thumb: salasusu_website.webp
 tags: [pm, sdg, social_enterprise, data_analytics, seo]
 glance:
   - ["Role", "Product Owner"]
@@ -29,5 +29,8 @@ contributions:
   - ["Audience growth", "Expanded online reach through design and content optimization."]
   - ["Social-commercial balance", "A platform where commercial goals and NGO-driven impact reinforce each other."]
 gallery:
-  - { img: susu_empathy.png, caption: "Empathy map for SALASUSU", tag: "#ux" }
+  - { img: susu_empathy.webp, caption: "Empathy map for SALASUSU", tag: "#ux" }
+links:
+  - { label: "salasusu.com", url: "https://salasusu.com" }
+linkNote: "The site has since been redesigned as the organization shifted direction."
 ---

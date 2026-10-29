@@ -23,6 +23,12 @@ const d = project.data;
       <h1>{d.title}</h1>
       <p class="sub">{d.description}</p>
       <div class="tags">{d.tags.map((t) => <span>#{t}</span>)}</div>
+      {d.links.length > 0 && (
+        <p class="proj-links">
+          {d.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a>)}
+          {d.linkNote && <small>{d.linkNote}</small>}
+        </p>
+      )}
     </header>
 
     <img class="hero-img" src={`/resume/${d.cover}`} alt={d.title} />
@@ -99,7 +105,6 @@ const d = project.data;
       <section class="block">
         <h2>Project structure</h2>
         <pre class="code"><code>{d.structure}</code></pre>
-        {d.repo && <p class="repo">GitHub: <a href={d.repo.url}>{d.repo.label} ↗</a></p>}
       </section>
     )}
 

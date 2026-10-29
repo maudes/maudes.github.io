@@ -30,7 +30,7 @@ Companies constantly compete for market dominance, striving to become the indust
 High development cost has not only stifled the market growth, and ultimately degraded the user experience. To address this, there is a growing trend in the CPE & ISP market to adopt the "modular" and "microservices" methodologies that have been the backbone of the software industry. 
 
 Before we dive into the impact, let's have a quick recap on how a connected device stacked. 
-![simple-architecture](/assets/simple-architecture.png)
+![simple-architecture](/assets/simple-architecture.webp)
 In my previous experience building platform strategies for smart lighting, the structure followed a similar but simpler logic. For example: the bulb uses a vendor's SoC and embedded SDK which includes the bootloader, flash partitions for binaries, and core drivers. Then, our own SDK (or multiple SDKs) will be integrated on the top of chip vendors' stack to implement the "brand-specific" features. 
 
 These features range from defined manufactured Out-the-the-box (OOTB) behaviour, IoT data collection to edge computing, and management related agents. Finally, those configuration or collected data will be saved locally and synchronized with the cloud. User interfaces will update the configuration table later via the Cloud API. We can discuss more on this in the other posts about smart homes.
@@ -38,7 +38,7 @@ These features range from defined manufactured Out-the-the-box (OOTB) behaviour,
 In the context of a CPE, the logic remains consistent with the previous example. However, due to its complexity (at least compared to smart bulbs), the architecture requires distinct communication layers. This includes southbound API (often implemented as hardware abstraction layer, HAL) for communicating with the hardware layer, and northbound API for interacting with the cloud and user interfaces. This separation is crucial for maintaining a flexible, scalable and efficient network structure.
 
 Among all layers, the middleware is what defines the control and behaviour of a device. Historically, the CPE development in the real world has followed the flow as:
-![simple-architecture-w-roles](/assets/simple-architecture-w-roles.png)
+![simple-architecture-w-roles](/assets/simple-architecture-w-roles.webp)
 
 1. Select chip vendor based on the feature list and cost target; every vendor has its own SoC and SDK design
 2.  OEM bridges the proprietary vendor chipset with its own specific middleware 
@@ -50,7 +50,7 @@ In this structure, the actual brand owners have the least control. While they de
 
 ## Key Frameworks & Standards
 
-![overview-architecture](/assets/overview-architecture.png)
+![overview-architecture](/assets/overview-architecture.webp)
 
 > I tried to put all 4 frameworks (RDK-B, prpl, OpenWRT, and OpenSync) in one diagram to understand the differences.
 

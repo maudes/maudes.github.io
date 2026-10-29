@@ -47,7 +47,7 @@ const filters = ['All', ...[...counts.entries()].sort((a, b) => b[1] - a[1]).sli
       {posts.map((p) => (
         <article class={`card ${p.type}`} data-tags={['All', ...p.tags].join('|')}>
           {p.type === 'slides' ? (
-            <div class="media"><iframe src={p.embed} loading="lazy" allowfullscreen title={p.title}></iframe></div>
+            <div class="media deck"><button class="play" data-src={p.embed} data-title={p.title} aria-label={`Load slides: ${p.title}`}><span class="tri"></span><b>Slides</b><small>Click to load the deck</small></button></div>
           ) : (
             <a class="media cover" href={`/blog/${p.slug}/`} data-v={p.hue % 3} style={`--h:${p.hue}`}><span>{p.tags[0]}</span></a>
           )}
@@ -66,6 +66,11 @@ const filters = ['All', ...[...counts.entries()].sort((a, b) => b[1] - a[1]).sli
   </main>
 
   <script is:inline>
+    document.querySelectorAll('.play').forEach((b) => b.onclick = () => {
+      const f = document.createElement('iframe');
+      f.src = b.dataset.src; f.title = b.dataset.title; f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
     document.querySelectorAll('.pill').forEach((b) => b.onclick = () => {
       document.querySelectorAll('.pill').forEach((x) => x.classList.toggle('on', x === b));
       document.querySelectorAll('.card').forEach((c) => {

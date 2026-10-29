@@ -5,7 +5,7 @@ Personal site: tech notes, resume and portfolio. Built with Astro, deployed to G
 ## Write
 
 - Blog post: add `src/content/blog/<slug>.md` (front matter: `title`, `date`, `categories`).
-- Images: put in `public/assets/` and reference as `/assets/name.png`.
+- Images: put in `public/assets/` and reference as `/assets/name.webp`.
 - Push to `main`; GitHub Actions builds and deploys.
 
 ## Develop

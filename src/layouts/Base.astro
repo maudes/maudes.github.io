@@ -37,6 +37,9 @@ const { title = "Maude's Tech Notes" } = Astro.props;
       root.dataset.theme = dark ? 'light' : 'dark';
       localStorage.setItem('theme', root.dataset.theme);
     };
+    document.querySelectorAll('a[href]').forEach((a) => {
+      if (a.hostname && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    });
   </script>
 </body>
 </html>

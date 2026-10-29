@@ -3,8 +3,8 @@ title: "CarePilot"
 group: "Hands-on Builds"
 order: 4
 description: "A local-first personal health tracker and backend sandbox exploring FastAPI and the HL7 FHIR standard."
-cover: CarePilot_dashboard.png
-thumb: CarePilot_cover.png
+cover: CarePilot_dashboard.webp
+thumb: CarePilot_cover.webp
 tags: [python, streamlit, fastapi, sqlalchemy, pytest]
 glance:
   - ["Role", "Sole developer & PM"]
@@ -53,8 +53,7 @@ structure: |
   ├── tests/
   ├── docker-compose.yml
   └── pyproject.toml
-repo:
-  label: "CarePilot Dashboard"
-  url: "https://github.com/maudes/carepilot-dashboard"
+links:
+  - { label: "GitHub", url: "https://github.com/maudes/carepilot-dashboard" }
 video: "https://www.youtube.com/embed/vUQTXPYX7bw"
 ---

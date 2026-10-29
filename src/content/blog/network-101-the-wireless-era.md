@@ -34,7 +34,7 @@ Let's start with Wi-Fi. There are two key entities to know in terms of Wi-Fi sta
 - **Wi-Fi Alliance (WFA)**: runs industry interoperability tests for `Wi-Fi X` devices
 
 The diagram below explains the evolution of Wi-Fi: 
-![wifi-evolution](/assets/wifi-evolution.png)
+![wifi-evolution](/assets/wifi-evolution.webp)
 
 ### Pre-Wi-Fi 4 era
 
@@ -108,7 +108,7 @@ Okay, we will have more mesh talk in a future post on smart home. Now, let's mov
 When we're talking about Wi-Fi, it's all about the indoor scenarios or use cases in specific spaces. But we also want to enjoy the seamless Internet access while on the move. This is where mobile broadband enters the picture. 
 
 Below is the evolution of mobile network:
-![mbb-evolution](/assets/mbb-evolution.png)
+![mbb-evolution](/assets/mbb-evolution.webp)
 
 ### Pre-Internet Era: 1G to 2G
 Unlike Wi-Fi technology, the origin of mobile broadband was aimed at providing a portable "phone" service. Before 1G, people had to find a landline for calling others. With the arrival of 1G, we saw the birth of "brick phones", extremely huge mobile phones solely for making calls. The technology was based on analog signals which were easily compromised by interference and background noise.
@@ -178,7 +178,7 @@ Admittedly, the gap between the exciting vision and our current reality remains 
 
 (You may learn [more details](https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/5G-A-Rel-19-Presentation.pdf) via Qualcomm slides.)
 ## Conclusion
-![wireless-evolution](/assets/wireless-evolution.png)
+![wireless-evolution](/assets/wireless-evolution.webp)
 
 Whoa! What a long journey. After a brief tour of wireless technology, it is clear that the trend has expanded from user-centered use cases to being industrial-scenario focused.
 

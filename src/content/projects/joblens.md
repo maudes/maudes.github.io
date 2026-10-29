@@ -3,8 +3,8 @@ title: "JobLens AI Assistant"
 group: "Hands-on Builds"
 order: 5
 description: "An LLM-powered assistant that scrapes job descriptions, compares them to your CV and tracks applications."
-cover: joblens_UI.png
-thumb: joblens_cover.png
+cover: joblens_UI.webp
+thumb: joblens_cover.webp
 tags: [python, fastapi, streamlit, llm, automation]
 glance:
   - ["Role", "Sole PM & developer"]
@@ -60,8 +60,7 @@ structure: |
   ├── app.py                  # Streamlit UI
   ├── main.py                 # FastAPI routes
   └── pyproject.toml
-repo:
-  label: "JobLens (job-hunt-ai)"
-  url: "https://github.com/maudes/job-hunt-ai"
+links:
+  - { label: "GitHub", url: "https://github.com/maudes/job-hunt-ai" }
 video: "https://www.youtube.com/embed/2OY2R-VBFPs?si=K4SwE3rRZK25-tFs"
 ---
