@@ -16,6 +16,7 @@ const posts = entries.map((e) => {
   return {
     slug: e.id,
     title: e.data.title,
+    cardTitle: e.data.title.startsWith(`${e.data.categories[0]}:`) ? e.data.title.slice(e.data.categories[0].length + 1).trim() : e.data.title,
     date: e.data.date.toISOString().slice(0, 10),
     tags: e.data.categories,
     excerpt: firstPara.length > 170 ? firstPara.slice(0, 167).trimEnd() + '…' : firstPara,
@@ -55,7 +56,7 @@ const filters = ['All', ...[...counts.entries()].sort((a, b) => b[1] - a[1]).sli
               {p.type === 'slides' && <b class="badge">Slides</b>}
               <time>{p.date}</time> · {p.mins} min
             </div>
-            <h2><a href={`/blog/${p.slug}/`}>{p.title}</a></h2>
+            <h2><a href={`/blog/${p.slug}/`}>{p.cardTitle}</a></h2>
             <p>{p.excerpt}</p>
             <div class="tags">{p.tags.map((t) => <span>#{t}</span>)}</div>
           </div>
