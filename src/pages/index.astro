@@ -48,7 +48,7 @@ const filters = ['All', ...[...counts.entries()].sort((a, b) => b[1] - a[1]).sli
           {p.type === 'slides' ? (
             <div class="media"><iframe src={p.embed} loading="lazy" allowfullscreen title={p.title}></iframe></div>
           ) : (
-            <a class="media cover" href={`/blog/${p.slug}/`} style={`--h:${p.hue}`}><span>{p.tags[0]}</span></a>
+            <a class="media cover" href={`/blog/${p.slug}/`} data-v={p.hue % 3} style={`--h:${p.hue}`}><span>{p.tags[0]}</span></a>
           )}
           <div class="body">
             <div class="meta">
