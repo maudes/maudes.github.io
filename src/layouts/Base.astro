@@ -22,7 +22,7 @@ const { title = "Maude's Tech Notes" } = Astro.props;
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="/">maude<span>.</span>notes</a>
+    <a class="brand" href="/">maudes<span>.</span></a>
     <nav>
       <a href="/">Notes</a><a href="/resume/">Resume</a>
       <button id="theme" aria-label="Toggle theme">◐</button>
@@ -36,6 +36,9 @@ const { title = "Maude's Tech Notes" } = Astro.props;
       const dark = (root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
       root.dataset.theme = dark ? 'light' : 'dark';
       localStorage.setItem('theme', root.dataset.theme);
+    };
+    document.querySelector('.brand').onclick = (e) => {
+      e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' });
     };
     document.querySelectorAll('a[href]').forEach((a) => {
       if (a.hostname && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
