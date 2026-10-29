@@ -2,7 +2,7 @@
 title: "SmallSomebody"
 group: "Social Impact"
 order: 6
-description: "An open-data platform connecting Taiwan’s NGOs and NPOs, aligned with the Sustainable Development Goals."
+description: "An open-data platform connecting Taiwan’s NGOs and NPOs to collaborate and amplify their impact, aligned with the Sustainable Development Goals."
 cover: ss_fine_pic.png
 thumb: Smallsomebody_website.jpg
 tags: [pm, sdg, social_enterprise, data_analytics, seo, open_data]
@@ -11,7 +11,7 @@ glance:
   - ["Period", "Oct 2018 – Jul 2020"]
   - ["Stack", "Drupal, Airtable, MySQL"]
   - ["Impact", "45% growth in followers and MAU"]
-lead: "An open-data platform that breaks down information silos between Taiwan’s NGOs and NPOs, helping smaller organizations gain visibility and amplify their impact."
+lead: "An open-data platform that breaks down information silos between Taiwan’s NGOs and NPOs. It helps smaller organizations gain visibility, connect and collaborate with each other, and grow the energy and impact of Taiwan’s local non-government sector. It also serves K12 teachers who bring SDG topics into the classroom."
 team:
   - ["Product Manager / UX Lead (me)", "Led product strategy, UX research and cross-functional coordination"]
   - ["Fullstack Engineer", "Backend development, API integration"]
@@ -28,7 +28,7 @@ contributions:
   - ["Community engagement", "SDG board game workshops and open-sharing events, driving 45% growth in followers and MAU."]
   - ["Agile management", "Sprint planning and coordination across engineering, design and marketing."]
   - ["Platform launch", "Delivered an MVP with organization listing, search and categorization."]
-  - ["Educational adoption", "Adopted by educators as a teaching tool for SDG concepts in schools."]
+  - ["K12 teacher adoption", "Adopted by K12 teachers as a classroom tool for teaching SDG concepts."]
 phases:
   - ["Initiation", ["Defined visibility and resource challenges for NGOs and NPOs", "Established an SDG-driven platform vision"]]
   - ["Planning", ["Selected Drupal + Airtable for flexible CMS and low-barrier data ops", "Ran empathy mapping and persona workshops", "Scoped the MVP: listing, search, categorization"]]
