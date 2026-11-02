@@ -4,7 +4,7 @@ date: 2026-11-01
 categories:
   - Field Notes
   - CPE
-draft: true
+draft: false
 ---
 I've spent almost a year handling CPE bids from start to finish. Here's a quick overview of how an OEM project runs, from the first RFQ to the last patch.
 
