@@ -6,6 +6,7 @@ description: "A Python CLI that validates WiZ local (UDP) control, built to unbl
 cover: wiz_smart_lighting.webp
 thumb: wiz_smart_lighting.webp
 tags: [iot, python, streamlit, automation_test, cli_tool, pytest]
+cardTags: [iot, python, automation_test, cli_tool]
 glance:
   - ["Role", "Solo developer & product owner"]
   - ["Period", "Mar 2024 – Aug 2025"]

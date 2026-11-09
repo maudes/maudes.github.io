@@ -62,7 +62,7 @@ const wiz = { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', 
 const projects = [
   wiz,
   ...(await getCollection('projects')).map((p) => ({
-    group: p.data.group, title: p.data.title, href: `/resume/${p.id}/`, img: p.data.thumb, tags: p.data.tags.slice(0, 3), order: p.data.order,
+    group: p.data.group, title: p.data.title, href: `/resume/${p.id}/`, img: p.data.thumb, tags: p.data.cardTags ?? p.data.tags.slice(0, 3), order: p.data.order,
   })),
 ].sort((a, b) => a.order - b.order);
 

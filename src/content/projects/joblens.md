@@ -5,7 +5,8 @@ order: 5
 description: "An LLM-powered assistant that scrapes job descriptions, compares them to your CV and tracks applications."
 cover: joblens_UI.webp
 thumb: joblens_cover.webp
-tags: [python, fastapi, streamlit, llm, automation]
+tags: [python, fastapi, streamlit, llm, gemini_api, automation, google_sheets]
+cardTags: [fastapi, llm, automation, google_sheets]
 glance:
   - ["Role", "Sole PM & developer"]
   - ["Period", "Mar 2026 – Present"]

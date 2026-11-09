@@ -5,7 +5,8 @@ order: 4
 description: "A local-first personal health tracker and backend sandbox exploring FastAPI and the HL7 FHIR standard."
 cover: CarePilot_dashboard.webp
 thumb: CarePilot_cover.webp
-tags: [python, streamlit, fastapi, sqlalchemy, pytest]
+tags: [local_first, interoperability, python, streamlit, fastapi, sqlalchemy, pytest]
+cardTags: [local_first, interoperability, fastapi]
 glance:
   - ["Role", "Sole developer & PM"]
   - ["Period", "Jun 2025 – Dec 2025"]
