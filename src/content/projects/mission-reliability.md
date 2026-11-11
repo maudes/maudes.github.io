@@ -4,7 +4,7 @@ group: "Built Solo"
 subgroup: "Domain Explorations"
 order: 8
 description: "A product concept and clickable prototype for the verification layer on top of fake-online detection: how a command center reviews, trusts and acts on alerts."
-cover: mission-reliability_dashboard.jpg
+cover: mission-reliability_map.webp
 thumb: mission-reliability_dashboard.jpg
 tags: [physical_security, alert_triage, ux, iot, device_health, prototyping]
 glance:
@@ -44,3 +44,32 @@ links:
   - { label: "Slides", url: "https://docs.google.com/presentation/d/1OGXcHpSyM5nTwTitZ5yXQvQ0uoZkcpfTF5sR_sCxuRk/edit?usp=sharing" }
 linkNote: "Work in progress. The verification queue is not yet published to the live prototype."
 ---
+
+## How it works
+
+Each layer and how they hand off. The dashed layer is assumed: the prototype feeds it simulated alerts. Everything inside **Command center** is what I designed.
+
+```mermaid
+flowchart TB
+    subgraph L1["In the field"]
+        S["Body-cam signals<br/>heartbeat · recording · upload · battery"]
+        F["Field crew<br/>sees a problem"]
+    end
+    subgraph L2["Detection · assumed"]
+        D["Flags fake online, frozen recording, sync gaps<br/>alert = type + confidence + evidence"]
+    end
+    subgraph L3["Command center"]
+        DB["Dashboard<br/>groups ranked by risk"] --> GD["Group detail<br/>devices, map, signal history"]
+        GD --> VQ["Verification queue<br/>Confirmed · Unresolved · False alarm<br/>Unresolved returns at re-check time"]
+        VQ -- Confirmed --> R["Response action<br/>swap device, force sync, escalate"]
+    end
+    subgraph L4["Audit & metrics"]
+        A["Decision log<br/>auto-detection rate · manual-catch fraction"]
+    end
+    S --> D --> DB
+    F -- "manual report,<br/>bypasses detection" --> VQ
+    R --> A
+    VQ -- "False alarm" --> A
+    A -. "manual-catch rising =<br/>detection degrading" .-> D
+    style L2 stroke-dasharray: 6 4
+```
