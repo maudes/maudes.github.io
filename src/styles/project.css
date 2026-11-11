@@ -87,7 +87,8 @@
   .proj .prose thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
   .proj .prose td:first-child { color: var(--fg); width: 30%; }
   .proj .prose code { font: 500 .88em 'JetBrains Mono', monospace; background: color-mix(in srgb, var(--accent) 12%, transparent); padding: .15em .4em; border-radius: 6px; }
-  .proj .prose pre { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
+  .proj .prose .mermaid { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 1.5em; text-align: center; overflow-x: auto; }
+  .proj .prose pre {background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
   .proj .prose pre code { background: none; padding: 0; }
   .proj .prose hr { border: 0; margin: 0; }
   .proj .prose .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 1em 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--line); }

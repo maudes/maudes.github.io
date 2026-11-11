@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Mermaid from '../../components/Mermaid.astro';
 import { Image } from 'astro:assets';
 import '../../styles/project.css';
 import { resumeImage, sizes, widths } from '../../lib/images';
@@ -135,4 +136,5 @@ const d = project.data;
       {next && <a href={`/resume/${next.id}/`}>Next: {next.data.title} →</a>}
     </nav>
   </main>
+  <Mermaid />
 </Base>
