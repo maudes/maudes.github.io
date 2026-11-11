@@ -152,7 +152,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
         <p><b>National ChengChi University</b><br />B.A. Journalism, Minor in Political Science</p>
         <p><b>Cologne Business School</b><br />Exchange Program, Cologne, Germany</p></div>
       <div><h4>Certifications</h4>
-        <p>AWS AI Practitioner (2026)<br />freeCodeCamp Relational Database (2025)<br />Kaggle Pandas (2025)<br />Google IT Support (2021)<br />freeCodeCamp Scientific Computing with Python (2021)</p></div>
+        <p><a href="https://www.udacity.com/certificate/e/b7bd31dc-900d-11f1-bc04-ff2beab0997d" target="_blank" rel="noopener">Udacity Future AWS Agent Engineer (2026)</a><br /><a href="https://www.freecodecamp.org/certification/maudes/relational-database-v8" target="_blank" rel="noopener">freeCodeCamp Relational Database (2025)</a><br /><a href="https://www.kaggle.com/learn/certification/maudeshen/pandas" target="_blank" rel="noopener">Kaggle Pandas (2025)</a><br /><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/97Y727NB9DJF" target="_blank" rel="noopener">Google IT Support (2021)</a><br /><a href="https://www.freecodecamp.org/certification/maudes/scientific-computing-with-python-v7" target="_blank" rel="noopener">freeCodeCamp Scientific Computing with Python (2021)</a></p></div>
       <div><h4>Languages &amp; Community</h4>
         <p><b>Languages</b><br />Mandarin native<br />English proficient (IELTS 7.5)<br />Japanese beginner</p>
         <p><b>Community</b><br />NetTuesday Speaker (2019)<br />EMT-1 certified (2025)</p></div>
@@ -219,6 +219,8 @@ const groups = [...new Set(projects.map((p) => p.group))];
   .more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .more p { margin: 0 0 12px; font-size: 14.5px; color: var(--muted); }
   .more b { color: var(--fg); font-weight: 600; }
+  .more a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: .15s; }
+  .more a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
   @media (max-width: 800px) {
     .stats, .pillars { grid-template-columns: 1fr 1fr; }
