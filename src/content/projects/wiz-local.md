@@ -4,7 +4,7 @@ group: "Built Solo"
 subgroup: "Shipped Tools"
 order: 5
 description: "A Python CLI that validates WiZ local (UDP) control, built to unblock partners and regional sales demos."
-cover: wiz_smart_lighting.webp
+cover: wiz_cli.webp
 thumb: wiz_smart_lighting.webp
 tags: [iot, dev_tooling, python, test_automation, cli, pytest, streamlit]
 glance:
