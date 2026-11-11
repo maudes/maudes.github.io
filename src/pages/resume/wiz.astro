@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import '../../styles/project.css';
 import { wizTags as tags } from '../../data/wiz';
+import { resumeImage, sizes, widths } from '../../lib/images';
 
 const glance = [
   ['Role', 'Software PM, Platform & Partnerships'],
@@ -66,7 +68,7 @@ const gallery = [
       <p class="proj-links"><a href="https://www.wizconnected.com/en-us/explore-wiz/works-with" target="_blank" rel="noopener">WiZ Works With ↗</a></p>
     </header>
 
-    <img class="hero-img" src="/resume/wiz_amazon_bundle.webp" alt="Echo Spot bundled with a WiZ color bulb" />
+    <Image class="hero-img" src={resumeImage('wiz_amazon_bundle.webp')} alt="Echo Spot bundled with a WiZ color bulb" widths={widths.hero} sizes={sizes.hero} loading="eager" fetchpriority="high" />
 
     <dl class="glance">
       {glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
@@ -129,7 +131,7 @@ const gallery = [
       <h2>Gallery</h2>
       <div class="gal">
         {gallery.map(([f, c, t]) => (
-          <figure><img src={`/resume/${f}`} alt={c} loading="lazy" /><figcaption><b>{c}</b><span>{t}</span></figcaption></figure>
+          <figure><Image src={resumeImage(f)} alt={c} widths={widths.gallery} sizes={sizes.gallery} /><figcaption><b>{c}</b><span>{t}</span></figcaption></figure>
         ))}
       </div>
     </section>

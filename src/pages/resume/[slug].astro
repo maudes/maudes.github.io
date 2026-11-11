@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import '../../styles/project.css';
+import { resumeImage, sizes, widths } from '../../lib/images';
 
 export async function getStaticPaths() {
   const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
@@ -31,7 +33,7 @@ const d = project.data;
       )}
     </header>
 
-    <img class="hero-img" src={`/resume/${d.cover}`} alt={d.title} />
+    <Image class="hero-img" src={resumeImage(d.cover)} alt={d.title} widths={widths.hero} sizes={sizes.hero} loading="eager" fetchpriority="high" />
 
     {d.glance.length > 0 && (
       <dl class="glance">{d.glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
@@ -122,7 +124,7 @@ const d = project.data;
         <h2>Gallery</h2>
         <div class="gal">
           {d.gallery.map((g) => (
-            <figure><img src={`/resume/${g.img}`} alt={g.caption} loading="lazy" /><figcaption><b>{g.caption}</b><span>{g.tag}</span></figcaption></figure>
+            <figure><Image src={resumeImage(g.img)} alt={g.caption} widths={widths.gallery} sizes={sizes.gallery} /><figcaption><b>{g.caption}</b><span>{g.tag}</span></figcaption></figure>
           ))}
         </div>
       </section>

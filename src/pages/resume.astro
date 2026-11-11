@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import { wizTags } from '../data/wiz';
+import { resumeImage, sizes, widths } from '../lib/images';
 
 const stats = [
   ['6 yrs', 'Platform product management'],
@@ -129,7 +131,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
             <div class="pgrid">
               {projects.filter((p) => p.group === g && p.subgroup === s).map((p) => (
                 <a class="pcard" href={p.href}>
-                  <img src={`/resume/${p.img}`} alt={p.title} loading="lazy" />
+                  <Image src={resumeImage(p.img)} alt={p.title} widths={widths.card} sizes={sizes.card} />
                   <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
                 </a>
               ))}
@@ -206,7 +208,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
   .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .pcard { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
   .pcard:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
-  .pcard img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--line); }
+  .pcard img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--line); }
   .pcard div { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; }
   .pcard b { font-size: 15px; letter-spacing: -0.01em; }
   .pcard span { font-size: 12.5px; color: var(--accent); }
