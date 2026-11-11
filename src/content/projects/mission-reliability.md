@@ -1,12 +1,12 @@
 ---
 title: "Mission Reliability Layer"
-group: "Hands-on Builds"
-order: 5.5
+group: "Built Solo"
+subgroup: "Domain Explorations"
+order: 8
 description: "A product concept and clickable prototype for the verification layer on top of fake-online detection: how a command center reviews, trusts and acts on alerts."
 cover: mission-reliability_dashboard.jpg
 thumb: mission-reliability_dashboard.jpg
-tags: [physical_security, iot, alert_triage, device_health, uiux]
-cardTags: [physical_security, iot, alert_triage, uiux]
+tags: [physical_security, alert_triage, ux, iot, device_health, prototyping]
 glance:
   - ["Role", "Sole PM & product designer"]
   - ["Period", "Jul 2026 – Present"]

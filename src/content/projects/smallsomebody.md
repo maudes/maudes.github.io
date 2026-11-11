@@ -1,11 +1,11 @@
 ---
 title: "SmallSomebody"
-group: "Social Impact"
-order: 6
+group: "Led with Teams"
+order: 3
 description: "An open-data platform connecting Taiwan’s NGOs and NPOs to collaborate and amplify their impact, aligned with the Sustainable Development Goals."
 cover: ss_fine_pic.webp
 thumb: Smallsomebody_website.webp
-tags: [pm, sdg, social_enterprise, data_analytics, seo, open_data]
+tags: [social_impact, open_data, seo, sdg, data_analytics, community]
 glance:
   - ["Role", "Product Manager / UX Lead"]
   - ["Period", "Oct 2018 – Jul 2020"]

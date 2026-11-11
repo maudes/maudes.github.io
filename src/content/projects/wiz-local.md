@@ -1,12 +1,12 @@
 ---
-title: "WiZ Local Control Test"
-group: "Hands-on Builds"
-order: 3
+title: "WiZ Local Control Test Tool"
+group: "Built Solo"
+subgroup: "Shipped Tools"
+order: 5
 description: "A Python CLI that validates WiZ local (UDP) control, built to unblock partners and regional sales demos."
 cover: wiz_smart_lighting.webp
 thumb: wiz_smart_lighting.webp
-tags: [iot, python, streamlit, automation_test, cli_tool, pytest]
-cardTags: [iot, python, automation_test, cli_tool]
+tags: [iot, dev_tooling, python, test_automation, cli, pytest, streamlit]
 glance:
   - ["Role", "Solo developer & product owner"]
   - ["Period", "Mar 2024 – Aug 2025"]

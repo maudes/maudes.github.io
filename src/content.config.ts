@@ -13,12 +13,12 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     group: z.string(),
+    subgroup: z.string().optional(),
     order: z.number(),
     description: z.string(),
     cover: z.string(),
     thumb: z.string(),
     tags: z.array(z.string()),
-    cardTags: z.array(z.string()).optional(),
     glance: z.array(pair).default([]),
     lead: z.string().optional(),
     why: z.object({ title: z.string(), body: z.array(z.string()) }).optional(),

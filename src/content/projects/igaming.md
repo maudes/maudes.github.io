@@ -1,11 +1,11 @@
 ---
 title: "iGaming Platform"
-group: "Platform & Ecosystem"
+group: "Led with Teams"
 order: 2
 description: "A self-hosted lottery SaaS for white-label clients, with user web apps and admin dashboards."
 cover: igaming.webp
 thumb: igaming.webp
-tags: [pm, igaming, saas, app]
+tags: [igaming, white_label, saas, admin_dashboard, web_app]
 glance:
   - ["Role", "Product Manager (1 of 2)"]
   - ["Team", "11 across product, design, engineering"]

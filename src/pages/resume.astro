@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { wizTags } from '../data/wiz';
 
 const stats = [
   ['6 yrs', 'Platform product management'],
@@ -58,11 +59,11 @@ const jobs = [
     ] },
 ];
 
-const wiz = { group: 'Platform & Ecosystem', title: 'WiZ Global IoT Ecosystem', href: '/resume/wiz/', img: 'wiz_integration.webp', tags: ['matter', 'global_partnership', 'iot'], order: 1 };
+const wiz = { group: 'Led with Teams', title: 'WiZ Global IoT Ecosystem', href: '/resume/wiz/', img: 'wiz_integration.webp', tags: wizTags.slice(0, 3), order: 1 };
 const projects = [
   wiz,
   ...(await getCollection('projects')).map((p) => ({
-    group: p.data.group, title: p.data.title, href: `/resume/${p.id}/`, img: p.data.thumb, tags: p.data.cardTags ?? p.data.tags.slice(0, 3), order: p.data.order,
+    group: p.data.group, subgroup: p.data.subgroup, title: p.data.title, href: `/resume/${p.id}/`, img: p.data.thumb, tags: p.data.tags.slice(0, 3), order: p.data.order,
   })),
 ].sort((a, b) => a.order - b.order);
 
@@ -122,14 +123,19 @@ const groups = [...new Set(projects.map((p) => p.group))];
     {groups.map((g) => (
       <>
         <h4 class="grp">{g}</h4>
-        <div class="pgrid">
-          {projects.filter((p) => p.group === g).map((p) => (
-            <a class="pcard" href={p.href}>
-              <img src={`/resume/${p.img}`} alt={p.title} loading="lazy" />
-              <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
-            </a>
-          ))}
-        </div>
+        {[...new Set(projects.filter((p) => p.group === g).map((p) => p.subgroup))].map((s) => (
+          <>
+            {s && <p class="sgrp">{s}</p>}
+            <div class="pgrid">
+              {projects.filter((p) => p.group === g && p.subgroup === s).map((p) => (
+                <a class="pcard" href={p.href}>
+                  <img src={`/resume/${p.img}`} alt={p.title} loading="lazy" />
+                  <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
+                </a>
+              ))}
+            </div>
+          </>
+        ))}
       </>
     ))}
 
@@ -194,6 +200,9 @@ const groups = [...new Set(projects.map((p) => p.group))];
   .award { font-size: 13.5px; color: var(--accent); margin: 12px 0 0; }
 
   .grp { font-size: 15px; margin: 28px 0 12px; letter-spacing: -0.01em; }
+  .sgrp { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 20px 0 10px; }
+  .grp + .sgrp { margin-top: 0; }
+  .pgrid + .sgrp { margin-top: 24px; }
   .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .pcard { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
   .pcard:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }

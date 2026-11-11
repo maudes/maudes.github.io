@@ -1,11 +1,11 @@
 ---
 title: "SALASUSU"
-group: "Social Impact"
-order: 7
+group: "Led with Teams"
+order: 4
 description: "A global e-commerce site for a social enterprise supporting Cambodian women."
 cover: salasusu_website.webp
 thumb: salasusu_website.webp
-tags: [pm, sdg, social_enterprise, data_analytics, seo]
+tags: [social_impact, e_commerce, seo, sdg, social_enterprise, data_analytics]
 glance:
   - ["Role", "Product Owner"]
   - ["Period", "Sep – Dec 2016"]

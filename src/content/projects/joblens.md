@@ -1,12 +1,12 @@
 ---
 title: "JobLens AI Assistant"
-group: "Hands-on Builds"
-order: 5
+group: "Built Solo"
+subgroup: "Shipped Tools"
+order: 6
 description: "An LLM-powered assistant that scrapes job descriptions, compares them to your CV and tracks applications."
 cover: joblens_UI.webp
 thumb: joblens_cover.webp
-tags: [python, fastapi, streamlit, llm, gemini_api, automation, google_sheets]
-cardTags: [fastapi, llm, automation, google_sheets]
+tags: [productivity, llm_workflow, fastapi, gemini, scraping, google_sheets, streamlit]
 glance:
   - ["Role", "Sole PM & developer"]
   - ["Period", "Mar 2026 – Present"]
