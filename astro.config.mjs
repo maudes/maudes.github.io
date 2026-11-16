@@ -23,7 +23,7 @@ const redirects = {
     '/cv/projects/igaming': '/resume/igaming',
     '/cv/projects/wiz_local': '/resume/wiz-local',
     '/cv/projects/carepilot': '/resume/carepilot',
-    '/cv/projects/joblens': '/resume/joblens',
+    '/cv/projects/joblens': '/resume/gojob',
     '/cv/projects/smallsomebody': '/resume/smallsomebody',
     '/cv/projects/salasusu': '/resume/salasusu',
     // briefly live at /cv/<slug> before the rename
@@ -31,7 +31,9 @@ const redirects = {
     '/cv/igaming': '/resume/igaming',
     '/cv/wiz-local': '/resume/wiz-local',
     '/cv/carepilot': '/resume/carepilot',
-    '/cv/joblens': '/resume/joblens',
+    '/cv/joblens': '/resume/gojob',
+    // JobLens became GoJob (v2)
+    '/resume/joblens': '/resume/gojob',
     '/cv/smallsomebody': '/resume/smallsomebody',
     '/cv/salasusu': '/resume/salasusu',
 };
