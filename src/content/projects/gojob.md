@@ -32,6 +32,7 @@ stack:
   - ["Screens", "Next.js; the screens only draw and forward /api calls"]
   - ["Backend", "Python, FastAPI, typed request checking"]
   - ["AI layer", "Claude API: Opus writes and scores, five Haiku auditors check each answer"]
+  - ["Prompts", "16 skill files, one per function, with shared rules included by reference"]
   - ["Documents", "python-docx, mammoth and pypdf for resume reading and tracked-change Word output"]
   - ["Data", "One local JSON file with schema versioning; no account, nothing leaves the machine"]
   - ["Quality", "pytest and Node test runner, plus an evaluation set of synthetic trap cases"]
@@ -39,13 +40,14 @@ challenges:
   - ["Honesty under pressure to score", "Rewrites may only reword what the resume already shows. Missing numbers become [X%] placeholders marked \"needs confirmation\", never invented figures, tools or titles."]
   - ["Knowing when to stop", "Tuning could loop forever toward the threshold. A job now stops at \"Ceiling reached\" when no change is backed by the resume, or a change raises the average by less than one point."]
   - ["Proving faithfulness", "Code checks that every quote appears word for word in the resume or JD, and five auditors review each answer. Anything below the bar gets one repair pass."]
-  - ["Measuring quality, not assuming it", "Ten synthetic cases built to provoke specific mistakes: keywords without evidence, \"supported\" inflated to \"led\", prompt injection in a JD, work-visa wording."]
+  - ["Measuring quality, not assuming it", "Ten synthetic cases built to provoke specific mistakes: keywords without evidence, \"supported\" inflated to \"led\", prompt injection in a JD, work-visa wording. A second set plants 19 mistakes to test how many the auditors catch."]
 decisions:
   - ["Why consolidate instead of adding another project?", "The problem was scattered context, not a missing tool. One workspace means the resume, stories and target JD are written once and reused by every step."]
   - ["Why a fixed pipeline, not an agent?", "Every button already says what to do, so code routes it: no extra model call, the same path every time, easy to test. Only web search lets the model choose."]
   - ["Why a strong writer and cheap auditors?", "Opus writes and scores; five Haiku auditors check in parallel. Quality where it counts, low cost on the checks that run on every answer."]
   - ["Why a clear apply rule?", "An average of 80 with no reviewer below 70 means apply, 60 to 79 means tune first, below 60 means skip. Work-visa wording in the posting is part of the verdict."]
-  - ["Why stamp every result?", "Each answer carries the app version and a fingerprint of all prompts, so I can tell which prompts produced it and compare releases."]
+  - ["Why prompts as skill files?", "Prompts were one long Python file. Splitting them into one skill per function makes each prompt easy to find, edit and diff on its own. Shared rules live in one place, and an edit applies on the next call without a restart."]
+  - ["Why stamp every result?", "Each answer carries the app version and a fingerprint of every skill, so I can tell which prompt produced it, and a run-to-run comparison names the skills that changed."]
   - ["Why local first?", "Resumes are personal data. One JSON file and no background jobs keep it simple and private."]
 phases:
   - ["v1 · JobLens (Mar 2026)", ["Scrape the JD, compare it with my CV, sync to Google Sheets", "FastAPI, Streamlit and Gemini; time-to-track down to under 30 seconds"]]
@@ -57,8 +59,10 @@ structure: |
   gojob/
   ├── app/ · components/      # Next.js screens: profile, jobs, JD, tracker, coach
   ├── backend/gojob/
+  │   ├── skills/             # 16 prompt files, one per function
+  │   ├── skills.py           # loads skills, resolves includes and variables
   │   ├── pipeline.py         # audit gate, apply rule, tuning ceiling
-  │   ├── prompts.py          # every AI role, fingerprinted
+  │   ├── prompts.py          # data blocks and which skill to use
   │   ├── coach.py            # interview coach on the story bank
   │   ├── scout.py            # job scan with web search
   │   ├── docx_io.py          # tracked-change Word output
@@ -100,23 +104,70 @@ flowchart LR
 
 ## Architecture and the audit gate
 
-The screens only draw. The Python backend runs four AI roles, and every answer passes the audit gate before it is saved.
+The screens only draw. The Python backend runs four AI roles, each driven by skill files, and every answer passes the audit gate before it is saved.
 
-```mermaid
-flowchart TB
-  UI["Next.js single page<br/>five tabs · draws screens, forwards /api/*"]
-  API["FastAPI backend<br/>validates requests · routes · reads and writes data"]
-  W["Writer<br/>(Opus)"]
-  R["Review panel<br/>(Opus ×3)"]
-  SA["Search<br/>agent"]
-  IC["Interview<br/>coach"]
-  G{{"Audit gate<br/>five Haiku auditors + word-for-word quote check<br/>on failure: back to the same role once"}}
-  DB[("data/db.json · data/files/<br/>local, versioned")]
-  UI --> API
-  API --> W & R & SA & IC
-  W & R & SA & IC --> G
-  G -- pass --> DB
-```
+<figure class="arch">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 582" role="img" aria-labelledby="arch-t arch-d">
+<title id="arch-t">GoJob system architecture</title>
+<desc id="arch-d">Layers from top to bottom: Next.js screens, FastAPI backend, the skill files that hold every prompt, four AI roles, an audit gate with a layout lock, and local data files.</desc>
+<defs><marker id="arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g class="gray"><rect x="140" y="20" width="400" height="56" rx="8"/>
+<text class="th" x="340" y="40">Next.js single page</text>
+<text class="ts" x="340" y="58">Five tabs · draws screens, forwards /api/*</text></g>
+<line class="arr" x1="340" y1="76" x2="340" y2="102" marker-end="url(#arch-arrow)"/>
+<g class="gray"><rect x="140" y="104" width="400" height="56" rx="8"/>
+<text class="th" x="340" y="124">FastAPI backend</text>
+<text class="ts" x="340" y="142">Validates requests · routes · reads and writes data</text></g>
+<line class="arr" x1="340" y1="160" x2="340" y2="172" marker-end="url(#arch-arrow)"/>
+<g class="purple dash"><rect x="140" y="174" width="400" height="42" rx="8"/>
+<text class="th" x="340" y="190">Skills · backend/gojob/skills/</text>
+<text class="ts" x="340" y="206">One plain-text prompt file each, read on every call</text></g>
+<path class="arr" d="M340 216V243"/>
+<path class="arr" d="M107 243H572"/>
+<line class="arr" x1="107" y1="243" x2="107" y2="268" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="262" y1="243" x2="262" y2="268" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="417" y1="243" x2="417" y2="268" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="572" y1="243" x2="572" y2="268" marker-end="url(#arch-arrow)"/>
+<g class="purple"><rect x="40" y="270" width="135" height="72" rx="8"/>
+<text class="th" x="107" y="290">Writer</text><text class="ts" x="107" y="310">Analysis, tuning</text><text class="ts" x="107" y="327">Letter, questions</text></g>
+<g class="purple"><rect x="195" y="270" width="135" height="72" rx="8"/>
+<text class="th" x="262" y="290">Review panel</text><text class="ts" x="262" y="310">Three reviewers</text><text class="ts" x="262" y="327">score in parallel</text></g>
+<g class="purple"><rect x="350" y="270" width="135" height="72" rx="8"/>
+<text class="th" x="417" y="290">Search agent</text><text class="ts" x="417" y="310">Jobs · people</text><text class="ts" x="417" y="327">Company research</text></g>
+<g class="purple"><rect x="505" y="270" width="135" height="72" rx="8"/>
+<text class="th" x="572" y="290">Interview coach</text><text class="ts" x="572" y="310">Questions</text><text class="ts" x="572" y="327">Feedback · report</text></g>
+<line class="arr" x1="107" y1="342" x2="107" y2="374" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="262" y1="342" x2="262" y2="374" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="417" y1="342" x2="417" y2="374" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="572" y1="342" x2="572" y2="374" marker-end="url(#arch-arrow)"/>
+<g class="teal"><rect x="40" y="376" width="600" height="90" rx="8"/>
+<text class="th" x="340" y="396">Audit gate (withAudit)</text>
+<text class="ts" x="340" y="415">Resume changes first pass a layout lock: name, section, employer, title and date lines are never edited</text>
+<text class="ts" x="340" y="432">Five Haiku auditors in parallel + word-for-word quote check</text>
+<text class="ts" x="340" y="449">On failure: back to the same role once (search roles are audited only)</text></g>
+<line class="arr" x1="165" y1="466" x2="165" y2="498" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="475" y1="466" x2="475" y2="498" marker-end="url(#arch-arrow)"/>
+<g class="gray"><rect x="40" y="500" width="250" height="56" rx="8"/>
+<text class="th" x="165" y="520">data/db.json</text><text class="ts" x="165" y="538">State and results · versioned</text></g>
+<g class="gray"><rect x="310" y="500" width="330" height="56" rx="8"/>
+<text class="th" x="475" y="520">data/files/</text><text class="ts" x="475" y="538">Resume .docx files from an upload or a Google Doc link</text></g>
+</svg>
+</figure>
+
+## Prompts as skills
+
+Every prompt is a plain-text skill file, split by function. Rules used by several skills, such as the ground rules, resume change rules and work-visa signals, live in one shared file and are included by reference.
+
+| Step | Skills |
+|---|---|
+| Shared | `shared-rules`: ground rules, change rules, visa signals, search honesty, language |
+| 1 · Profile | `health-check`, `score-panel` |
+| 2 · Find jobs | `scout`, `company-watch`, `networking` |
+| 3 · Target JD | `jd-verdict`, `score-panel`, `fine-tune`, `cover-letter`, `interview-prep`, `networking`, `one-pager` |
+| 5 · Interview coach | `interview-coach`, `coach-question`, `coach-feedback`, `coach-report` |
+| Every answer | `audit`: one focus per auditor, five in all |
+
+Iterating on a prompt follows one loop: edit a skill, run the tests (every include and variable must resolve), run the evals and compare with the last run. The comparison names the skills that changed, and every saved answer carries a fingerprint of the skills that produced it.
 
 ## How a job moves
 

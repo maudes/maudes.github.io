@@ -106,3 +106,20 @@
   .proj .press { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 16px 0 0; font-size: 14px; color: var(--muted); }
   .proj .press span { font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
   .proj .press a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Inline architecture SVG copied from a project README (GoJob). Scoped so its classes never leak. */
+.proj .prose .arch { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 1.5em; overflow-x: auto; }
+.proj .prose .arch svg { display: block; width: 100%; min-width: 560px; max-width: 680px; height: auto; margin: 0 auto; }
+.arch text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; text-anchor: middle; dominant-baseline: central; }
+.arch .th { font-size: 14px; font-weight: 500; }
+.arch .ts { font-size: 12px; }
+.arch rect { stroke-width: 0.75; }
+.arch .arr { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+.arch .arr-head { stroke: var(--muted); }
+.arch .gray rect { fill: #F1EFE8; stroke: #888780; }
+.arch .gray .th { fill: #2C2C2A; } .arch .gray .ts { fill: #5F5E5A; }
+.arch .purple rect { fill: #EEEDFE; stroke: #534AB7; }
+.arch .purple .th { fill: #3C3489; } .arch .purple .ts { fill: #534AB7; }
+.arch .teal rect { fill: #E1F5EE; stroke: #0F6E56; }
+.arch .teal .th { fill: #085041; } .arch .teal .ts { fill: #0F6E56; }
+.arch .dash rect { stroke-dasharray: 5 3; }
