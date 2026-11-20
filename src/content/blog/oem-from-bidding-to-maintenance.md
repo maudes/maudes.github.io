@@ -6,11 +6,23 @@ categories:
   - CPE
 draft: false
 ---
-I've spent almost a year handling CPE bids from start to finish. Here's a quick overview of how an OEM project runs, from the first RFQ to the last patch.
+I've spent almost a year handling CPE bids from start to finish. Here's a quick overview of how an OEM project runs, from the first RFx to the last patch.
 
 <!-- more -->
 
-***Keywords: #OEM #RFQ #NPI #EVT #DVT #PVT***
+***Keywords: #OEM #RFx #RFI #RFP #RFQ #NPI #EVT #DVT #PVT***
+
+## RFI, RFP, RFQ: How a Bid Starts
+
+Before a project is awarded, the client usually runs up to three rounds of requests, often called RFx as a group. Each round asks for more detail and more commitment than the last.
+
+| Step | Full name | In one line |
+|---|---|---|
+| **RFI** | Request for Information | The client checks what vendors can offer, so it can shortlist who to invite. |
+| **RFP** | Request for Proposal | The client shares its needs and asks the shortlisted vendors how they would build the product. |
+| **RFQ** | Request for Quotation | The specs are set, and the client asks for a firm price (unit cost, BOM, NRE) to compare vendors. |
+
+Not every client runs all three. Some skip the RFI or merge the RFP and RFQ into one round.
 
 ## The Flow at a Glance
 
@@ -31,17 +43,76 @@ The flow has four phases, three gates and one key milestone. Each column shows w
 | **The Milestone** | MP / TA | Project closes with minimal maintenance; the team moves to new projects | Client's launch at risk, plus penalties |
 
 
-## Phase 1 · Tender & RFQ/RFP
+## Phase 1 · Tender / RFx Process
 
 <figure>
-  <a href="/assets/oem-flow-phase-1.webp" target="_blank"><img src="/assets/oem-flow-phase-1.webp" alt="Phase 1: tender call, internal feasibility, RFQ iterations, and Gate 1: awarded, at least as the 2nd source" /></a>
+  <a href="/assets/oem-flow-phase-1.webp" target="_blank"><img src="/assets/oem-flow-phase-1.webp" alt="Phase 1: tender call, internal feasibility, RFI to final iteration, and Gate 1: awarded, at least as the 2nd source" /></a>
 </figure>
 
-The client sends out the RFQ with its requirements and specs. We review them and reply with questions and proposed solutions. The client then reviews our answers and sends follow-ups. This goes back and forth for a few rounds.
+The client sends out the RFx with its requirements and specs. We review them and reply with questions and proposed solutions. The client then reviews our answers and sends follow-ups. This goes back and forth for a few rounds.
 
 Most of the talking happens between the two sales teams. Our sales team passes the HW and SW details to the internal team. Hardware usually leads at this stage: the HW PLM or PM drives the review and gets quotes from the chip vendor. On the software side, the focus is on the specs and whether we need any third-party service providers.
 
 **Watch out for major gaps.** Any gap in features or pricing needs to be cleared up now, not after the award.
+
+### Inside Each RFx Round
+
+Every round runs through the same internal loop before Sales sends our answer back.
+
+```mermaid
+---
+config:
+  flowchart:
+    subGraphTitleMargin:
+      top: 6
+      bottom: 14
+  themeCSS: ".cluster-label .nodeLabel { display: inline-block; background: #2d3142; color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .02em; padding: 5px 14px; border-radius: 6px; } .cluster-label .nodeLabel p, .cluster-label .nodeLabel strong { color: #fff; } .cluster rect { stroke-width: 2px; } .node .nodeLabel em { color: var(--pop, #d83e7f); font-style: normal; font-weight: 600; }"
+---
+flowchart TB
+  subgraph prep ["`**STEP 1 · PREPARE**`"]
+    direction LR
+    A(["`**RFx received**
+    _Sales_`"]) --> B["`**Read the RFx**
+    Specs, terms, forecast, target price
+    SLA: MP timeline, warranty, RMA
+    _Product + Sales_`"]
+    B --> C["`**Cross-functional kick-off**
+    _SW, HW, Ops, Compliance, Product_`"]
+    C --> D["`**Draft the 1st PnL**
+    Past product costs · _PMO_
+    New quotes · _R&D_`"]
+  end
+  subgraph review ["`**STEP 2 · REVIEW**`"]
+    direction LR
+    E["`**1st review**
+    Tech proposal, PnL,
+    compliance, Q&A
+    _Product + R&D_`"] --> F["`**1st PnL review**
+    _BU head_`"]
+    F --> G["`**Cost improvement**
+    Design, 2nd sources,
+    SoC price support
+    _R&D + RFQ team_`"]
+    G --> H["`**2nd PnL review**
+    Final selling price
+    _BU head_`"]
+  end
+  subgraph submit ["`**STEP 3 · SUBMIT**`"]
+    direction LR
+    J["`**Confirm BOM cost**
+    Management approval
+    _RFQ team_`"] --> K["`**Fill in final prices**
+    On the quotation
+    _Product_`"]
+    K --> L(["`**Submit**
+    _Sales_`"])
+  end
+  prep --> review --> submit
+```
+
+*Pink marks the team that leads each step; for the kick-off, it lists everyone who joins. Product takes part in every step between the RFx coming in and Sales submitting it.*
+
+The price gets refined round by round. In each round, the BU head reviews the PnL twice, with a cost-improvement push in between. There are three main levers: changing the design (EE/ME), finding 2nd sources, and asking the SoC vendor for price support.
 
 ## Phase 2 · Award & Contracting
 
