@@ -60,13 +60,14 @@ structure: |
   ├── app/ · components/      # Next.js screens: profile, jobs, JD, tracker, coach
   ├── backend/gojob/
   │   ├── skills/             # 16 prompt files, one per function
-  │   ├── skills.py           # loads skills, resolves includes and variables
-  │   ├── pipeline.py         # audit gate, apply rule, tuning ceiling
-  │   ├── prompts.py          # data blocks and which skill to use
-  │   ├── coach.py            # interview coach on the story bank
-  │   ├── scout.py            # job scan with web search
-  │   ├── docx_io.py          # tracked-change Word output
-  │   └── main.py             # FastAPI routes
+  │   ├── skill_loader.py     # loads skills, resolves includes and variables
+  │   ├── model_client.py     # the only code that calls a model: API or subagents
+  │   ├── subagent_runner.py  # request and answer files for Claude Code
+  │   ├── audit.py            # five auditors, quote check, one repair pass
+  │   ├── scoring.py          # every gate: apply rule, tuning ceiling
+  │   ├── tasks.py            # each step's flow, shared by web and CLI
+  │   ├── api.py · cli.py     # two ways in: FastAPI routes, command line
+  │   └── docx_io.py          # tracked-change Word output
   ├── evals/
   │   ├── cases/              # synthetic trap cases
   │   ├── rubrics/            # faithfulness, usefulness
@@ -104,53 +105,67 @@ flowchart LR
 
 ## Architecture and the audit gate
 
-The screens only draw. The Python backend runs four AI roles, each driven by skill files, and every answer passes the audit gate before it is saved.
+There are two ways in: the web page, which only draws, and the command line through Claude Code. One Python backend builds four AI roles from skill files, reading the one file each task names, and a single model client decides who answers: the Claude API, or Claude Code subagents when there is no API key. Every answer passes the layout lock and the audit gate before it is saved.
 
 <figure class="arch">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 582" role="img" aria-labelledby="arch-t arch-d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 666" role="img" aria-labelledby="arch-t arch-d">
 <title id="arch-t">GoJob system architecture</title>
-<desc id="arch-d">Layers from top to bottom: Next.js screens, FastAPI backend, the skill files that hold every prompt, four AI roles, an audit gate with a layout lock, and local data files.</desc>
+<desc id="arch-d">From top to bottom: two entrances (the Next.js page and the command line with Claude Code), the Python backend, the skill files with the four AI roles built from them, the model client (Claude API or Claude Code subagents), a layout lock and audit gate, and local data files where the result is saved.</desc>
 <defs><marker id="arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
-<g class="gray"><rect x="140" y="20" width="400" height="56" rx="8"/>
-<text class="th" x="340" y="40">Next.js single page</text>
-<text class="ts" x="340" y="58">Five tabs · draws screens, forwards /api/*</text></g>
-<line class="arr" x1="340" y1="76" x2="340" y2="102" marker-end="url(#arch-arrow)"/>
-<g class="gray"><rect x="140" y="104" width="400" height="56" rx="8"/>
-<text class="th" x="340" y="124">FastAPI backend</text>
-<text class="ts" x="340" y="142">Validates requests · routes · reads and writes data</text></g>
-<line class="arr" x1="340" y1="160" x2="340" y2="172" marker-end="url(#arch-arrow)"/>
-<g class="purple dash"><rect x="140" y="174" width="400" height="42" rx="8"/>
-<text class="th" x="340" y="190">Skills · backend/gojob/skills/</text>
-<text class="ts" x="340" y="206">One plain-text prompt file each, read on every call</text></g>
-<path class="arr" d="M340 216V243"/>
-<path class="arr" d="M107 243H572"/>
-<line class="arr" x1="107" y1="243" x2="107" y2="268" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="262" y1="243" x2="262" y2="268" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="417" y1="243" x2="417" y2="268" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="572" y1="243" x2="572" y2="268" marker-end="url(#arch-arrow)"/>
-<g class="purple"><rect x="40" y="270" width="135" height="72" rx="8"/>
-<text class="th" x="107" y="290">Writer</text><text class="ts" x="107" y="310">Analysis, tuning</text><text class="ts" x="107" y="327">Letter, questions</text></g>
-<g class="purple"><rect x="195" y="270" width="135" height="72" rx="8"/>
-<text class="th" x="262" y="290">Review panel</text><text class="ts" x="262" y="310">Three reviewers</text><text class="ts" x="262" y="327">score in parallel</text></g>
-<g class="purple"><rect x="350" y="270" width="135" height="72" rx="8"/>
-<text class="th" x="417" y="290">Search agent</text><text class="ts" x="417" y="310">Jobs · people</text><text class="ts" x="417" y="327">Company research</text></g>
-<g class="purple"><rect x="505" y="270" width="135" height="72" rx="8"/>
-<text class="th" x="572" y="290">Interview coach</text><text class="ts" x="572" y="310">Questions</text><text class="ts" x="572" y="327">Feedback · report</text></g>
-<line class="arr" x1="107" y1="342" x2="107" y2="374" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="262" y1="342" x2="262" y2="374" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="417" y1="342" x2="417" y2="374" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="572" y1="342" x2="572" y2="374" marker-end="url(#arch-arrow)"/>
-<g class="teal"><rect x="40" y="376" width="600" height="90" rx="8"/>
-<text class="th" x="340" y="396">Audit gate (withAudit)</text>
-<text class="ts" x="340" y="415">Resume changes first pass a layout lock: name, section, employer, title and date lines are never edited</text>
-<text class="ts" x="340" y="432">Five Haiku auditors in parallel + word-for-word quote check</text>
-<text class="ts" x="340" y="449">On failure: back to the same role once (search roles are audited only)</text></g>
-<line class="arr" x1="165" y1="466" x2="165" y2="498" marker-end="url(#arch-arrow)"/>
-<line class="arr" x1="475" y1="466" x2="475" y2="498" marker-end="url(#arch-arrow)"/>
-<g class="gray"><rect x="40" y="500" width="250" height="56" rx="8"/>
-<text class="th" x="165" y="520">data/db.json</text><text class="ts" x="165" y="538">State and results · versioned</text></g>
-<g class="gray"><rect x="310" y="500" width="330" height="56" rx="8"/>
-<text class="th" x="475" y="520">data/files/</text><text class="ts" x="475" y="538">Resume .docx files from an upload or a Google Doc link</text></g>
+<g class="gray"><rect x="40" y="20" width="290" height="56" rx="8"/>
+<text class="th" x="185" y="40">Next.js single page</text>
+<text class="ts" x="185" y="58">Five tabs · forwards /api/*</text></g>
+<g class="gray"><rect x="350" y="20" width="290" height="56" rx="8"/>
+<text class="th" x="495" y="40">Command line + Claude Code</text>
+<text class="ts" x="495" y="58">run-gojob skill · no API key needed</text></g>
+<line class="arr" x1="185" y1="76" x2="185" y2="102" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="495" y1="76" x2="495" y2="102" marker-end="url(#arch-arrow)"/>
+<g class="gray"><rect x="100" y="104" width="480" height="56" rx="8"/>
+<text class="th" x="340" y="124">Python backend</text>
+<text class="ts" x="340" y="142">Web: /api/* routes · CLI: gojob.cli · one set of task code</text></g>
+<line class="arr" x1="340" y1="160" x2="340" y2="178" marker-end="url(#arch-arrow)"/>
+<g class="skills"><rect x="28" y="180" width="624" height="156" rx="10"/>
+<text class="th" x="340" y="198">Skills · 16 prompt files in backend/gojob/skills/</text>
+<text class="ts" x="340" y="216">The task code reads the one file it names, on every call · nothing scans the folder</text>
+<text class="ts" x="340" y="232">Also here: shared rules (used by every role) and the auditor prompt (used by the audit gate)</text></g>
+<g class="purple"><rect x="40" y="248" width="135" height="72" rx="8"/>
+<text class="th" x="107" y="268">Writer</text><text class="ts" x="107" y="288">Analysis, tuning</text><text class="ts" x="107" y="305">Letter, questions</text></g>
+<g class="purple"><rect x="195" y="248" width="135" height="72" rx="8"/>
+<text class="th" x="262" y="268">Review panel</text><text class="ts" x="262" y="288">Three reviewers</text><text class="ts" x="262" y="305">score in parallel</text></g>
+<g class="purple"><rect x="350" y="248" width="135" height="72" rx="8"/>
+<text class="th" x="417" y="268">Search agent</text><text class="ts" x="417" y="288">Jobs · people</text><text class="ts" x="417" y="305">Company research</text></g>
+<g class="purple"><rect x="505" y="248" width="135" height="72" rx="8"/>
+<text class="th" x="572" y="268">Interview coach</text><text class="ts" x="572" y="288">Questions</text><text class="ts" x="572" y="305">Feedback · report</text></g>
+<line class="arr" x1="107" y1="320" x2="107" y2="364" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="262" y1="320" x2="262" y2="364" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="417" y1="320" x2="417" y2="364" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="572" y1="320" x2="572" y2="364" marker-end="url(#arch-arrow)"/>
+<g class="amber"><rect x="40" y="366" width="600" height="56" rx="8"/>
+<text class="th" x="340" y="386">Model client · the only code that calls a model</text>
+<text class="ts" x="340" y="404">Claude API (default) · or Claude Code subagents through files (CLI only)</text></g>
+<line class="arr" x1="107" y1="422" x2="107" y2="454" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="262" y1="422" x2="262" y2="454" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="417" y1="422" x2="417" y2="454" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="572" y1="422" x2="572" y2="454" marker-end="url(#arch-arrow)"/>
+<g class="teal"><rect x="40" y="456" width="600" height="84" rx="8"/>
+<line class="div" x1="245" y1="466" x2="245" y2="530"/>
+<text class="th" x="142" y="474">1 · Layout lock</text>
+<text class="ts" x="142" y="494">Resume changes only:</text>
+<text class="ts" x="142" y="511">name, sections, employers,</text>
+<text class="ts" x="142" y="528">titles, dates stay locked</text>
+<text class="th" x="442" y="474">2 · Audit gate (with_audit)</text>
+<text class="ts" x="442" y="494">Five Haiku auditors + word-for-word quote check</text>
+<text class="ts" x="442" y="511">Fails: the same role rewrites once</text>
+<text class="ts" x="442" y="528">(search roles are audited only)</text></g>
+<line class="arr" x1="135" y1="540" x2="135" y2="572" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="340" y1="540" x2="340" y2="572" marker-end="url(#arch-arrow)"/>
+<line class="arr" x1="545" y1="540" x2="545" y2="572" marker-end="url(#arch-arrow)"/>
+<g class="gray"><rect x="40" y="574" width="190" height="56" rx="8"/>
+<text class="th" x="135" y="594">data/db.json</text><text class="ts" x="135" y="612">State and results</text></g>
+<g class="gray"><rect x="245" y="574" width="190" height="56" rx="8"/>
+<text class="th" x="340" y="594">data/files/</text><text class="ts" x="340" y="612">Resume .docx files</text></g>
+<g class="gray"><rect x="450" y="574" width="190" height="56" rx="8"/>
+<text class="th" x="545" y="594">data/manual/</text><text class="ts" x="545" y="612">Subagent runs · private</text></g>
 </svg>
 </figure>
 
@@ -161,11 +176,11 @@ Every prompt is a plain-text skill file, split by function. Rules used by severa
 | Step | Skills |
 |---|---|
 | Shared | `shared-rules`: ground rules, change rules, visa signals, search honesty, language |
-| 1 · Profile | `health-check`, `score-panel` |
+| 1 · Profile | `health-check`, `panel-scorer` |
 | 2 · Find jobs | `scout`, `company-watch`, `networking` |
-| 3 · Target JD | `jd-verdict`, `score-panel`, `fine-tune`, `cover-letter`, `interview-prep`, `networking`, `one-pager` |
+| 3 · Target JD | `jd-match`, `panel-scorer`, `fine-tune`, `cover-letter`, `interview-prep`, `networking`, `one-pager` |
 | 5 · Interview coach | `interview-coach`, `coach-question`, `coach-feedback`, `coach-report` |
-| Every answer | `audit`: one focus per auditor, five in all |
+| Every answer | `auditor`: one focus per auditor, five in all |
 
 Iterating on a prompt follows one loop: edit a skill, run the tests (every include and variable must resolve), run the evals and compare with the last run. The comparison names the skills that changed, and every saved answer carries a fingerprint of the skills that produced it.
 
@@ -192,25 +207,55 @@ stateDiagram-v2
 
 ## What happens when you paste a JD
 
+The match analysis and the reviewer scores run as two parallel lanes. Each lane is audited on its own, and only a lane that fails is rewritten.
+
 ```mermaid
 sequenceDiagram
   participant U as User
   participant B as Backend
   participant W as Writer (Opus)
-  participant P as Review panel ×3 (Opus)
+  participant P as Panel ×3 (Opus)
   participant A as Auditors ×5 (Haiku)
   U->>B: Paste a JD
-  par In parallel
-    B->>W: Match analysis
-  and
-    B->>P: ATS, recruiter, manager scores
+  par Match analysis
+    B->>W: Write the analysis
+    W-->>B: Analysis
+    B->>A: Audit it, check quotes
+  and Reviewer scores
+    B->>P: Score the resume
+    P-->>B: Three scores
+    B->>A: Audit the scores
   end
-  B->>A: Audit each output
-  B->>B: Quote check, word for word
-  opt Any score 95 or lower, or a quote not found
-    B->>W: Rewrite once with the issue list
+  opt A lane fails its audit
+    B->>W: Rewrite once
     B->>A: Audit again
   end
   B->>B: Gate: average 80+ and lowest 70+
   B-->>U: Result and apply tier
+```
+
+## Answering without an API key
+
+From the command line, the same flow can be answered by Claude Code subagents instead of the API. The code still decides what to ask and whether the answer passes; only who answers changes.
+
+```mermaid
+sequenceDiagram
+  participant S as Claude Code
+  participant C as GoJob CLI
+  participant F as Run folder
+  participant A as Subagents
+  loop Until the status is done
+    S->>C: analyze-jd --runner subagent
+    C->>F: Reuse answers, write new requests
+    alt Some calls have no answer yet
+      C-->>S: pending, with the request files
+      par One subagent per request
+        S->>A: Answer this request file
+        A->>F: Write the answer file
+      end
+    else Every call has a valid answer
+      C->>C: Audit, check, gate (as in the app)
+      C-->>S: done, with the result
+    end
+  end
 ```

@@ -122,4 +122,9 @@
 .arch .purple .th { fill: #3C3489; } .arch .purple .ts { fill: #534AB7; }
 .arch .teal rect { fill: #E1F5EE; stroke: #0F6E56; }
 .arch .teal .th { fill: #085041; } .arch .teal .ts { fill: #0F6E56; }
-.arch .dash rect { stroke-dasharray: 5 3; }
+.arch .dashed rect { stroke-dasharray: 5 4; }
+.arch .skills rect { fill: #F8F7FF; stroke: #534AB7; stroke-dasharray: 5 4; }
+.arch .skills .th { fill: #3C3489; } .arch .skills .ts { fill: #534AB7; }
+.arch .amber rect { fill: #FAEEDA; stroke: #854F0B; }
+.arch .amber .th { fill: #633806; } .arch .amber .ts { fill: #854F0B; }
+.arch .div { stroke: #0F6E56; stroke-width: 0.75; }
