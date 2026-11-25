@@ -1,11 +1,11 @@
 ---
-title: "CarePilot"
+title: "HealthTally (formerly CarePilot)"
 group: "Built Solo"
 subgroup: "Domain Explorations"
 order: 7
 description: "A personal health tracker where the user decides how local their data stays. Phase 1 shipped a FastAPI + PostgreSQL core; Phase 2 redesigns login and storage for local-first use, with FHIR import and export."
-cover: CarePilot_dashboard.webp
-thumb: CarePilot_cover.webp
+cover: HealthTally_dashboard.webp
+thumb: HealthTally_cover.webp
 tags: [health, privacy, local_first, fhir, security, fastapi, sqlalchemy, pytest]
 glance:
   - ["Role", "Sole developer & PM"]
@@ -14,10 +14,10 @@ glance:
   - ["Status", "Phase 1 shipped · Phase 2 in design"]
 lead: "Track blood pressure, heart rate, glucose and goals over time, and choose how far your health data travels: a passphrase-locked local vault, the cloud-assisted setup, or anything in between."
 why:
-  title: "Why CarePilot?"
+  title: "Why HealthTally?"
   body:
     - "In 2025 I earned my EMT-1 certification in Taiwan and saw first-hand how fragmented health information hinders critical care. That led me to the OHDSI community and the Civic Tech Taiwan competition (MODA × Taoyuan City Gov’t, 2025), where my team was a Finalist."
-    - "The competition showed the problem from the system side. CarePilot looks at it from the individual’s side: if people are to carry their own health data between providers, they need a place to keep it that they trust, and a standard format to take it out."
+    - "The competition showed the problem from the system side. HealthTally looks at it from the individual’s side: if people are to carry their own health data between providers, they need a place to keep it that they trust, and a standard format to take it out."
 callout:
   title: "From a promise to a property"
   body: "Phase 1 built the place: records, goals and trend charts behind an email-code login. But it ran on a cloud database and a cloud token store, so “your data stays yours” was only a promise. Phase 2 makes it a property: login, token store and data storage become three independent switches, and the only thing that ever leaves the machine is an email code or a file the user exports."
@@ -40,12 +40,12 @@ decisions:
   - ["Why keep the cloud setup?", "Phase 2 builds on Phase 1 instead of replacing it. The cloud setup becomes one preset, so nothing that works today breaks."]
   - ["Why FHIR, not just CSV?", "A CSV is readable by people; a FHIR Bundle is readable by clinical systems. Owning your data only helps if you can hand it to the next doctor."]
 phases:
-  - ["Phase 1 · Core (Sep 2025)", ["Daily records, history, goals, trend charts", "Email OTP + JWT login, FastAPI + PostgreSQL, pytest", "Written entirely by hand, without AI assistance"]]
+  - ["Phase 1 · Core, as CarePilot (Sep 2025)", ["Daily records, history, goals, trend charts", "Email OTP + JWT login, FastAPI + PostgreSQL, pytest", "Written entirely by hand, without AI assistance"]]
   - ["Hardening (Nov 2026)", ["uv + Makefile as the main setup, Docker made optional", "Replaced python-jose with PyJWT, upgraded packages with known vulnerabilities"]]
   - ["Phase 2 · Local-first + FHIR (current)", ["Setup wizard with four presets and a settings page", "Encrypted SQLite vault, verification tiers, idle auto-lock", "FHIR Bundle import and export", "Claude Code joins the workflow"]]
   - ["Next · Phase 3", ["MQTT ingest from home devices", "Pet health tracking", "Opt-in third-party integrations, off by default"]]
 links:
-  - { label: "CarePilot on GitHub", url: "https://github.com/maudes/carepilot-dashboard" }
+  - { label: "HealthTally on GitHub", url: "https://github.com/maudes/healthtally" }
   - { label: "Phase 1 demo", url: "https://www.youtube.com/watch?v=vUQTXPYX7bw" }
 ---
 
@@ -79,7 +79,7 @@ One backend, three switches. Green parts exist today; purple parts are the Phase
 
 <figure class="arch">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 700" role="img" aria-labelledby="cp-arch-t cp-arch-d">
-<title id="cp-arch-t">CarePilot system architecture</title>
+<title id="cp-arch-t">HealthTally system architecture</title>
 <desc id="cp-arch-d">The Streamlit dashboard calls a FastAPI backend with four parts: auth gate, health APIs, config API and data import and export. Below it are three independent options set by config: login (email code, passphrase, or both), token store (Upstash Redis or a local store) and data storage (PostgreSQL or encrypted SQLite). A verified email is required in every setup. Export, import and storage changes need an email code step-up, and the only data that leaves is a JSON or FHIR file.</desc>
 <defs><marker id="cp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <g class="gray"><rect x="200" y="20" width="280" height="56" rx="8"/>

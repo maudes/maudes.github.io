@@ -22,7 +22,7 @@ const redirects = {
     '/cv/projects/wiz': '/resume/wiz',
     '/cv/projects/igaming': '/resume/igaming',
     '/cv/projects/wiz_local': '/resume/wiz-local',
-    '/cv/projects/carepilot': '/resume/carepilot',
+    '/cv/projects/carepilot': '/resume/healthtally',
     '/cv/projects/joblens': '/resume/gojob',
     '/cv/projects/smallsomebody': '/resume/smallsomebody',
     '/cv/projects/salasusu': '/resume/salasusu',
@@ -30,7 +30,9 @@ const redirects = {
     '/cv/wiz': '/resume/wiz',
     '/cv/igaming': '/resume/igaming',
     '/cv/wiz-local': '/resume/wiz-local',
-    '/cv/carepilot': '/resume/carepilot',
+    '/cv/carepilot': '/resume/healthtally',
+    // CarePilot became HealthTally
+    '/resume/carepilot': '/resume/healthtally',
     '/cv/joblens': '/resume/gojob',
     // JobLens became GoJob (v2)
     '/resume/joblens': '/resume/gojob',
