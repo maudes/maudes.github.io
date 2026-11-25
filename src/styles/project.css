@@ -128,3 +128,14 @@
 .arch .amber rect { fill: #FAEEDA; stroke: #854F0B; }
 .arch .amber .th { fill: #633806; } .arch .amber .ts { fill: #854F0B; }
 .arch .div { stroke: #0F6E56; stroke-width: 0.75; }
+
+/* End-to-end step strip (GoJob). Horizontal; on narrow screens it scrolls sideways instead of growing tall. */
+.proj .prose .flow { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 1.5em; overflow-x: auto; }
+.proj .prose .flow-steps { display: grid; grid-template-columns: repeat(5, minmax(118px, 1fr)); gap: 22px; min-width: 680px; }
+.proj .prose .flow-step { position: relative; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); padding: 12px 12px 14px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.4; }
+.proj .prose .flow-step b { color: var(--fg); font-size: 14px; font-weight: 600; }
+.proj .prose .flow-step span { color: var(--muted); }
+.proj .prose .flow-step:not(:last-child)::after { content: "→"; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; }
+.proj .prose .flow-step.v1 { border: 2px solid var(--accent); }
+.proj .prose .flow-step em { font-style: normal; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
+.proj .prose .flow-shared { min-width: 680px; margin-top: 14px; padding: 8px 12px; border: 1px dashed var(--line); border-radius: 10px; text-align: center; font-size: 13px; color: var(--muted); }

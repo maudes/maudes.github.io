@@ -12,7 +12,7 @@ glance:
   - ["Period", "Mar 2026 – Present (v1 → v2)"]
   - ["Stack", "Next.js, FastAPI, Claude (Opus + Haiku)"]
   - ["Status", "v1.0.0, Nov 2026"]
-lead: "One page, five steps: a resume health check, a job scan, a target-JD analysis with a tailored resume, cover letter, interview prep and networking plan, an application tracker, and an interview coach that works from my own story bank. Every AI answer is audited before it is saved."
+lead: "My whole job search in one local workspace, from a resume health check to interview practice. Every AI answer is checked against my real resume before it is saved."
 why:
   title: "Why a second version?"
   body:
@@ -21,91 +21,58 @@ why:
     - "By then v1 was a small part of the workflow, and the real work was spread across several projects, each with its own copy of my resume and stories. GoJob brings it all into one place with one source of truth."
 callout:
   title: "From a point tool to an end-to-end workflow"
-  body: "v1 automated one step of the search. v2 covers the whole loop in one workspace, from the profile to the interview:"
-  items:
-    - "Profile: a health check of the resume against target roles"
-    - "Find jobs: a region-by-region scan with real links only"
-    - "Target JD: an apply decision, tailored resume and cover letter, networking plan"
-    - "Tracker: one row per application"
-    - "Interview coach: practice from my own story bank, with feedback"
+  body: "v1 automated one step: deciding whether a job was a fit. v2 connects the whole search, from the profile to the interview, and every step reads the same resume and story bank. The flow is drawn below."
 stack:
-  - ["Screens", "Next.js; the screens only draw and forward /api calls"]
-  - ["Backend", "Python, FastAPI, typed request checking"]
+  - ["Screens", "Next.js; the screens only draw"]
+  - ["Backend", "Python, FastAPI, plus a command line"]
   - ["AI layer", "Claude API: Opus writes and scores, five Haiku auditors check each answer"]
-  - ["Prompts", "16 skill files, one per function, with shared rules included by reference"]
-  - ["Documents", "python-docx, mammoth and pypdf for resume reading and tracked-change Word output"]
-  - ["Data", "One local JSON file with schema versioning; no account, nothing leaves the machine"]
-  - ["Quality", "pytest and Node test runner, plus an evaluation set of synthetic trap cases"]
+  - ["Prompts", "16 skill files, one per function"]
+  - ["Documents", "python-docx, mammoth and pypdf for reading resumes and tracked-change Word output"]
+  - ["Data", "One local JSON file; nothing leaves the machine except what is sent to the model"]
+  - ["Quality", "181 backend and 13 web tests, plus evaluation sets of trap cases and planted auditor mistakes"]
+  - ["CI & security", "GitHub Actions: tests and dependency audits on every push, audits again weekly, secret scanning"]
 challenges:
   - ["Honesty under pressure to score", "Rewrites may only reword what the resume already shows. Missing numbers become [X%] placeholders marked \"needs confirmation\", never invented figures, tools or titles."]
-  - ["Knowing when to stop", "Tuning could loop forever toward the threshold. A job now stops at \"Ceiling reached\" when no change is backed by the resume, or a change raises the average by less than one point."]
-  - ["Proving faithfulness", "Code checks that every quote appears word for word in the resume or JD, and five auditors review each answer. Anything below the bar gets one repair pass."]
-  - ["Measuring quality, not assuming it", "Ten synthetic cases built to provoke specific mistakes: keywords without evidence, \"supported\" inflated to \"led\", prompt injection in a JD, work-visa wording. A second set plants 19 mistakes to test how many the auditors catch."]
+  - ["Knowing when to stop", "Tuning could loop forever toward the threshold. A job stops at \"Ceiling reached\" when no change is backed by the resume, or a change adds less than one point."]
+  - ["Proving faithfulness", "Code checks that every quote appears word for word in the resume or JD, and five auditors review each answer. A failing answer gets one repair pass."]
+  - ["Measuring quality, not assuming it", "Ten synthetic cases built to provoke specific mistakes, such as keywords without evidence or \"supported\" inflated to \"led\". A second set plants 19 mistakes to see how many the auditors catch."]
 decisions:
-  - ["Why consolidate instead of adding another project?", "The problem was scattered context, not a missing tool. One workspace means the resume, stories and target JD are written once and reused by every step."]
+  - ["Why consolidate instead of adding another project?", "The problem was scattered context, not a missing tool. The resume, stories and target JD are written once and reused by every step."]
   - ["Why a fixed pipeline, not an agent?", "Every button already says what to do, so code routes it: no extra model call, the same path every time, easy to test. Only web search lets the model choose."]
-  - ["Why a strong writer and cheap auditors?", "Opus writes and scores; five Haiku auditors check in parallel. Quality where it counts, low cost on the checks that run on every answer."]
-  - ["Why a clear apply rule?", "An average of 80 with no reviewer below 70 means apply, 60 to 79 means tune first, below 60 means skip. Work-visa wording in the posting is part of the verdict."]
-  - ["Why prompts as skill files?", "Prompts were one long Python file. Splitting them into one skill per function makes each prompt easy to find, edit and diff on its own. Shared rules live in one place, and an edit applies on the next call without a restart."]
-  - ["Why stamp every result?", "Each answer carries the app version and a fingerprint of every skill, so I can tell which prompt produced it, and a run-to-run comparison names the skills that changed."]
-  - ["Why local first?", "Resumes are personal data. One JSON file and no background jobs keep it simple and private."]
+  - ["Why a strong writer and cheap auditors?", "Opus writes and scores; five Haiku auditors check in parallel. Quality where it counts, low cost on checks that run on every answer."]
+  - ["Why prompts as skill files?", "One file per function is easy to find, edit and diff. Every result carries a fingerprint of the skills that produced it, so a regression can be traced to one prompt."]
+  - ["Why two ways to answer, one set of rules?", "Code decides what to ask and whether an answer passes. Only who answers changes: the Claude API, or Claude Code subagents for people without an API key."]
+  - ["Why treat privacy as a design rule?", "Resumes are personal data: one local file, no account, subagent runs in a git-ignored folder, and a pushed API key is blocked."]
 phases:
   - ["v1 · JobLens (Mar 2026)", ["Scrape the JD, compare it with my CV, sync to Google Sheets", "FastAPI, Streamlit and Gemini; time-to-track down to under 30 seconds"]]
-  - ["Real use · three months applying overseas", ["Most of the work moved to resume and cover letter fine-tuning", "Interview prep and networking ran in separate Claude Projects", "Paid coaching reshaped my story bank and networking approach"]]
-  - ["The signal", ["v1 had become a small part of the workflow", "Context was scattered across projects; decided to consolidate"]]
-  - ["v2 · GoJob 0.1 → 1.0 (Nov 2026)", ["Next.js baseline: five steps on one page", "Backend rebuilt in Python, results made traceable, data versioned", "Stricter apply gate, tuning ceiling, request checking, evaluation set"]]
-  - ["Next", ["Run the evaluation set on every prompt or model change", "Turn real misses from my own search into new eval cases"]]
-structure: |
-  gojob/
-  ├── app/ · components/      # Next.js screens: profile, jobs, JD, tracker, coach
-  ├── backend/gojob/
-  │   ├── skills/             # 16 prompt files, one per function
-  │   ├── skill_loader.py     # loads skills, resolves includes and variables
-  │   ├── model_client.py     # the only code that calls a model: API or subagents
-  │   ├── subagent_runner.py  # request and answer files for Claude Code
-  │   ├── audit.py            # five auditors, quote check, one repair pass
-  │   ├── scoring.py          # every gate: apply rule, tuning ceiling
-  │   ├── tasks.py            # each step's flow, shared by web and CLI
-  │   ├── api.py · cli.py     # two ways in: FastAPI routes, command line
-  │   └── docx_io.py          # tracked-change Word output
-  ├── evals/
-  │   ├── cases/              # synthetic trap cases
-  │   ├── rubrics/            # faithfulness, usefulness
-  │   └── graders.py · judge.py
-  ├── data/db.json            # all state, local only
-  └── CHANGELOG.md
+  - ["Real use · three months applying overseas", ["The work moved to resume and cover letter tuning, interviews and networking", "Paid coaching reshaped my story bank and networking approach", "Context was scattered across projects; decided to consolidate"]]
+  - ["v2 · GoJob 0.1 → 1.0 (Nov 2026)", ["Five steps on one page, backend rebuilt in Python", "Apply gate, tuning ceiling, traceable results, evaluation set"]]
+  - ["v1.x · Hardening (Nov 2026)", ["Prompts split into skill files", "Command line and subagent runner for use without an API key", "Tests, dependency audit and secret scanning in CI"]]
+  - ["Next", ["Run the evaluation sets on every prompt or model change", "Turn real misses from my own search into new eval cases"]]
 links:
   - { label: "GoJob on GitHub", url: "https://github.com/maudes/gojob" }
   - { label: "JobLens v1 on GitHub", url: "https://github.com/maudes/job-hunt-ai" }
   - { label: "JobLens v1 demo", url: "https://www.youtube.com/watch?v=2OY2R-VBFPs" }
 ---
 
-## From JobLens to GoJob
-
-| | v1 · JobLens | v2 · GoJob |
-|---|---|---|
-| **Covers** | Fit check and tracking | Resume health, job scan, fit, tailored resume and cover letter, interview prep, networking, tracking |
-| **Model** | Gemini, one analysis call | Claude: a writer, a three-reviewer panel, five auditors |
-| **Trust** | Prompt rules against hallucination | Word-for-word quote checks in code, audit gate, repair pass |
-| **Measured by** | Time saved per job | Synthetic trap cases and run-to-run regression checks |
-| **Where it lived** | One tool, plus several Claude Projects on the side | One workspace |
-
 ## End to end
 
-v1 covered one step. v2 connects the whole search, and every step reads from the same profile and story bank.
+Five steps on one page, all reading the same resume and story bank. JobLens v1 covered only step 3.
 
-```mermaid
-flowchart LR
-  P["Profile"] --> F["Find jobs"] --> J["Target JD<br/>apply · tailor · network"] --> K["Tracker"] --> C["Interview<br/>coach"]
-  classDef v1 stroke-width:3px
-  class J v1
-```
+<div class="flow" role="img" aria-label="Five steps: Profile, Find jobs, Target JD, Tracker, Interview coach. Target JD was the only step in JobLens v1. All steps share one resume, story bank and set of target JDs.">
+<div class="flow-steps">
+<div class="flow-step"><b>1 · Profile</b><span>Resume health check</span></div>
+<div class="flow-step"><b>2 · Find jobs</b><span>Region scan, real links only</span></div>
+<div class="flow-step v1"><b>3 · Target JD</b><span>Apply decision, tailored resume, cover letter, networking</span><em>JobLens v1</em></div>
+<div class="flow-step"><b>4 · Tracker</b><span>One row per application</span></div>
+<div class="flow-step"><b>5 · Interview coach</b><span>Practice from my story bank</span></div>
+</div>
+<div class="flow-shared">Shared source of truth · resume · story bank · target JDs</div>
+</div>
 
-*Bold outline: Target JD, the only step JobLens v1 covered.*
+## Architecture
 
-## Architecture and the audit gate
-
-There are two ways in: the web page, which only draws, and the command line through Claude Code. One Python backend builds four AI roles from skill files, reading the one file each task names, and a single model client decides who answers: the Claude API, or Claude Code subagents when there is no API key. Every answer passes the layout lock and the audit gate before it is saved.
+Two ways in, one backend. Every answer passes the layout lock and the audit gate before it is saved, whether the Claude API or a Claude Code subagent wrote it.
 
 <figure class="arch">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 666" role="img" aria-labelledby="arch-t arch-d">
@@ -169,24 +136,9 @@ There are two ways in: the web page, which only draws, and the command line thro
 </svg>
 </figure>
 
-## Prompts as skills
-
-Every prompt is a plain-text skill file, split by function. Rules used by several skills, such as the ground rules, resume change rules and work-visa signals, live in one shared file and are included by reference.
-
-| Step | Skills |
-|---|---|
-| Shared | `shared-rules`: ground rules, change rules, visa signals, search honesty, language |
-| 1 · Profile | `health-check`, `panel-scorer` |
-| 2 · Find jobs | `scout`, `company-watch`, `networking` |
-| 3 · Target JD | `jd-match`, `panel-scorer`, `fine-tune`, `cover-letter`, `interview-prep`, `networking`, `one-pager` |
-| 5 · Interview coach | `interview-coach`, `coach-question`, `coach-feedback`, `coach-report` |
-| Every answer | `auditor`: one focus per auditor, five in all |
-
-Iterating on a prompt follows one loop: edit a skill, run the tests (every include and variable must resolve), run the evals and compare with the last run. The comparison names the skills that changed, and every saved answer carries a fingerprint of the skills that produced it.
-
 ## How a job moves
 
-A job is scored, then either ready to apply, risky, or sent to tuning. Tuning can only reword what is already true, so it has a ceiling.
+A job is scored, then ready to apply, risky, or sent to tuning. Tuning can only reword what is already true, so it has a ceiling.
 
 ```mermaid
 stateDiagram-v2
@@ -205,38 +157,22 @@ stateDiagram-v2
   Tuning --> Ceiling: No supported change, or gain under 1 point
 ```
 
-## What happens when you paste a JD
+## Prompts as skills
 
-The match analysis and the reviewer scores run as two parallel lanes. Each lane is audited on its own, and only a lane that fails is rewritten.
+Rules used by several skills, such as the ground rules and work-visa signals, live in one shared file. To change a prompt: edit one skill, run the tests and evals, and compare with the last run, which names the skills that changed.
 
-```mermaid
-sequenceDiagram
-  participant U as User
-  participant B as Backend
-  participant W as Writer (Opus)
-  participant P as Panel ×3 (Opus)
-  participant A as Auditors ×5 (Haiku)
-  U->>B: Paste a JD
-  par Match analysis
-    B->>W: Write the analysis
-    W-->>B: Analysis
-    B->>A: Audit it, check quotes
-  and Reviewer scores
-    B->>P: Score the resume
-    P-->>B: Three scores
-    B->>A: Audit the scores
-  end
-  opt A lane fails its audit
-    B->>W: Rewrite once
-    B->>A: Audit again
-  end
-  B->>B: Gate: average 80+ and lowest 70+
-  B-->>U: Result and apply tier
-```
+| Step | Skills |
+|---|---|
+| Shared | `shared-rules`: ground rules, change rules, visa signals, search honesty, language |
+| 1 · Profile | `health-check`, `panel-scorer` |
+| 2 · Find jobs | `scout`, `company-watch`, `networking` |
+| 3 · Target JD | `jd-match`, `panel-scorer`, `fine-tune`, `cover-letter`, `interview-prep`, `networking`, `one-pager` |
+| 5 · Interview coach | `interview-coach`, `coach-question`, `coach-feedback`, `coach-report` |
+| Every answer | `auditor`: one focus per auditor, five in all |
 
 ## Answering without an API key
 
-From the command line, the same flow can be answered by Claude Code subagents instead of the API. The code still decides what to ask and whether the answer passes; only who answers changes.
+From the command line, Claude Code subagents can answer instead of the API. The command writes a request file for each model call and reruns until every call has an answer, then applies the same audit and gate as the app.
 
 ```mermaid
 sequenceDiagram
@@ -259,3 +195,15 @@ sequenceDiagram
     end
   end
 ```
+
+## Trade-offs
+
+| Choice | What it costs | Why I accept it |
+|---|---|---|
+| Read the resume from a Google Docs link, never write back | Changes come back as a Word file and Copy buttons | Writing back needs a Google sign-in a local tool should not hold |
+| Lock the resume layout | Tuning can only reword the headline, summary, bullets and skills | Names, employers, titles and dates are facts, and the page count stays |
+| Subagent mode on the command line only | One job description per run, not the full web flow | It is a fallback for people without an API key |
+
+## Building it with AI
+
+GoJob was built with Claude Code. I owned the product decisions: what each step should produce, the honesty rules, the apply and tuning gates, and the trap cases that test them. Claude wrote most of the code and tests against those rules, and every change went through the test suite and my review before it was committed.
