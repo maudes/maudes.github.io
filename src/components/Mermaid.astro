@@ -1,18 +1,31 @@
-<!-- Renders ```mermaid code blocks in the page; loads mermaid only when there is one. -->
+<!-- Renders ```mermaid code blocks in the page; loads mermaid only when there is one. Re-renders when the theme changes. -->
 <script is:inline type="module">
   const blocks = document.querySelectorAll('pre > code.language-mermaid');
   if (blocks.length) {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
-    const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-    mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'neutral' });
-    blocks.forEach((code, i) => {
+    const root = document.documentElement;
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const isDark = () => root.dataset.theme === 'dark' || (!root.dataset.theme && media.matches);
+    const divs = [...blocks].map((code, i) => {
       const pre = code.parentElement;
       const div = document.createElement('div');
       div.className = 'mermaid';
       div.id = 'mmd' + i;
-      div.textContent = pre.textContent;
+      div.dataset.src = pre.textContent;
       pre.replaceWith(div);
+      return div;
     });
-    await mermaid.run({ querySelector: '.mermaid' });
+    let current = null;
+    const render = async () => {
+      const dark = isDark();
+      if (dark === current) return;
+      current = dark;
+      mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'neutral' });
+      divs.forEach((div) => { div.removeAttribute('data-processed'); div.textContent = div.dataset.src; });
+      await mermaid.run({ nodes: divs });
+    };
+    await render();
+    new MutationObserver(render).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    media.addEventListener('change', render);
   }
 </script>
