@@ -6,7 +6,7 @@ order: 8
 description: "A product concept and clickable prototype for the verification layer on top of fake-online detection: how a command center reviews, trusts and acts on alerts."
 cover: mission-reliability_map.webp
 thumb: mission-reliability_dashboard.jpg
-tags: [physical_security, alert_triage, ux, iot, device_health, prototyping]
+tags: [ai_assisted, ux_prototype, physical_security, alert_triage, iot, device_health]
 glance:
   - ["Role", "Sole PM & product designer"]
   - ["Period", "Jul 2026 – Present"]

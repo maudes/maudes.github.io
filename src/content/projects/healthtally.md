@@ -6,7 +6,7 @@ order: 7
 description: "A personal health tracker where the user decides how local their data stays. Phase 1 shipped a FastAPI + PostgreSQL core; Phase 2 redesigns login and storage for local-first use, with FHIR import and export."
 cover: HealthTally_dashboard.webp
 thumb: HealthTally_cover.webp
-tags: [health, privacy, local_first, fhir, security, fastapi, sqlalchemy, pytest]
+tags: [ai_assisted, local_first, fhir, encryption, security, fastapi, sqlalchemy, pytest]
 glance:
   - ["Role", "Sole developer & PM"]
   - ["Period", "Jun 2025 – Present (Phase 1 → 2)"]

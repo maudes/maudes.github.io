@@ -6,7 +6,7 @@ order: 6
 description: "A local job-search workspace that decides which jobs are worth applying to and tailors the application, without inventing experience. Version 2 of JobLens, rebuilt around what three months of real job hunting taught me."
 cover: gojob_jd.webp
 thumb: gojob_cover.webp
-tags: [product_iteration, llm_workflow, ai_evals, claude_api, fastapi, nextjs, local_first]
+tags: [ai_assisted, product_iteration, llm_workflow, ai_evals, claude_api, fastapi, nextjs, local_first]
 glance:
   - ["Role", "Sole PM & developer"]
   - ["Period", "Mar 2026 – Present (v1 → v2)"]

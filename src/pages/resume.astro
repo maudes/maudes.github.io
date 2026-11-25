@@ -132,7 +132,7 @@ const groups = [...new Set(projects.map((p) => p.group))];
               {projects.filter((p) => p.group === g && p.subgroup === s).map((p) => (
                 <a class="pcard" href={p.href}>
                   <Image src={resumeImage(p.img)} alt={p.title} widths={widths.card} sizes={sizes.card} />
-                  <div><b>{p.title}</b><span>{p.tags.map((t) => '#' + t).join(' ')}</span></div>
+                  <div><b>{p.title}</b><p class="ptags">{p.tags.map((t) => <span class={t === 'ai_assisted' ? 'ai' : undefined}>#{t}</span>)}</p></div>
                 </a>
               ))}
             </div>
@@ -211,7 +211,9 @@ const groups = [...new Set(projects.map((p) => p.group))];
   .pcard img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--line); }
   .pcard div { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; }
   .pcard b { font-size: 15px; letter-spacing: -0.01em; }
-  .pcard span { font-size: 12.5px; color: var(--accent); }
+  .ptags { margin: 0; display: flex; flex-wrap: wrap; column-gap: 6px; font-size: 12.5px; line-height: 1.5; height: 1.5em; overflow: hidden; color: var(--accent); }
+  .ptags span { white-space: nowrap; }
+  .ptags .ai { font-weight: 600; }
 
   .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
   .skills h4, .more h4 { margin: 0 0 10px; font-size: 14px; }

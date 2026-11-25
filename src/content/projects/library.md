@@ -6,7 +6,7 @@ order: 6.5
 description: "A personal reading log that turns a Notion database into a self-updating static site, and my first project built end to end with AI."
 cover: library_taste.webp
 thumb: library_cover.webp
-tags: [personal_knowledge, passive_social, ai_native_build, notion_api, static_site, github_actions, figma_mcp]
+tags: [ai_assisted, personal_knowledge, passive_social, notion_api, static_site, github_actions, figma_mcp]
 glance:
   - ["Role", "Sole PM, designer & AI-assisted builder"]
   - ["Period", "Oct 2026 – Present"]
