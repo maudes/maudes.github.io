@@ -128,6 +128,11 @@
 .arch .amber rect { fill: #FAEEDA; stroke: #854F0B; }
 .arch .amber .th { fill: #633806; } .arch .amber .ts { fill: #854F0B; }
 .arch .div { stroke: #0F6E56; stroke-width: 0.75; }
+.arch .zone rect { fill: none; stroke: var(--accent); stroke-width: 1; }
+.arch .zone .th { fill: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.arch .arr.dash { stroke-dasharray: 5 4; }
+.arch .lbl { font-size: 11.5px; fill: var(--muted); }
+.arch .lbl.start { text-anchor: start; }
 
 /* End-to-end step strip (GoJob). Horizontal; on narrow screens it scrolls sideways instead of growing tall. */
 .proj .prose .flow { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin: 0 0 1.5em; overflow-x: auto; }

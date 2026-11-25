@@ -47,29 +47,61 @@ linkNote: "Work in progress. The verification queue is not yet published to the 
 
 ## How it works
 
-Each layer and how they hand off. The dashed layer is assumed: the prototype feeds it simulated alerts. Everything inside **Command center** is what I designed.
+From device signal to audit record. The dashed box is assumed: the prototype feeds it simulated alerts. Everything inside **Command center** is what I designed.
 
-```mermaid
-flowchart TB
-    subgraph L1["In the field"]
-        S["Body-cam signals<br/>heartbeat · recording · upload · battery"]
-        F["Field crew<br/>sees a problem"]
-    end
-    subgraph L2["Detection · assumed"]
-        D["Flags fake online, frozen recording, sync gaps<br/>alert = type + confidence + evidence"]
-    end
-    subgraph L3["Command center"]
-        DB["Dashboard<br/>groups ranked by risk"] --> GD["Group detail<br/>devices, map, signal history"]
-        GD --> VQ["Verification queue<br/>Confirmed · Unresolved · False alarm<br/>Unresolved returns at re-check time"]
-        VQ -- Confirmed --> R["Response action<br/>swap device, force sync, escalate"]
-    end
-    subgraph L4["Audit & metrics"]
-        A["Decision log<br/>auto-detection rate · manual-catch fraction"]
-    end
-    S --> D --> DB
-    F -- "manual report,<br/>bypasses detection" --> VQ
-    R --> A
-    VQ -- "False alarm" --> A
-    A -. "manual-catch rising =<br/>detection degrading" .-> D
-    style L2 stroke-dasharray: 6 4
-```
+<figure class="arch">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 516" role="img" aria-labelledby="mr-arch-t mr-arch-d">
+<title id="mr-arch-t">Mission Reliability flow</title>
+<desc id="mr-arch-d">Body-cam signals feed an assumed detection layer, which sends alerts with type, confidence and evidence to the command center. There, the dashboard ranks groups, group detail shows devices, and every alert goes to human verification. Field crew can file a manual report that skips detection and goes straight to verification. Verification has three outcomes: False alarm is logged with a note, Unresolved returns to verification at its re-check time, and Confirmed triggers a response such as swapping or resyncing the device. False alarms and responses go to the decision log and metrics. A rising manual-catch fraction there signals that detection is degrading.</desc>
+<defs><marker id="mr-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g class="gray"><rect x="60" y="20" width="200" height="52" rx="8"/>
+<text class="th" x="160" y="38">Body-cam signals</text>
+<text class="ts" x="160" y="56">heartbeat · recording · upload</text></g>
+<g class="gray"><rect x="456" y="20" width="164" height="52" rx="8"/>
+<text class="th" x="538" y="38">Field crew</text>
+<text class="ts" x="538" y="56">sees a problem</text></g>
+<line class="arr" x1="160" y1="72" x2="160" y2="98" marker-end="url(#mr-arrow)"/>
+<g class="gray dashed"><rect x="60" y="100" width="200" height="56" rx="8"/>
+<text class="th" x="160" y="118">Detection · assumed</text>
+<text class="ts" x="160" y="138">type · confidence · evidence</text></g>
+<g class="zone"><rect x="40" y="180" width="600" height="226" rx="12"/>
+<text class="th" x="340" y="198">Command center · my scope</text></g>
+<line class="arr" x1="160" y1="156" x2="160" y2="212" marker-end="url(#mr-arrow)"/>
+<text class="lbl start" x="168" y="170">alert</text>
+<line class="arr" x1="538" y1="72" x2="538" y2="212" marker-end="url(#mr-arrow)"/>
+<text class="lbl start" x="546" y="122">manual report,</text>
+<text class="lbl start" x="546" y="138">skips detection</text>
+<g class="purple"><rect x="60" y="214" width="170" height="56" rx="8"/>
+<text class="th" x="145" y="232">Dashboard</text>
+<text class="ts" x="145" y="252">groups ranked by risk</text></g>
+<line class="arr" x1="230" y1="242" x2="256" y2="242" marker-end="url(#mr-arrow)"/>
+<g class="purple"><rect x="258" y="214" width="170" height="56" rx="8"/>
+<text class="th" x="343" y="232">Group detail</text>
+<text class="ts" x="343" y="252">devices · map · signals</text></g>
+<line class="arr" x1="428" y1="236" x2="454" y2="236" marker-end="url(#mr-arrow)"/>
+<g class="amber"><rect x="456" y="214" width="164" height="56" rx="8"/>
+<text class="th" x="538" y="232">Verify</text>
+<text class="ts" x="538" y="252">human review + note</text></g>
+<path class="arr" d="M538 270V294H145V328" marker-end="url(#mr-arrow)"/>
+<line class="arr" x1="343" y1="294" x2="343" y2="328" marker-end="url(#mr-arrow)"/>
+<line class="arr" x1="538" y1="294" x2="538" y2="328" marker-end="url(#mr-arrow)"/>
+<g class="gray"><rect x="60" y="330" width="170" height="56" rx="8"/>
+<text class="th" x="145" y="348">False alarm</text>
+<text class="ts" x="145" y="368">logged with a note</text></g>
+<g class="amber"><rect x="258" y="330" width="170" height="56" rx="8"/>
+<text class="th" x="343" y="348">Unresolved</text>
+<text class="ts" x="343" y="368">re-check at a set time</text></g>
+<path class="arr dash" d="M428 358H442V260H454" marker-end="url(#mr-arrow)"/>
+<text class="lbl start" x="448" y="314">when due</text>
+<g class="teal"><rect x="456" y="330" width="164" height="56" rx="8"/>
+<text class="th" x="538" y="348">Confirmed</text>
+<text class="ts" x="538" y="368">swap · resync · escalate</text></g>
+<line class="arr" x1="145" y1="386" x2="145" y2="438" marker-end="url(#mr-arrow)"/>
+<line class="arr" x1="538" y1="386" x2="538" y2="438" marker-end="url(#mr-arrow)"/>
+<g class="gray"><rect x="60" y="440" width="560" height="56" rx="8"/>
+<text class="th" x="340" y="458">Decision log &amp; metrics</text>
+<text class="ts" x="340" y="478">auto-detection rate · manual-catch fraction · detection time</text></g>
+<path class="arr dash" d="M60 468H26V128H58" marker-end="url(#mr-arrow)"/>
+<text class="lbl" x="16" y="300" transform="rotate(-90 16 300)">manual-catch rising = detection degrading</text>
+</svg>
+</figure>
