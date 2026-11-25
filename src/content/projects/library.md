@@ -76,49 +76,124 @@ Two views of the same system: the **stack** (what it is built from) and the **fl
 
 ### Stack
 
-```mermaid
-flowchart TB
-    subgraph L1["Design"]
-        F["Figma + Figma MCP<br/>design guideline"]
-    end
-    subgraph L2["Build · local project folder"]
-        C["Claude<br/>writes Python, Jinja2 templates, JS, tests"]
-    end
-    subgraph L3["Data & services"]
-        N[("Notion database<br/>books")]
-        Y["YAML + Markdown<br/>genres · to-read · posts"]
-        G["Google Books · Open Library<br/>covers & ISBNs"]
-    end
-    subgraph L4["Quality gate (3 layers)"]
-        T["1 CLAUDE.md rules<br/>2 pre-push hook: PII scan + pytest<br/>3 GitHub Actions: PII scan + pytest again"]
-    end
-    subgraph L5["Deploy"]
-        A["GitHub Actions<br/>monthly + every push"]
-        P["GitHub Pages<br/>static site"]
-    end
-    subgraph L6["In the browser"]
-        R["Google Analytics · YouTube playlist<br/>loaded by the live page"]
-    end
-    L1 --> L2 --> L3 --> L4 --> L5 --> L6
-```
+<figure class="arch">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 496" role="img" aria-labelledby="lib-stack-t lib-stack-d">
+<title id="lib-stack-t">Maude's Library stack</title>
+<desc id="lib-stack-d">Six layers from top to bottom. Design: Figma and Figma MCP give Claude a design guideline. Build: Claude writes the Python site generator, Jinja2 templates, JavaScript and tests in a local project folder. Data and services: a Notion database of books, YAML and Markdown files for genres, the to-read list and posts, and covers and ISBNs from Google Books with Open Library as fallback. Quality gate in three layers: CLAUDE.md rules in every chat, a pre-push hook that runs the PII scan and pytest, and GitHub Actions running the same checks again. Deploy: GitHub Actions builds monthly and on every push, and publishes to GitHub Pages as a static site. In the browser: Google Analytics and a YouTube playlist load on the live page.</desc>
+<defs><marker id="lib-stack-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="lbl start" x="20" y="48">Design</text>
+<g class="purple"><rect x="120" y="20" width="540" height="56" rx="8"/>
+<text class="th" x="390" y="38">Figma + Figma MCP</text>
+<text class="ts" x="390" y="58">design guideline handed to Claude</text></g>
+<line class="arr" x1="390" y1="76" x2="390" y2="98" marker-end="url(#lib-stack-arrow)"/>
+<text class="lbl start" x="20" y="128">Build</text>
+<g class="purple"><rect x="120" y="100" width="540" height="56" rx="8"/>
+<text class="th" x="390" y="118">Claude · local project folder</text>
+<text class="ts" x="390" y="138">writes Python, Jinja2 templates, JS and tests</text></g>
+<line class="arr" x1="390" y1="156" x2="390" y2="178" marker-end="url(#lib-stack-arrow)"/>
+<text class="lbl start" x="20" y="208">Data &amp; services</text>
+<g class="gray"><rect x="120" y="180" width="170" height="56" rx="8"/>
+<text class="th" x="205" y="198">Notion database</text>
+<text class="ts" x="205" y="218">books</text></g>
+<g class="gray"><rect x="305" y="180" width="170" height="56" rx="8"/>
+<text class="th" x="390" y="198">YAML + Markdown</text>
+<text class="ts" x="390" y="218">genres · to-read · posts</text></g>
+<g class="gray"><rect x="490" y="180" width="170" height="56" rx="8"/>
+<text class="th" x="575" y="198">Covers &amp; ISBNs</text>
+<text class="ts" x="575" y="218">Google Books, Open Library</text></g>
+<line class="arr" x1="390" y1="236" x2="390" y2="258" marker-end="url(#lib-stack-arrow)"/>
+<text class="lbl start" x="20" y="288">Quality gate</text>
+<g class="amber"><rect x="120" y="260" width="170" height="56" rx="8"/>
+<text class="th" x="205" y="278">1 · CLAUDE.md</text>
+<text class="ts" x="205" y="298">rules in every chat</text></g>
+<g class="amber"><rect x="305" y="260" width="170" height="56" rx="8"/>
+<text class="th" x="390" y="278">2 · Pre-push hook</text>
+<text class="ts" x="390" y="298">PII scan + pytest</text></g>
+<g class="amber"><rect x="490" y="260" width="170" height="56" rx="8"/>
+<text class="th" x="575" y="278">3 · GitHub Actions</text>
+<text class="ts" x="575" y="298">same checks again</text></g>
+<line class="arr" x1="390" y1="316" x2="390" y2="338" marker-end="url(#lib-stack-arrow)"/>
+<text class="lbl start" x="20" y="368">Deploy</text>
+<g class="teal"><rect x="120" y="340" width="262" height="56" rx="8"/>
+<text class="th" x="251" y="358">GitHub Actions</text>
+<text class="ts" x="251" y="378">monthly + every push</text></g>
+<g class="teal"><rect x="398" y="340" width="262" height="56" rx="8"/>
+<text class="th" x="529" y="358">GitHub Pages</text>
+<text class="ts" x="529" y="378">static site</text></g>
+<line class="arr" x1="390" y1="396" x2="390" y2="418" marker-end="url(#lib-stack-arrow)"/>
+<text class="lbl start" x="20" y="448">In the browser</text>
+<g class="gray"><rect x="120" y="420" width="540" height="56" rx="8"/>
+<text class="th" x="390" y="438">Google Analytics · YouTube playlist</text>
+<text class="ts" x="390" y="458">loaded by the live page</text></g>
+</svg>
+</figure>
 
 ### Flow
 
-```mermaid
-flowchart TB
-    D["Design<br/>Figma MCP"] --> W["Claude edits code<br/>in local folder<br/>(rules: CLAUDE.md)"]
-    W --> LT{"pre-push hook<br/>PII scan + pytest"}
-    LT -- fail --> W
-    LT -- pass --> PU["git push"]
-    PU --> CT{"GitHub Actions<br/>PII scan + pytest"}
-    CT -- fail --> X["stop, no deploy"]
-    CT -- pass --> B["build.py"]
-    N[("Notion")] -- read --> B
-    G["Google Books<br/>Open Library"] -- covers & ISBNs --> B
-    Y["YAML + posts"] -- read --> B
-    B --> CA["commit new covers<br/>back to repo"]
-    B --> S["GitHub Pages<br/>live site"]
-    S --> R["Browser: Analytics,<br/>YouTube on play"]
-    M["Monthly schedule"] --> CT
-```
-
+<figure class="arch">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 504" role="img" aria-labelledby="lib-flow-t lib-flow-d">
+<title id="lib-flow-t">How a change reaches the live site</title>
+<desc id="lib-flow-d">A design from Figma MCP goes to Claude, who edits the code under the CLAUDE.md rules. A pre-push hook runs the PII scan and pytest; on failure the change goes back to Claude, on success it is pushed. GitHub Actions runs the same checks on every push and on a monthly schedule; on failure nothing is deployed. On success build.py reads the Notion database, the YAML and Markdown files, and covers and ISBNs from Google Books with Open Library as fallback. It commits newly found covers back to the repo and publishes the static site to GitHub Pages, where the browser loads Analytics and the YouTube playlist on play.</desc>
+<defs><marker id="lib-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" class="arr-head" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g class="purple"><rect x="40" y="36" width="160" height="56" rx="8"/>
+<text class="th" x="120" y="54">Design</text>
+<text class="ts" x="120" y="74">Figma MCP</text></g>
+<line class="arr" x1="200" y1="64" x2="258" y2="64" marker-end="url(#lib-flow-arrow)"/>
+<g class="purple"><rect x="260" y="36" width="180" height="56" rx="8"/>
+<text class="th" x="350" y="54">Claude edits code</text>
+<text class="ts" x="350" y="74">rules: CLAUDE.md</text></g>
+<line class="arr" x1="440" y1="64" x2="498" y2="64" marker-end="url(#lib-flow-arrow)"/>
+<g class="amber"><rect x="500" y="36" width="140" height="56" rx="8"/>
+<text class="th" x="570" y="54">Pre-push hook</text>
+<text class="ts" x="570" y="74">PII scan + pytest</text></g>
+<path class="arr dash" d="M590 36V18H350V34" marker-end="url(#lib-flow-arrow)"/>
+<text class="lbl start" x="456" y="10">fail</text>
+<line class="arr" x1="570" y1="92" x2="570" y2="134" marker-end="url(#lib-flow-arrow)"/>
+<text class="lbl start" x="578" y="113">pass</text>
+<g class="gray"><rect x="500" y="136" width="140" height="56" rx="8"/>
+<text class="th" x="570" y="154">git push</text>
+<text class="ts" x="570" y="174">to main</text></g>
+<line class="arr" x1="500" y1="164" x2="442" y2="164" marker-end="url(#lib-flow-arrow)"/>
+<g class="amber"><rect x="260" y="136" width="180" height="56" rx="8"/>
+<text class="th" x="350" y="154">GitHub Actions</text>
+<text class="ts" x="350" y="174">PII scan + pytest again</text></g>
+<g class="gray"><rect x="40" y="136" width="160" height="56" rx="8"/>
+<text class="th" x="120" y="154">Monthly schedule</text>
+<text class="ts" x="120" y="174">1st of every month</text></g>
+<line class="arr" x1="200" y1="164" x2="258" y2="164" marker-end="url(#lib-flow-arrow)"/>
+<path class="arr dash" d="M420 192V258H498" marker-end="url(#lib-flow-arrow)"/>
+<text class="lbl start" x="428" y="226">fail</text>
+<g class="gray dashed"><rect x="500" y="230" width="140" height="56" rx="8"/>
+<text class="th" x="570" y="248">Stop</text>
+<text class="ts" x="570" y="268">nothing deployed</text></g>
+<line class="arr" x1="335" y1="192" x2="335" y2="290" marker-end="url(#lib-flow-arrow)"/>
+<text class="lbl start" x="343" y="226">pass</text>
+<g class="gray"><rect x="30" y="230" width="170" height="56" rx="8"/>
+<text class="th" x="115" y="248">Notion</text>
+<text class="ts" x="115" y="268">books database</text></g>
+<g class="gray"><rect x="30" y="292" width="170" height="56" rx="8"/>
+<text class="th" x="115" y="310">Covers &amp; ISBNs</text>
+<text class="ts" x="115" y="330">Google Books, Open Library</text></g>
+<g class="gray"><rect x="30" y="354" width="170" height="56" rx="8"/>
+<text class="th" x="115" y="372">YAML + Markdown</text>
+<text class="ts" x="115" y="392">genres · to-read · posts</text></g>
+<path class="arr" d="M200 258H224V320"/>
+<path class="arr" d="M200 382H224V320"/>
+<line class="arr" x1="200" y1="320" x2="248" y2="320" marker-end="url(#lib-flow-arrow)"/>
+<g class="teal"><rect x="250" y="292" width="170" height="56" rx="8"/>
+<text class="th" x="335" y="310">build.py</text>
+<text class="ts" x="335" y="330">stats · Jinja2 → HTML</text></g>
+<line class="arr" x1="420" y1="320" x2="498" y2="320" marker-end="url(#lib-flow-arrow)"/>
+<g class="gray"><rect x="500" y="292" width="140" height="56" rx="8"/>
+<text class="th" x="570" y="310">Cover cache</text>
+<text class="ts" x="570" y="330">committed to repo</text></g>
+<path class="arr" d="M335 348V382H498" marker-end="url(#lib-flow-arrow)"/>
+<g class="teal"><rect x="500" y="354" width="140" height="56" rx="8"/>
+<text class="th" x="570" y="372">GitHub Pages</text>
+<text class="ts" x="570" y="392">static site</text></g>
+<line class="arr" x1="570" y1="410" x2="570" y2="436" marker-end="url(#lib-flow-arrow)"/>
+<g class="gray"><rect x="480" y="438" width="180" height="56" rx="8"/>
+<text class="th" x="570" y="456">In the browser</text>
+<text class="ts" x="570" y="476">Analytics · YouTube on play</text></g>
+</svg>
+</figure>
