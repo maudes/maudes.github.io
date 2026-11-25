@@ -13,14 +13,21 @@ const stats = [
 ];
 
 const jobs = [
-  { role: 'Software Product Manager', org: 'General Mobile | Fii, Foxconn', loc: 'Taipei', when: 'Nov 2025 – Present',
+  { org: 'General Mobile | Fii, Foxconn', loc: 'Taipei', when: 'Nov 2025 – Present', roles: [
+  { role: 'Product Manager, Software & Hardware', when: 'Nov 2026 – Present',
     bullets: [
-      'Own client-facing delivery for Tier-1 ISP programs and platform roadmap, delivering 5 milestones on schedule within 6 months after prior resets.',
-      'Introduced MAC-based open firmware authentication to eliminate UART disassembly, enabling remote testing workflows and extending the approach to production lines.',
-      'Drive SW certification compliance for CPE platforms including Wi-Fi 7 and EAA, eliminating two-thirds of failed line items before retest.',
-      'Streamline RFQ spec-matching workflows using Claude AI, reducing manual processing time by 30% per bid cycle.',
-      'Participate in prpl working groups and review ecosystem specifications including RDK-B.',
+      'Expanded scope to hardware product management for CPE platforms, owning product P&L and driving BOM cost negotiations with suppliers and Tier-1 ISP customers.',
+      'Continue to own end-to-end software delivery for a Tier-1 European ISP program alongside hardware responsibilities.',
     ] },
+  { role: 'Software Product Manager', when: 'Nov 2025 – Nov 2026',
+    bullets: [
+      'Owned client-facing delivery for Tier-1 ISP programs and platform roadmap, delivering 5 milestones on schedule within 6 months after prior resets.',
+      'Introduced MAC-based open firmware authentication to eliminate UART disassembly, enabling remote testing workflows and extending the approach to production lines.',
+      'Drove SW certification compliance for CPE platforms including Wi-Fi 7 and EAA, eliminating two-thirds of failed line items before retest.',
+      'Streamlined RFQ spec-matching workflows using Claude AI, reducing manual processing time by 30% per bid cycle.',
+      'Participated in prpl working groups and reviewed ecosystem specifications including RDK-B.',
+    ] },
+  ] },
   { role: 'Founder & Product Lead', org: 'LightOn', loc: 'Remote', when: 'Nov 2024 – Oct 2025',
     bullets: [
       'Founded a FHIR-based AI assistant for hospital early intervention workflows, leading a 4-person cross-functional team from zero. Finalist, Civic Tech Taiwan 2025.',
@@ -49,16 +56,18 @@ const jobs = [
     ] },
   { role: 'Product Marketing Manager', org: 'meet.Jobs', loc: 'Taipei / Singapore', when: 'Jul 2017 – Dec 2017',
     bullets: ['Connected 20+ global employers with 150+ job seekers at a 10% conversion rate.'] },
-  { role: 'Assistant Community Manager', org: 'Fusionmedium', loc: 'Taipei', when: 'Jan 2016 – Jul 2017',
+  { org: 'Fusionmedium', loc: 'Taipei', when: 'Dec 2013 – Jul 2017', roles: [
+  { role: 'Assistant Community Manager', when: 'Jan 2016 – Jul 2017',
     bullets: [
       'Organized quarterly paid tech meet-ups and courses for hundreds of participants, contributing 10% of company revenue.',
       'Managed the WordPress CMS and data-driven campaigns for sites with 10k+ MAU, growing followers and MAU by 5%.',
     ] },
-  { role: 'Editorial Journalist', org: 'Fusionmedium', loc: 'Taipei', when: 'Dec 2013 – Dec 2015',
+  { role: 'Editorial Journalist', when: 'Dec 2013 – Dec 2015',
     bullets: [
       'Covered tech stories on startups and venture capital, curated on the WordPress CMS.',
       'Built the outlet\u2019s social media presence and online community, and recruited and trained interns.',
     ] },
+  ] },
 ];
 
 const wiz = { group: 'Led with Teams', title: 'WiZ Global IoT Ecosystem', href: '/resume/wiz/', img: 'wiz_integration.webp', tags: wizTags.slice(0, 3), order: 1 };
@@ -107,15 +116,22 @@ const groups = [...new Set(projects.map((p) => p.group))];
       {jobs.map((j) => (
         <article class="job">
           <div class="when">{j.when}<br /><small>{j.loc}</small></div>
-          <div>
-            <h3>{j.role}<span> · {j.org}</span></h3>
-            <ul>{j.bullets.slice(0, 3).map((b, i) => <li>{b}{i === 0 && j.press && <small class="press-note"> Launch coverage: <a href={j.press.url} target="_blank" rel="noopener">{j.press.label} ↗</a></small>}</li>)}</ul>
-            {j.bullets.length > 3 && (
-              <details><summary>{j.bullets.length - 3} more</summary>
-                <ul>{j.bullets.slice(3).map((b) => <li>{b}</li>)}</ul>
-              </details>
-            )}
-            {j.award && <p class="award">★ {j.award}</p>}
+          <div class={j.roles ? 'roles' : undefined}>
+            {j.roles && <h3 class="org">{j.org}</h3>}
+            {(j.roles ?? [j]).map((r) => (
+              <div class={j.roles ? 'role' : undefined}>
+                {j.roles
+                  ? <h4>{r.role}<small>{r.when}</small></h4>
+                  : <h3>{r.role}<span> · {j.org}</span></h3>}
+                <ul>{r.bullets.slice(0, 3).map((b, i) => <li>{b}{i === 0 && r.press && <small class="press-note"> Launch coverage: <a href={r.press.url} target="_blank" rel="noopener">{r.press.label} ↗</a></small>}</li>)}</ul>
+                {r.bullets.length > 3 && (
+                  <details><summary>{r.bullets.length - 3} more</summary>
+                    <ul>{r.bullets.slice(3).map((b) => <li>{b}</li>)}</ul>
+                  </details>
+                )}
+                {r.award && <p class="award">★ {r.award}</p>}
+              </div>
+            ))}
           </div>
         </article>
       ))}
@@ -192,6 +208,16 @@ const groups = [...new Set(projects.map((p) => p.group))];
   .job h3 span { color: var(--muted); font-weight: 500; }
   .job ul { margin: 0; padding-left: 1.2em; font-size: 15px; color: var(--muted); }
   .job li { margin: 6px 0; }
+  /* Section gaps come only from .sec margin-top: trim trailing space at the end of each section. */
+  .timeline > .job:last-child { padding-bottom: 0; }
+  .timeline > .job:last-child ul:last-child > li:last-child { margin-bottom: 0; }
+  .job .org { margin-bottom: 14px; }
+  .role { position: relative; padding: 0 0 22px 24px; }
+  .role:last-child { padding-bottom: 0; }
+  .role::before { content: ''; position: absolute; left: 0; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .role:not(:last-child)::after { content: ''; position: absolute; left: 4px; top: 22px; bottom: 4px; width: 1px; background: var(--line); }
+  .role h4 { font-size: 16px; letter-spacing: -0.01em; margin: 0 0 6px; line-height: 1.35; }
+  .role h4 small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
   .job li::marker { color: var(--accent); }
   .job details { margin-top: 4px; }
   .job summary { cursor: pointer; font-size: 13.5px; color: var(--accent); margin: 8px 0 0; list-style: none; }
