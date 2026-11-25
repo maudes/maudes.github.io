@@ -47,7 +47,7 @@ phases:
   - ["v1 · JobLens (Mar 2026)", ["Scrape the JD, compare it with my CV, sync to Google Sheets", "FastAPI, Streamlit and Gemini; time-to-track down to under 30 seconds"]]
   - ["Real use · three months applying overseas", ["The work moved to resume and cover letter tuning, interviews and networking", "Paid coaching reshaped my story bank and networking approach", "Context was scattered across projects; decided to consolidate"]]
   - ["v2 · GoJob 0.1 → 1.0 (Nov 2026)", ["Five steps on one page, backend rebuilt in Python", "Apply gate, tuning ceiling, traceable results, evaluation set"]]
-  - ["v1.x · Hardening (Nov 2026)", ["Prompts split into skill files", "Command line and subagent runner for use without an API key", "Tests, dependency audit and secret scanning in CI"]]
+  - ["Hardening (Nov 2026)", ["Prompts split into skill files", "Command line and subagent runner for use without an API key", "Tests, dependency audit and secret scanning in CI"]]
   - ["Next", ["Run the evaluation sets on every prompt or model change", "Turn real misses from my own search into new eval cases"]]
 links:
   - { label: "GoJob on GitHub", url: "https://github.com/maudes/gojob" }
@@ -57,7 +57,7 @@ links:
 
 ## End to end
 
-Five steps on one page, all reading the same resume and story bank. JobLens v1 covered only step 3.
+Five steps on one page, all reading the same resume and story bank. JobLens v1 covered only step 3; the sections below show how it is built and how step 3 decides.
 
 <div class="flow" role="img" aria-label="Five steps: Profile, Find jobs, Target JD, Tracker, Interview coach. Target JD was the only step in JobLens v1. All steps share one resume, story bank and set of target JDs.">
 <div class="flow-steps">
@@ -69,6 +69,14 @@ Five steps on one page, all reading the same resume and story bank. JobLens v1 c
 </div>
 <div class="flow-shared">Shared source of truth · resume · story bank · target JDs</div>
 </div>
+
+## Trade-offs
+
+| Choice | What it costs | Why I accept it |
+|---|---|---|
+| Read the resume from a Google Docs link, never write back | Changes come back as a Word file and Copy buttons | Writing back needs a Google sign-in a local tool should not hold |
+| Lock the resume layout | Tuning can only reword the headline, summary, bullets and skills | Names, employers, titles and dates are facts, and the page count stays |
+| Subagent mode (no API key) on the command line only | One job description per run, not the full web flow | It is a fallback for people without an API key |
 
 ## Architecture
 
@@ -136,27 +144,6 @@ Two ways in, one backend. Every answer passes the layout lock and the audit gate
 </svg>
 </figure>
 
-## How a job moves
-
-A job is scored, then ready to apply, risky, or sent to tuning. Tuning can only reword what is already true, so it has a ceiling.
-
-```mermaid
-stateDiagram-v2
-  direction LR
-  state "Assessed<br/>Three reviewers score" as Assessed
-  state "Ready to apply" as Ready
-  state "Risky<br/>Suggest not applying" as Risky
-  state "Tuning<br/>Rewords only what the resume shows" as Tuning
-  state "Ceiling reached<br/>Add real experience or choose another job" as Ceiling
-  [*] --> Assessed: Paste a JD
-  Assessed --> Ready: Average 80+, lowest 70+
-  Assessed --> Tuning: Average 60–79
-  Assessed --> Risky: Average below 60
-  Risky --> Tuning: Tune anyway
-  Tuning --> Assessed: Accept changes, re-assess
-  Tuning --> Ceiling: No supported change, or gain under 1 point
-```
-
 ## Prompts as skills
 
 Rules used by several skills, such as the ground rules and work-visa signals, live in one shared file. To change a prompt: edit one skill, run the tests and evals, and compare with the last run, which names the skills that changed.
@@ -196,13 +183,26 @@ sequenceDiagram
   end
 ```
 
-## Trade-offs
+## Step 3 · Apply, tune or stop
 
-| Choice | What it costs | Why I accept it |
-|---|---|---|
-| Read the resume from a Google Docs link, never write back | Changes come back as a Word file and Copy buttons | Writing back needs a Google sign-in a local tool should not hold |
-| Lock the resume layout | Tuning can only reword the headline, summary, bullets and skills | Names, employers, titles and dates are facts, and the page count stays |
-| Subagent mode on the command line only | One job description per run, not the full web flow | It is a fallback for people without an API key |
+A job is scored, then ready to apply, risky, or sent to tuning. Tuning can only reword what is already true, so it has a ceiling.
+
+```mermaid
+stateDiagram-v2
+  direction LR
+  state "Assessed<br/>Three reviewers score" as Assessed
+  state "Ready to apply" as Ready
+  state "Risky<br/>Suggest not applying" as Risky
+  state "Tuning<br/>Rewords only what the resume shows" as Tuning
+  state "Ceiling reached<br/>Add real experience or choose another job" as Ceiling
+  [*] --> Assessed: Paste a JD
+  Assessed --> Ready: Average 80+, lowest 70+
+  Assessed --> Tuning: Average 60–79
+  Assessed --> Risky: Average below 60
+  Risky --> Tuning: Tune anyway
+  Tuning --> Assessed: Accept changes, re-assess
+  Tuning --> Ceiling: No supported change, or gain under 1 point
+```
 
 ## Building it with AI
 
